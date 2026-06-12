@@ -80,55 +80,47 @@
             animation: float 8s ease-in-out infinite;
         }
 
-        /* Syntax Highlighting (PHP Style) */
+        /* Syntax Highlighting */
         .token-php { color: #c678dd; }
         .token-func { color: #61afef; }
         .token-string { color: #98c379; }
         .token-var { color: #e5c07b; }
         .token-comment { color: #5c6370; font-style: italic; }
 
-        /* Scroll Reveal Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0B0C10; }
         ::-webkit-scrollbar-thumb { background: #2a2d38; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #4facfe; }
+
+        /* iPhone Modal Loader */
+        .iframe-loader {
+            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border-top: 3px solid #4facfe;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white transition-all duration-300">
 
     <!-- Floating Navbar -->
-    <nav class="fixed top-4 left-4 right-4 md:left-1/2 md:transform md:-translate-x-1/2 md:w-[90%] md:max-w-5xl z-50 transition-all duration-300">
+    <nav class="fixed top-4 left-4 right-4 md:left-1/2 md:transform md:-translate-x-1/2 md:w-[90%] md:max-w-5xl z-40 transition-all duration-300">
         <div class="glass-card !rounded-full px-6 py-3 flex justify-between items-center">
             <a href="#" class="text-xl md:text-2xl font-black tracking-tighter">ELNENX<span class="text-blue-500">.</span></a>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-gray-300 rtl:space-x-reverse">
                 <a href="#about" class="hover:text-white transition-colors" data-i18n="nav_about">About</a>
                 <a href="#skills" class="hover:text-white transition-colors" data-i18n="nav_skills">Skills</a>
                 <a href="#projects" class="hover:text-white transition-colors" data-i18n="nav_projects">Projects</a>
-                
                 <div class="w-px h-5 bg-white/20 mx-2"></div>
-                
-                <!-- Language Toggle -->
-                <button id="lang-toggle" class="hover:text-white transition-colors font-bold text-blue-400">
-                    عربي
-                </button>
-
+                <button id="lang-toggle" class="hover:text-white transition-colors font-bold text-blue-400">عربي</button>
                 <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20" data-i18n="nav_hire">Hire Me</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <div class="flex items-center gap-4 md:hidden">
                 <button id="lang-toggle-mobile" class="text-sm font-bold text-blue-400">عربي</button>
                 <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
@@ -137,7 +129,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 mt-2 glass-card flex flex-col p-6 space-y-4 text-center shadow-2xl">
             <a href="#about" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_about">About</a>
             <a href="#skills" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_skills">Skills</a>
@@ -146,10 +137,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section (تم تقليل المسافة العلوية هنا pt-28 و md:pt-36) -->
+    <!-- Hero Section -->
     <section class="pt-28 pb-20 px-6 md:pt-36 md:pb-28 overflow-hidden">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 space-y-6 md:space-y-8 reveal">
+            <div class="flex-1 space-y-6 md:space-y-8">
                 <div class="inline-block px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-bold tracking-wider uppercase" data-i18n="hero_badge">
                     WordPress Developer
                 </div>
@@ -159,7 +150,6 @@
                     <span class="gradient-text" data-i18n="hero_title_2">WordPress & WooCommerce.</span>
                 </h1>
                 
-                <!-- تم اختصار النبذة هنا -->
                 <p class="text-lg text-gray-400 max-w-xl leading-relaxed" data-i18n="hero_desc">
                     I'm Mohamed — a WordPress Developer specializing in custom WooCommerce solutions and performance. I turn Figma designs into fast, secure, and user-friendly websites.
                 </p>
@@ -173,37 +163,33 @@
                     </a>
                 </div>
 
+                <!-- المستطيل اللي تحت الكارت (الإحصائيات رجعتها زي ما طلبت) -->
                 <div class="flex flex-wrap items-center gap-8 pt-8 border-t border-white/10">
                     <div>
-                        <div class="text-2xl md:text-3xl font-bold">Code &lt;/&gt;</div>
-                        <div class="text-sm text-gray-500 mt-1" data-i18n="stat_1">Agency Exp.</div>
+                        <div class="text-2xl md:text-3xl font-bold">120+</div>
+                        <div class="text-sm text-gray-500 mt-1" data-i18n="stat_1">Hrs ITI Training</div>
                     </div>
                     <div>
-                        <div class="text-2xl md:text-3xl font-bold">ELNENX</div>
-                        <div class="text-sm text-gray-500 mt-1" data-i18n="stat_2">Founder/Owner</div>
+                        <div class="text-2xl md:text-3xl font-bold">8+</div>
+                        <div class="text-sm text-gray-500 mt-1" data-i18n="stat_2">Featured Projects</div>
                     </div>
                     <div>
-                        <div class="text-2xl md:text-3xl font-bold">100%</div>
-                        <div class="text-sm text-gray-500 mt-1" data-i18n="stat_3">Custom Solutions</div>
+                        <div class="text-2xl md:text-3xl font-bold">10+</div>
+                        <div class="text-sm text-gray-500 mt-1" data-i18n="stat_3">Technologies</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Animated Code Snippet Visual (PHP WP Theme) -->
-            <div class="flex-1 w-full max-w-md relative reveal">
-                <!-- Glowing background behind the card -->
+            <!-- Animated Code Snippet -->
+            <div class="flex-1 w-full max-w-md relative">
                 <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-[2rem] blur-3xl"></div>
-                
-                <!-- The Floating Card -->
                 <div class="animate-float">
                     <div class="glass-card p-6 relative shadow-2xl border-white/10 rounded-[2rem]">
-                        <!-- Window Controls -->
                         <div class="flex gap-2 mb-6">
                             <div class="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
                         </div>
-                        <!-- PHP Code -->
                         <pre class="font-mono text-sm md:text-base leading-relaxed overflow-x-auto" dir="ltr"><code class="language-php"><span class="token-php">&lt;?php</span>
 <span class="token-comment">// Register Developer Skills</span>
 <span class="token-func">add_action</span><span class="token-punctuation">(</span><span class="token-string">'init'</span><span class="token-punctuation">,</span> <span class="token-string">'mohamed_portfolio'</span><span class="token-punctuation">)</span><span class="token-punctuation">;</span>
@@ -212,10 +198,8 @@
     <span class="token-var">$skills</span> <span class="token-punctuation">=</span> <span class="token-punctuation">[</span>
         <span class="token-string">'WordPress'</span>   <span class="token-punctuation">=&gt;</span> <span class="token-string">'Expert'</span><span class="token-punctuation">,</span>
         <span class="token-string">'WooCommerce'</span> <span class="token-punctuation">=&gt;</span> <span class="token-string">'Advanced'</span><span class="token-punctuation">,</span>
-        <span class="token-string">'UI_UX'</span>       <span class="token-punctuation">=&gt;</span> <span class="token-string">'Figma_Level'</span><span class="token-punctuation">,</span>
         <span class="token-string">'Performance'</span> <span class="token-punctuation">=&gt;</span> <span class="token-string">'Core_Web_Vitals'</span>
     <span class="token-punctuation">]</span><span class="token-punctuation">;</span>
-    
     <span class="token-keyword">return</span> <span class="token-func">build_awesome_site</span><span class="token-punctuation">(</span><span class="token-var">$skills</span><span class="token-punctuation">)</span><span class="token-punctuation">;</span>
 <span class="token-punctuation">}</span></code></pre>
                     </div>
@@ -224,9 +208,9 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (هتظهر دايماً وتم إزالة أي كود بيخفيها) -->
     <section id="about" class="py-20 px-6 relative">
-        <div class="max-w-4xl mx-auto reveal">
+        <div class="max-w-4xl mx-auto">
             <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider uppercase" data-i18n="about_badge">
                 About & Experience
             </div>
@@ -238,7 +222,7 @@
 
             <div class="space-y-6">
                 <!-- Experience Item 1 -->
-                <div class="glass-card p-6 border-l-4 border-l-purple-500 hover:translate-x-2 transition-transform rtl:border-l-0 rtl:border-r-4 rtl:border-r-purple-500 rtl:hover:-translate-x-2">
+                <div class="glass-card p-6 border-l-4 border-l-purple-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-purple-500 transition-transform hover:scale-[1.01]">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                         <h3 class="text-xl font-bold" data-i18n="exp_1_title">Founder / Owner</h3>
                         <span class="text-sm text-purple-400 font-mono mt-1 md:mt-0" dir="ltr">ELNENX Brand</span>
@@ -249,7 +233,7 @@
                 </div>
 
                 <!-- Experience Item 2 -->
-                <div class="glass-card p-6 border-l-4 border-l-blue-500 hover:translate-x-2 transition-transform rtl:border-l-0 rtl:border-r-4 rtl:border-r-blue-500 rtl:hover:-translate-x-2">
+                <div class="glass-card p-6 border-l-4 border-l-blue-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-blue-500 transition-transform hover:scale-[1.01]">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                         <h3 class="text-xl font-bold" data-i18n="exp_2_title">WordPress Developer</h3>
                         <span class="text-sm text-blue-400 font-mono mt-1 md:mt-0" dir="ltr">Code &lt;/&gt; Agency</span>
@@ -262,9 +246,9 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section (مرئية بالكامل وبدون إخفاء) -->
     <section id="skills" class="py-20 px-6">
-        <div class="max-w-6xl mx-auto reveal">
+        <div class="max-w-6xl mx-auto">
             <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wider uppercase" data-i18n="skills_badge">
                 Skills & Arsenal
             </div>
@@ -272,7 +256,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Category 1 -->
-                <div class="glass-card p-6 hover:-translate-y-2 transition-transform">
+                <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_1">Core Tech</h3>
                     <div class="flex flex-wrap gap-2" dir="ltr">
                         <span class="pill px-3 py-1.5 rounded-md text-sm">WordPress</span>
@@ -284,7 +268,7 @@
                 </div>
 
                 <!-- Category 2 -->
-                <div class="glass-card p-6 hover:-translate-y-2 transition-transform">
+                <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_2">WP Development</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_1">Custom Plugins</span>
@@ -295,7 +279,7 @@
                 </div>
 
                 <!-- Category 3 -->
-                <div class="glass-card p-6 hover:-translate-y-2 transition-transform">
+                <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_3">Optimization</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_3">Technical SEO</span>
@@ -306,7 +290,7 @@
                 </div>
 
                 <!-- Category 4 -->
-                <div class="glass-card p-6 hover:-translate-y-2 transition-transform">
+                <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_4">Design</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">Figma</span>
@@ -319,27 +303,27 @@
         </div>
     </section>
 
-    <!-- Capabilities Section -->
+    <!-- Capabilities Section (مرئية بالكامل وبدون إخفاء) -->
     <section class="py-20 px-6 relative">
         <div class="absolute inset-0 bg-dark-200/50 skew-y-3 z-0"></div>
-        <div class="max-w-6xl mx-auto text-center relative z-10 reveal">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
             <h2 class="text-2xl md:text-4xl font-bold mb-12" data-i18n="cap_title">What I Can Do For Your Business</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 hover:-translate-y-3 transition-transform">
+                <div class="glass-card p-8 transition-transform hover:-translate-y-2">
                     <div class="w-14 h-14 mx-auto bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(74,144,226,0.3)]">
                         <i class="fa-solid fa-bolt"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-3" data-i18n="cap_1_title">Performance & Speed</h3>
                     <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_1_desc">Improve website loading speed and ensure compliance with Google Core Web Vitals for better ranking.</p>
                 </div>
-                <div class="glass-card p-8 hover:-translate-y-3 transition-transform">
+                <div class="glass-card p-8 transition-transform hover:-translate-y-2">
                     <div class="w-14 h-14 mx-auto bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(144,19,254,0.3)]">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-3" data-i18n="cap_2_title">eCommerce Mastery</h3>
                     <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_2_desc">Build and optimize WooCommerce shopping experiences to increase conversion rates and sales.</p>
                 </div>
-                <div class="glass-card p-8 hover:-translate-y-3 transition-transform">
+                <div class="glass-card p-8 transition-transform hover:-translate-y-2">
                     <div class="w-14 h-14 mx-auto bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(80,227,194,0.3)]">
                         <i class="fa-solid fa-pen-nib"></i>
                     </div>
@@ -351,66 +335,273 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 relative z-10">
-        <div class="max-w-5xl mx-auto">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider uppercase reveal" data-i18n="proj_badge">
-                Projects
+    <section id="projects" class="py-20 px-6 relative z-10 bg-dark-200/50 border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider uppercase" data-i18n="proj_badge">
+                Projects Portfolio
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal" data-i18n="proj_title">Selected work.</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="proj_title">Selected work.</h2>
 
-            <div class="space-y-8">
-                <!-- Project 1 -->
-                <div class="glass-card p-8 group relative overflow-hidden reveal">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
-                    <div class="relative z-10">
-                        <div class="text-6xl font-black text-white/5 mb-4 font-mono">01</div>
-                        <h3 class="text-2xl font-bold mb-3" data-i18n="proj_1_title">ELNENX Clothing Store</h3>
-                        <p class="text-gray-400 mb-6 max-w-2xl leading-relaxed" data-i18n="proj_1_desc">
-                            A complete eCommerce ecosystem built on WooCommerce. Features include custom product filters, optimized checkout flows for high conversions, and a heavily tailored mobile-first UI.
-                        </p>
+            <!-- Changed to 2 columns for a more spacious, elegant look -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Hectar Modern -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-blue-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-blue-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-blue-400 transition-colors">Hectar Modern</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-blue-500/10 transition-colors">01</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce">Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.</p>
+                        
+                        <!-- Tech Stack Tools -->
                         <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                            <span class="pill px-3 py-1 rounded text-xs text-purple-300">WooCommerce</span>
-                            <span class="pill px-3 py-1 rounded text-xs text-gray-300">Custom Dev</span>
-                            <span class="pill px-3 py-1 rounded text-xs text-gray-300">Conversion Opt.</span>
-                            <span class="pill px-3 py-1 rounded text-xs text-gray-300">Figma</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Elementor Pro</span>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm font-semibold border-b border-white/30 pb-1 hover:border-white transition-colors flex items-center gap-2">
-                                <span data-i18n="btn_view_store">View Store</span> <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
-                            </a>
-                        </div>
+                    </div>
+                    
+                    <!-- Sleek View Site Link -->
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-laptop-code mr-1"></i> Web App</span>
+                        <button onclick="openIframeModal('https://www.hectarmodern.com/ar', 'Hectar Modern')" class="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="glass-card p-8 group relative overflow-hidden reveal">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
-                    <div class="relative z-10">
-                        <div class="text-6xl font-black text-white/5 mb-4 font-mono">02</div>
-                        <h3 class="text-2xl font-bold mb-3" data-i18n="proj_2_title">Corporate Portal — Code &lt;/&gt; Agency</h3>
-                        <p class="text-gray-400 mb-6 max-w-2xl leading-relaxed" data-i18n="proj_2_desc">
-                            Developed robust corporate websites using custom WordPress themes. Implemented complex API integrations for real-time data fetching and achieved 90+ scores on Core Web Vitals.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                            <span class="pill px-3 py-1 rounded text-xs text-blue-300">WordPress</span>
-                            <span class="pill px-3 py-1 rounded text-xs text-gray-300">API Integration</span>
-                            <span class="pill px-3 py-1 rounded text-xs text-gray-300">Web Vitals</span>
-                            <span class="pill px-3 py-1 rounded text-xs text-gray-300">Security</span>
+                <!-- Project 2: Adfaz -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-purple-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-purple-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-purple-400 transition-colors">Adfaz</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-purple-500/10 transition-colors">02</div>
                         </div>
-                        <div class="flex gap-4">
-                            <a href="#" class="text-sm font-semibold border-b border-white/30 pb-1 hover:border-white transition-colors flex items-center gap-2">
-                                <span data-i18n="btn_case_study">Read Case Study</span> <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
-                            </a>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_corporate">Corporate & Agency Website. Tailored UI/UX design converted into a pixel-perfect robust WordPress theme.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Custom UI</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Technical SEO</span>
                         </div>
                     </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-building mr-1"></i> Corporate</span>
+                        <button onclick="openIframeModal('https://adfaz.sa/', 'Adfaz')" class="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
                 </div>
+
+                <!-- Project 3: El Dahan -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-orange-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-orange-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-orange-400 transition-colors">El Dahan</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-orange-500/10 transition-colors">03</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_restaurant">Restaurant Chain Portal. Developed a high-performance interactive menu and locations showcase.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Performance Tuned</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Figma to WP</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-utensils mr-1"></i> Food & Bev</span>
+                        <button onclick="openIframeModal('https://www.eldahan.com/', 'El Dahan')" class="text-sm font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4: WDE NYCourier (Hidden Initially) -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-cyan-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-cyan-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition-colors">WDE NYCourier</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-cyan-500/10 transition-colors">04</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_logistics">Logistics & Courier Portal. Integrated complex tracking systems and shipping rate calculations.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">API Integration</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Tracking App</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-truck-fast mr-1"></i> Logistics</span>
+                        <button onclick="openIframeModal('https://wdenycourier.com', 'WDE NYCourier')" class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 5: Hustler Brand (Hidden Initially) -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-green-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-green-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-green-400 transition-colors">Hustler Brand</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-green-500/10 transition-colors">05</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify">Shopify eCommerce Store. Optimized conversion rates with customized liquid templates and sales funnels.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Liquid Code</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">CRO Strategy</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-brands fa-shopify mr-1"></i> eCommerce</span>
+                        <button onclick="openIframeModal('https://hustlerbrand-egy.myshopify.com', 'Hustler Brand')" class="text-sm font-semibold text-white group-hover:text-green-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 6: Sutra Stores (Hidden Initially) -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-pink-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-pink-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-pink-400 transition-colors">Sutra Stores</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-pink-500/10 transition-colors">06</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce">eCommerce Platform. Built a reliable and scalable store using advanced WooCommerce functionalities.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Payment Gateway</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Security</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-store mr-1"></i> Retail</span>
+                        <button onclick="openIframeModal('https://sutrastores.com/', 'Sutra Stores')" class="text-sm font-semibold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 7: ZEX EG (Hidden Initially) -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-teal-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-teal-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-teal-400 transition-colors">ZEX EG</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-teal-500/10 transition-colors">07</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify">Shopify Store. Created custom integrations and localized the shopping experience for maximum conversions.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Custom Apps</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Conversion Focus</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-brands fa-shopify mr-1"></i> eCommerce</span>
+                        <button onclick="openIframeModal('https://zex-eg.myshopify.com/', 'ZEX EG')" class="text-sm font-semibold text-white group-hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 8: TFT VIP Trade (Hidden Initially) -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-yellow-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-yellow-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-yellow-400 transition-colors">TFT VIP Trade</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-yellow-500/10 transition-colors">08</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_trading">Trading & Investment Platform. Secured data handling and built custom dashboards for users.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Data APIs</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">High Security</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-chart-line mr-1"></i> Finance</span>
+                        <button onclick="openIframeModal('https://tftviptrade.com/', 'TFT VIP Trade')" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Show More Button -->
+            <div class="mt-12 text-center">
+                <button id="toggle-more-projects" class="px-8 py-3.5 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg">
+                    <span data-i18n="btn_show_more">Show More Projects</span> <i id="toggle-icon" class="fa-solid fa-chevron-down"></i>
+                </button>
             </div>
         </div>
     </section>
 
+    <!-- iPhone Preview Modal -->
+    <div id="device-modal" class="hidden fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+        <!-- Close Button -->
+        <button onclick="closeIframeModal()" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-red-400 transition-colors z-[110] cursor-pointer">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+        
+        <!-- iPhone Pro Max Frame -->
+        <div class="relative w-[390px] h-[844px] max-w-full max-h-[85vh] bg-black border-[12px] border-[#1f2022] rounded-[3rem] shadow-2xl flex flex-col overflow-hidden ring-4 ring-white/10">
+            <!-- Dynamic Island / Notch -->
+            <div class="absolute top-2 inset-x-0 h-6 w-32 bg-black mx-auto rounded-full z-20"></div>
+            
+            <!-- Modal Header / Fallback Link -->
+            <div class="bg-[#1f2022] text-xs px-4 py-3 text-center text-gray-300 z-10 pt-8 flex justify-between items-center border-b border-white/10">
+                <div class="truncate w-48 text-left rtl:text-right font-semibold text-white" id="modal-title">Loading...</div>
+                <a id="modal-ext-link" href="#" target="_blank" class="text-brand-blue hover:text-white transition-colors bg-blue-500/10 hover:bg-blue-500/20 px-3 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer">
+                    <span data-i18n="btn_open_tab">Open Web</span> <i class="fa-solid fa-external-link text-[10px]"></i>
+                </a>
+            </div>
+            
+            <!-- Loading Indicator -->
+            <div id="iframe-loading" class="absolute inset-0 flex flex-col items-center justify-center bg-dark-100 z-0">
+                <div class="iframe-loader mb-4"></div>
+                <div class="text-xs text-gray-400 px-8 text-center" data-i18n="msg_iframe_sec">
+                    If the site doesn't load due to security policies, click "Open Web" above.
+                </div>
+            </div>
+
+            <!-- Iframe -->
+            <iframe id="device-iframe" src="" class="w-full h-full bg-white border-0 z-10 relative" onload="document.getElementById('iframe-loading').style.display='none'"></iframe>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-6 relative overflow-hidden">
-        <div class="max-w-3xl mx-auto relative z-10 text-center reveal">
+        <div class="max-w-3xl mx-auto relative z-10 text-center">
             <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-bold tracking-wider uppercase" data-i18n="contact_badge">
                 Contact
             </div>
@@ -420,26 +611,13 @@
                 <p class="text-gray-300 text-center mb-8 text-lg" data-i18n="contact_desc">
                     Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.
                 </p>
-                
                 <div class="flex flex-col gap-4 max-w-lg mx-auto">
-                    <!-- Email Link -->
-                    <a href="mailto:wepelnenx@gmail.com" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold text-center hover:shadow-[0_0_20px_rgba(79,172,254,0.4)] hover:-translate-y-1 transition-all flex justify-center items-center gap-3">
+                    <a href="mailto:wepelnenx@gmail.com" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold text-center hover:-translate-y-1 transition-all flex justify-center items-center gap-3 shadow-lg">
                         <i class="fa-solid fa-envelope"></i> <span data-i18n="btn_email">Email Me</span>
                     </a>
-                    
-                    <!-- WhatsApp Link -->
                     <a href="https://wa.me/201129268929" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] font-semibold text-center hover:bg-[#25D366]/20 hover:-translate-y-1 transition-all flex justify-center items-center gap-3">
                         <i class="fa-brands fa-whatsapp text-xl"></i> <span data-i18n="btn_whatsapp">WhatsApp</span>
                     </a>
-                    
-                    <div class="grid grid-cols-2 gap-4 mt-2">
-                        <a href="#" class="py-3 px-6 rounded-xl bg-dark-100 border border-white/5 text-gray-300 font-medium text-center hover:bg-white/10 transition-all flex justify-center items-center gap-2">
-                            <i class="fa-brands fa-linkedin text-blue-400"></i> LinkedIn
-                        </a>
-                        <a href="#" class="py-3 px-6 rounded-xl bg-dark-100 border border-white/5 text-gray-300 font-medium text-center hover:bg-white/10 transition-all flex justify-center items-center gap-2">
-                            <i class="fa-regular fa-file-pdf text-red-400"></i> <span data-i18n="btn_cv">CV</span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -456,14 +634,11 @@
         const translations = {
             en: {
                 nav_about: "About", nav_skills: "Skills", nav_projects: "Projects", nav_contact: "Contact", nav_hire: "Hire Me",
-                hero_badge: "WordPress Developer",
-                hero_title_1: "Building robust web experiences with",
-                hero_title_2: "WordPress & WooCommerce.",
+                hero_badge: "WordPress Developer", hero_title_1: "Building robust web experiences with", hero_title_2: "WordPress & WooCommerce.",
                 hero_desc: "I'm Mohamed — a WordPress Developer specializing in custom WooCommerce solutions and performance. I turn Figma designs into fast, secure, and user-friendly websites.",
+                stat_1: "Hrs ITI Training", stat_2: "Featured Projects", stat_3: "Technologies",
                 btn_projects: "View Projects", btn_contact: "Contact Me",
-                stat_1: "Agency Exp.", stat_2: "Founder/Owner", stat_3: "Custom Solutions",
-                about_badge: "About & Experience", about_title: "A developer focused on clean, scalable solutions.",
-                about_desc: "I am a specialized WordPress Developer with a strong foundation in custom development, technical SEO, and performance optimization. I don't just use templates; I build tailored solutions based on exact project needs. With a deep understanding of UI/UX principles via Figma, I ensure every interface is modern and user-friendly.",
+                about_badge: "About & Experience", about_title: "A developer focused on clean, scalable solutions.", about_desc: "I am a specialized WordPress Developer with a strong foundation in custom development, technical SEO, and performance optimization. I don't just use templates; I build tailored solutions based on exact project needs. With a deep understanding of UI/UX principles via Figma, I ensure every interface is modern and user-friendly.",
                 exp_1_title: "Founder / Owner", exp_1_desc: "Managing digital projects, developing the eCommerce platform, optimizing the WooCommerce shopping experience, and improving online sales through conversion rate optimization.",
                 exp_2_title: "WordPress Developer", exp_2_desc: "Built professional websites, integrated APIs, and developed custom solutions. Focused on Core Web Vitals, site speed, and troubleshooting complex WordPress issues.",
                 skills_badge: "Skills & Arsenal", skills_title: "Tools I use.",
@@ -473,25 +648,25 @@
                 cap_1_title: "Performance & Speed", cap_1_desc: "Improve website loading speed and ensure compliance with Google Core Web Vitals for better ranking.",
                 cap_2_title: "eCommerce Mastery", cap_2_desc: "Build and optimize WooCommerce shopping experiences to increase conversion rates and sales.",
                 cap_3_title: "Modern Interfaces", cap_3_desc: "Translate Figma designs into pixel-perfect, responsive, and intuitive user interfaces.",
-                proj_badge: "Projects", proj_title: "Selected work.",
-                proj_1_title: "ELNENX Clothing Store", proj_1_desc: "A complete eCommerce ecosystem built on WooCommerce. Features include custom product filters, optimized checkout flows for high conversions, and a heavily tailored mobile-first UI.",
-                proj_2_title: "Corporate Portal — Code </> Agency", proj_2_desc: "Developed robust corporate websites using custom WordPress themes. Implemented complex API integrations for real-time data fetching and achieved 90+ scores on Core Web Vitals.",
-                btn_view_store: "View Store", btn_case_study: "Read Case Study",
-                contact_badge: "Contact", contact_title: "Let's build something great.",
-                contact_desc: "Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.",
-                btn_email: "Email Me", btn_whatsapp: "WhatsApp", btn_cv: "Download CV",
-                footer_text: "WordPress Developer & Founder of ELNENX."
+                proj_badge: "Projects Portfolio", proj_title: "Selected work.", btn_preview: "View Site",
+                tag_ecommerce: "Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.", 
+                tag_corporate: "Corporate & Agency Website. Tailored UI/UX design converted into a pixel-perfect robust WordPress theme.", 
+                tag_shopify: "Shopify eCommerce Store. Optimized conversion rates with customized liquid templates and sales funnels.", 
+                tag_logistics: "Logistics & Courier Portal. Integrated complex tracking systems and shipping rate calculations.", 
+                tag_trading: "Trading & Investment Platform. Secured data handling and built custom dashboards for users.", 
+                tag_restaurant: "Restaurant Chain Portal. Developed a high-performance interactive menu and locations showcase.",
+                btn_show_more: "Show More Projects", btn_show_less: "Show Less",
+                btn_open_tab: "Open Web", msg_iframe_sec: "If the site doesn't load due to security policies, click 'Open Web' above.",
+                contact_badge: "Contact", contact_title: "Let's build something great.", contact_desc: "Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.",
+                btn_email: "Email Me", btn_whatsapp: "WhatsApp", footer_text: "WordPress Developer & Founder of ELNENX."
             },
             ar: {
                 nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_contact: "تواصل معي", nav_hire: "وظفني",
-                hero_badge: "مطور ووردبريس",
-                hero_title_1: "بناء تجارب ويب قوية باستخدام",
-                hero_title_2: "ووردبريس وووكومرس.",
+                hero_badge: "مطور ووردبريس", hero_title_1: "بناء تجارب ويب قوية باستخدام", hero_title_2: "ووردبريس وووكومرس.",
                 hero_desc: "أنا محمد — مطور ووردبريس متخصص في المتاجر الإلكترونية (WooCommerce) وتحسين الأداء. أحول تصميمات Figma إلى مواقع سريعة، آمنة، وسهلة الاستخدام.",
+                stat_1: "ساعة تدريب ITI", stat_2: "مشاريع مكتملة", stat_3: "تقنيات وأدوات",
                 btn_projects: "شاهد أعمالي", btn_contact: "تواصل معي",
-                stat_1: "خبرة وكالات", stat_2: "مؤسس / مالك", stat_3: "حلول مخصصة",
-                about_badge: "الخبرة والنبذة", about_title: "مطور يركز على الحلول النظيفة والقابلة للتوسع.",
-                about_desc: "أنا مطور ووردبريس متخصص مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة. من خلال فهمي العميق لمبادئ UI/UX باستخدام Figma، أضمن أن كل واجهة مستخدم حديثة وسهلة الاستخدام.",
+                about_badge: "الخبرة والنبذة", about_title: "مطور يركز على الحلول النظيفة والقابلة للتوسع.", about_desc: "أنا مطور ووردبريس متخصص مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة. من خلال فهمي العميق لمبادئ UI/UX باستخدام Figma، أضمن أن كل واجهة مستخدم حديثة وسهلة الاستخدام.",
                 exp_1_title: "مؤسس / مالك", exp_1_desc: "إدارة المشاريع الرقمية، تطوير منصة التجارة الإلكترونية، تحسين تجربة التسوق على ووكومرس، وزيادة المبيعات عبر الإنترنت من خلال تحسين معدل التحويل (CRO).",
                 exp_2_title: "مطور ووردبريس", exp_2_desc: "بناء مواقع احترافية، دمج واجهات برمجة التطبيقات (APIs)، وتطوير حلول مخصصة. التركيز على سرعة الموقع، Core Web Vitals، وحل مشاكل الووردبريس المعقدة.",
                 skills_badge: "المهارات والأدوات", skills_title: "الأدوات التي أستخدمها.",
@@ -501,74 +676,110 @@
                 cap_1_title: "الأداء والسرعة", cap_1_desc: "تحسين سرعة تحميل الموقع وضمان التوافق مع مؤشرات الويب الأساسية من جوجل لتحسين ترتيبك في البحث.",
                 cap_2_title: "احتراف التجارة الإلكترونية", cap_2_desc: "بناء وتحسين تجارب التسوق على ووكومرس لزيادة معدلات التحويل والمبيعات بشكل ملحوظ.",
                 cap_3_title: "واجهات مستخدم حديثة", cap_3_desc: "تحويل تصميمات Figma إلى واجهات مستخدم دقيقة، متجاوبة، وسهلة الاستخدام على جميع الشاشات.",
-                proj_badge: "المشاريع", proj_title: "أبرز أعمالي.",
-                proj_1_title: "متجر ELNENX للملابس", proj_1_desc: "نظام تجارة إلكترونية متكامل مبني على ووكومرس. يتميز بفلاتر منتجات مخصصة، مسار دفع محسن لزيادة المبيعات، وواجهة مستخدم مصممة خصيصاً لتناسب الجوال.",
-                proj_2_title: "بوابة الشركات — وكالة Code </>", proj_2_desc: "تطوير مواقع شركات قوية باستخدام قوالب ووردبريس مخصصة. دمج واجهات برمجة (APIs) معقدة لجلب البيانات لحظياً، وتحقيق تقييم +90 في مؤشرات أداء الويب الأساسية.",
-                btn_view_store: "عرض المتجر", btn_case_study: "دراسة الحالة",
-                contact_badge: "تواصل معي", contact_title: "لنقم ببناء شيء عظيم.",
-                contact_desc: "متاح لفرص العمل الحر، عقود العمل، والوظائف بدوام كامل. تواصل معي ودعنا نناقش مشروعك القادم.",
-                btn_email: "راسلني عبر الإيميل", btn_whatsapp: "واتساب", btn_cv: "تحميل السيرة الذاتية",
-                footer_text: "مطور ووردبريس ومؤسس ELNENX."
+                proj_badge: "معرض الأعمال", proj_title: "أبرز مشاريعي.", btn_preview: "عرض الموقع",
+                tag_ecommerce: "منصة تجارة إلكترونية وشركات. التركيز على تجربة مستخدم سلسة وسرعة تحميل فائقة.", 
+                tag_corporate: "موقع شركة ووكالة. تحويل تصميمات واجهة المستخدم (UI/UX) بدقة لقالب ووردبريس قوي ومخصص.", 
+                tag_shopify: "متجر شوبيفاي. تحسين معدلات التحويل باستخدام أكواد Liquid مخصصة وبناء مسارات بيع ذكية.", 
+                tag_logistics: "منصة شحن ولوجستيات. ربط أنظمة تتبع معقدة وحساب تلقائي لأسعار الشحن.", 
+                tag_trading: "منصة تداول واستثمار. تأمين قواعد البيانات وبناء لوحات تحكم مخصصة للمستخدمين.", 
+                tag_restaurant: "موقع سلسلة مطاعم. تطوير منيو تفاعلي سريع وعرض ذكي لفروع المطعم.",
+                btn_show_more: "باقي المشاريع", btn_show_less: "إخفاء المشاريع",
+                btn_open_tab: "فتح الموقع", msg_iframe_sec: "بسبب سياسات الأمان الخاصة ببعض المواقع، قد لا يظهر الموقع هنا. اضغط (فتح الموقع) بالأعلى.",
+                contact_badge: "تواصل معي", contact_title: "لنقم ببناء شيء عظيم.", contact_desc: "متاح لفرص العمل الحر، وعقود العمل. تواصل معي ودعنا نناقش مشروعك القادم.",
+                btn_email: "راسلني عبر الإيميل", btn_whatsapp: "واتساب", footer_text: "مطور ووردبريس ومؤسس ELNENX."
             }
         };
 
-        // Language Toggle Logic
-        let currentLang = 'en';
+        // UI State Variables
+        let currentLang = 'en'; 
+        let isExpanded = false;
+
+        // Elements
         const langToggleBtns = [document.getElementById('lang-toggle'), document.getElementById('lang-toggle-mobile')];
+        const toggleBtn = document.getElementById('toggle-more-projects');
+        const hiddenProjects = document.querySelectorAll('.project-hidden');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const modal = document.getElementById('device-modal');
+        const iframe = document.getElementById('device-iframe');
+        const modalTitle = document.getElementById('modal-title');
+        const modalExtLink = document.getElementById('modal-ext-link');
+        const iframeLoading = document.getElementById('iframe-loading');
         
+        // Functions
+        function updateShowMoreText() {
+            if (!toggleBtn) return;
+            const spanText = toggleBtn.querySelector('span');
+            if (isExpanded) {
+                spanText.innerHTML = translations[currentLang]['btn_show_less'];
+                toggleIcon.className = "fa-solid fa-chevron-up";
+            } else {
+                spanText.innerHTML = translations[currentLang]['btn_show_more'];
+                toggleIcon.className = "fa-solid fa-chevron-down";
+            }
+        }
+
         function setLanguage(lang) {
             currentLang = lang;
             document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
             document.documentElement.setAttribute('lang', lang);
             
-            // Update button text
-            langToggleBtns.forEach(btn => {
-                btn.innerText = lang === 'ar' ? 'English' : 'عربي';
-            });
-
-            // Update all elements with data-i18n
+            langToggleBtns.forEach(btn => btn.innerText = lang === 'ar' ? 'English' : 'عربي');
+            
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    element.innerHTML = translations[lang][key];
-                }
+                if (translations[lang][key]) element.innerHTML = translations[lang][key];
+            });
+
+            updateShowMoreText();
+        }
+
+        // Event Listeners
+        langToggleBtns.forEach(btn => btn.addEventListener('click', () => setLanguage(currentLang === 'en' ? 'ar' : 'en')));
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                hiddenProjects.forEach(proj => {
+                    if(isExpanded) {
+                        proj.classList.remove('hidden');
+                        setTimeout(() => proj.classList.add('active'), 50);
+                    } else {
+                        proj.classList.remove('active');
+                        setTimeout(() => proj.classList.add('hidden'), 300);
+                    }
+                });
+                updateShowMoreText();
             });
         }
 
-        langToggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLanguage(currentLang === 'en' ? 'ar' : 'en');
-            });
+        // Global functions for inline HTML onclick attributes
+        window.openIframeModal = function(url, name) {
+            document.body.style.overflow = 'hidden'; // prevent body scroll
+            modalTitle.innerText = name;
+            modalExtLink.href = url;
+            iframeLoading.style.display = 'flex';
+            iframe.src = url;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        };
+
+        window.closeIframeModal = function() {
+            document.body.style.overflow = 'auto';
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                iframe.src = '';
+            }, 300);
+        };
+
+        // Mobile Menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const links = document.querySelectorAll('.mobile-link');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
-
-        // Scroll Animations (Reveal on scroll)
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-
-        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            });
-        }, revealOptions);
-
-        revealElements.forEach(el => revealOnScroll.observe(el));
+        // Initialize Language
+        setLanguage('en');
     </script>
 </body>
 </html>
