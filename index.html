@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth">
 <head>
@@ -87,6 +88,17 @@
         .token-var { color: #e5c07b; }
         .token-comment { color: #5c6370; font-style: italic; }
 
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0B0C10; }
@@ -163,14 +175,13 @@
                     </a>
                 </div>
 
-                <!-- المستطيل اللي تحت الكارت (الإحصائيات رجعتها زي ما طلبت) -->
                 <div class="flex flex-wrap items-center gap-8 pt-8 border-t border-white/10">
                     <div>
                         <div class="text-2xl md:text-3xl font-bold">120+</div>
                         <div class="text-sm text-gray-500 mt-1" data-i18n="stat_1">Hrs ITI Training</div>
                     </div>
                     <div>
-                        <div class="text-2xl md:text-3xl font-bold">8+</div>
+                        <div class="text-2xl md:text-3xl font-bold">9+</div>
                         <div class="text-sm text-gray-500 mt-1" data-i18n="stat_2">Featured Projects</div>
                     </div>
                     <div>
@@ -180,7 +191,6 @@
                 </div>
             </div>
 
-            <!-- Animated Code Snippet -->
             <div class="flex-1 w-full max-w-md relative">
                 <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-[2rem] blur-3xl"></div>
                 <div class="animate-float">
@@ -208,7 +218,7 @@
         </div>
     </section>
 
-    <!-- About Section (هتظهر دايماً وتم إزالة أي كود بيخفيها) -->
+    <!-- About Section -->
     <section id="about" class="py-20 px-6 relative">
         <div class="max-w-4xl mx-auto">
             <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider uppercase" data-i18n="about_badge">
@@ -221,7 +231,6 @@
             </p>
 
             <div class="space-y-6">
-                <!-- Experience Item 1 -->
                 <div class="glass-card p-6 border-l-4 border-l-purple-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-purple-500 transition-transform hover:scale-[1.01]">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                         <h3 class="text-xl font-bold" data-i18n="exp_1_title">Founder / Owner</h3>
@@ -232,7 +241,6 @@
                     </p>
                 </div>
 
-                <!-- Experience Item 2 -->
                 <div class="glass-card p-6 border-l-4 border-l-blue-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-blue-500 transition-transform hover:scale-[1.01]">
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                         <h3 class="text-xl font-bold" data-i18n="exp_2_title">WordPress Developer</h3>
@@ -246,7 +254,7 @@
         </div>
     </section>
 
-    <!-- Skills Section (مرئية بالكامل وبدون إخفاء) -->
+    <!-- Skills Section -->
     <section id="skills" class="py-20 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wider uppercase" data-i18n="skills_badge">
@@ -255,7 +263,6 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="skills_title">Tools I use.</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Category 1 -->
                 <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_1">Core Tech</h3>
                     <div class="flex flex-wrap gap-2" dir="ltr">
@@ -267,7 +274,6 @@
                     </div>
                 </div>
 
-                <!-- Category 2 -->
                 <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_2">WP Development</h3>
                     <div class="flex flex-wrap gap-2">
@@ -278,7 +284,6 @@
                     </div>
                 </div>
 
-                <!-- Category 3 -->
                 <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_3">Optimization</h3>
                     <div class="flex flex-wrap gap-2">
@@ -289,7 +294,6 @@
                     </div>
                 </div>
 
-                <!-- Category 4 -->
                 <div class="glass-card p-6 transition-transform hover:-translate-y-1">
                     <h3 class="text-lg font-bold mb-4 border-b border-white/10 pb-2" data-i18n="skill_cat_4">Design</h3>
                     <div class="flex flex-wrap gap-2">
@@ -303,7 +307,7 @@
         </div>
     </section>
 
-    <!-- Capabilities Section (مرئية بالكامل وبدون إخفاء) -->
+    <!-- Capabilities Section -->
     <section class="py-20 px-6 relative">
         <div class="absolute inset-0 bg-dark-200/50 skew-y-3 z-0"></div>
         <div class="max-w-6xl mx-auto text-center relative z-10">
@@ -337,26 +341,50 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-6 relative z-10 bg-dark-200/50 border-y border-white/5">
         <div class="max-w-6xl mx-auto">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider uppercase" data-i18n="proj_badge">
+            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider uppercase reveal" data-i18n="proj_badge">
                 Projects Portfolio
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="proj_title">Selected work.</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal" data-i18n="proj_title">Selected work.</h2>
 
-            <!-- Changed to 2 columns for a more spacious, elegant look -->
             <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <!-- Project 1: Hectar Modern -->
+                <!-- Project 01: Skank-X -->
+                <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-rose-500/50">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-rose-500/10"></div>
+                    
+                    <div class="flex-grow z-10 relative">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold group-hover:text-rose-400 transition-colors">Skank-X</h3>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-rose-500/10 transition-colors">01</div>
+                        </div>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_skankx">Modern web application focusing on high performance and clean UI/UX.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">HTML5/CSS3</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">JavaScript</span>
+                            <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">UI/UX</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                        <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-code mr-1"></i> Web App</span>
+                        <button onclick="openIframeModal('https://skank-x.github.io/-/', 'Skank-X')" class="text-sm font-semibold text-white group-hover:text-rose-400 transition-colors flex items-center gap-2 cursor-pointer">
+                            <span data-i18n="btn_preview">View Site</span> <i class="fa-solid fa-arrow-right rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 02: Hectar Modern -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-blue-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-blue-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-blue-400 transition-colors">Hectar Modern</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-blue-500/10 transition-colors">01</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-blue-500/10 transition-colors">02</div>
                         </div>
                         <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce">Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.</p>
                         
-                        <!-- Tech Stack Tools -->
                         <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                             <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
                             <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
@@ -364,7 +392,6 @@
                         </div>
                     </div>
                     
-                    <!-- Sleek View Site Link -->
                     <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                         <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-laptop-code mr-1"></i> Web App</span>
                         <button onclick="openIframeModal('https://www.hectarmodern.com/ar', 'Hectar Modern')" class="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -373,14 +400,14 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Adfaz -->
+                <!-- Project 03: Adfaz -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-purple-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-purple-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-purple-400 transition-colors">Adfaz</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-purple-500/10 transition-colors">02</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-purple-500/10 transition-colors">03</div>
                         </div>
                         <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_corporate">Corporate & Agency Website. Tailored UI/UX design converted into a pixel-perfect robust WordPress theme.</p>
                         
@@ -399,14 +426,14 @@
                     </div>
                 </div>
 
-                <!-- Project 3: El Dahan -->
+                <!-- Project 04: El Dahan -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-orange-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-orange-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-orange-400 transition-colors">El Dahan</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-orange-500/10 transition-colors">03</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-orange-500/10 transition-colors">04</div>
                         </div>
                         <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_restaurant">Restaurant Chain Portal. Developed a high-performance interactive menu and locations showcase.</p>
                         
@@ -425,14 +452,14 @@
                     </div>
                 </div>
 
-                <!-- Project 4: WDE NYCourier (Hidden Initially) -->
+                <!-- Project 05: WDE NYCourier (Hidden Initially) -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-cyan-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-cyan-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition-colors">WDE NYCourier</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-cyan-500/10 transition-colors">04</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-cyan-500/10 transition-colors">05</div>
                         </div>
                         <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_logistics">Logistics & Courier Portal. Integrated complex tracking systems and shipping rate calculations.</p>
                         
@@ -451,14 +478,14 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Hustler Brand (Hidden Initially) -->
+                <!-- Project 06: Hustler Brand (Hidden Initially) -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-green-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-green-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-green-400 transition-colors">Hustler Brand</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-green-500/10 transition-colors">05</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-green-500/10 transition-colors">06</div>
                         </div>
                         <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify">Shopify eCommerce Store. Optimized conversion rates with customized liquid templates and sales funnels.</p>
                         
@@ -477,16 +504,16 @@
                     </div>
                 </div>
 
-                <!-- Project 6: Sutra Stores (Hidden Initially) -->
+                <!-- Project 07: Sutra Stores (Hidden Initially) -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-pink-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-pink-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-pink-400 transition-colors">Sutra Stores</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-pink-500/10 transition-colors">06</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-pink-500/10 transition-colors">07</div>
                         </div>
-                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce">eCommerce Platform. Built a reliable and scalable store using advanced WooCommerce functionalities.</p>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce_2">eCommerce Platform. Built a reliable and scalable store using advanced WooCommerce functionalities.</p>
                         
                         <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                             <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
@@ -503,16 +530,16 @@
                     </div>
                 </div>
 
-                <!-- Project 7: ZEX EG (Hidden Initially) -->
+                <!-- Project 08: ZEX EG (Hidden Initially) -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-teal-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-teal-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-teal-400 transition-colors">ZEX EG</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-teal-500/10 transition-colors">07</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-teal-500/10 transition-colors">08</div>
                         </div>
-                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify">Shopify Store. Created custom integrations and localized the shopping experience for maximum conversions.</p>
+                        <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify_2">Shopify Store. Created custom integrations and localized the shopping experience for maximum conversions.</p>
                         
                         <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                             <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
@@ -529,14 +556,14 @@
                     </div>
                 </div>
 
-                <!-- Project 8: TFT VIP Trade (Hidden Initially) -->
+                <!-- Project 09: TFT VIP Trade (Hidden Initially) -->
                 <div class="glass-card p-8 flex flex-col group relative overflow-hidden hidden project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-yellow-500/50">
                     <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-yellow-500/10"></div>
                     
                     <div class="flex-grow z-10 relative">
                         <div class="flex justify-between items-center mb-6">
                             <h3 class="text-2xl font-bold group-hover:text-yellow-400 transition-colors">TFT VIP Trade</h3>
-                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-yellow-500/10 transition-colors">08</div>
+                            <div class="text-5xl font-black text-white/5 font-mono group-hover:text-yellow-500/10 transition-colors">09</div>
                         </div>
                         <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_trading">Trading & Investment Platform. Secured data handling and built custom dashboards for users.</p>
                         
@@ -649,9 +676,12 @@
                 cap_2_title: "eCommerce Mastery", cap_2_desc: "Build and optimize WooCommerce shopping experiences to increase conversion rates and sales.",
                 cap_3_title: "Modern Interfaces", cap_3_desc: "Translate Figma designs into pixel-perfect, responsive, and intuitive user interfaces.",
                 proj_badge: "Projects Portfolio", proj_title: "Selected work.", btn_preview: "View Site",
+                tag_skankx: "Modern web application focusing on high performance and clean UI/UX.",
                 tag_ecommerce: "Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.", 
                 tag_corporate: "Corporate & Agency Website. Tailored UI/UX design converted into a pixel-perfect robust WordPress theme.", 
                 tag_shopify: "Shopify eCommerce Store. Optimized conversion rates with customized liquid templates and sales funnels.", 
+                tag_ecommerce_2: "eCommerce Platform. Built a reliable and scalable store using advanced WooCommerce functionalities.",
+                tag_shopify_2: "Shopify Store. Created custom integrations and localized the shopping experience for maximum conversions.",
                 tag_logistics: "Logistics & Courier Portal. Integrated complex tracking systems and shipping rate calculations.", 
                 tag_trading: "Trading & Investment Platform. Secured data handling and built custom dashboards for users.", 
                 tag_restaurant: "Restaurant Chain Portal. Developed a high-performance interactive menu and locations showcase.",
@@ -677,9 +707,12 @@
                 cap_2_title: "احتراف التجارة الإلكترونية", cap_2_desc: "بناء وتحسين تجارب التسوق على ووكومرس لزيادة معدلات التحويل والمبيعات بشكل ملحوظ.",
                 cap_3_title: "واجهات مستخدم حديثة", cap_3_desc: "تحويل تصميمات Figma إلى واجهات مستخدم دقيقة، متجاوبة، وسهلة الاستخدام على جميع الشاشات.",
                 proj_badge: "معرض الأعمال", proj_title: "أبرز مشاريعي.", btn_preview: "عرض الموقع",
+                tag_skankx: "تطبيق ويب حديث يركز على الأداء العالي وتجربة مستخدم سلسة ونظيفة.",
                 tag_ecommerce: "منصة تجارة إلكترونية وشركات. التركيز على تجربة مستخدم سلسة وسرعة تحميل فائقة.", 
                 tag_corporate: "موقع شركة ووكالة. تحويل تصميمات واجهة المستخدم (UI/UX) بدقة لقالب ووردبريس قوي ومخصص.", 
                 tag_shopify: "متجر شوبيفاي. تحسين معدلات التحويل باستخدام أكواد Liquid مخصصة وبناء مسارات بيع ذكية.", 
+                tag_ecommerce_2: "منصة تجارة إلكترونية. بناء متجر موثوق وقابل للتطوير باستخدام إمكانيات ووكومرس المتقدمة.",
+                tag_shopify_2: "متجر شوبيفاي. إنشاء تكاملات مخصصة وتحسين تجربة التسوق لتحقيق أقصى قدر من التحويلات.",
                 tag_logistics: "منصة شحن ولوجستيات. ربط أنظمة تتبع معقدة وحساب تلقائي لأسعار الشحن.", 
                 tag_trading: "منصة تداول واستثمار. تأمين قواعد البيانات وبناء لوحات تحكم مخصصة للمستخدمين.", 
                 tag_restaurant: "موقع سلسلة مطاعم. تطوير منيو تفاعلي سريع وعرض ذكي لفروع المطعم.",
@@ -754,7 +787,7 @@
 
         // Global functions for inline HTML onclick attributes
         window.openIframeModal = function(url, name) {
-            document.body.style.overflow = 'hidden'; // prevent body scroll
+            document.body.style.overflow = 'hidden'; 
             modalTitle.innerText = name;
             modalExtLink.href = url;
             iframeLoading.style.display = 'flex';
@@ -780,9 +813,21 @@
 
         // Initialize Language
         setLanguage('en');
+
+        // Scroll Animations (Only for elements that still have 'reveal')
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealOnScroll.observe(el));
     </script>
 </body>
 </html>
 
 
 ```
+
