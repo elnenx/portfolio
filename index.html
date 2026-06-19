@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELNENX | Mohamed - WordPress Developer</title>
+    <title>ELNENX | Mohamed - Front-End & WordPress Developer</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -41,7 +41,7 @@
             color: #ffffff;
             overflow-x: hidden;
         }
-        
+
         .gradient-text {
             background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%, #a18cd1 100%);
             -webkit-background-clip: text;
@@ -55,18 +55,24 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 1.5rem;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+        }
+        
+        .glass-card > * {
+            transform: translateZ(20px);
         }
 
         .pill {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            transform: translateZ(30px);
         }
         
         .pill:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            transform: translateY(-2px) translateZ(30px);
         }
 
         /* Floating Animation */
@@ -124,16 +130,44 @@
             opacity: 0;
         }
         
-        /* Utility for Anchor links offset */
         .scroll-mt-24 {
             scroll-margin-top: 6rem;
         }
+
+        /* Typewriter Cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #4facfe;
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+            margin-inline-start: 4px;
+        }
+        @keyframes blink { 
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; } 
+        }
+
+        /* Form Inputs */
+        input, textarea {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4facfe;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.2);
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-500 selection:text-white transition-all duration-300">
+<body class="antialiased selection:bg-blue-500 selection:text-white transition-all duration-300 relative">
 
     <!-- Floating Navbar -->
-    <nav class="fixed top-4 left-4 right-4 md:left-1/2 md:transform md:-translate-x-1/2 md:w-[90%] md:max-w-5xl z-40 transition-all duration-300">
+    <nav class="fixed top-4 left-4 right-4 md:left-1/2 md:transform md:-translate-x-1/2 md:w-[95%] md:max-w-6xl z-40 transition-all duration-300">
         <div class="glass-card !rounded-full px-6 py-3 flex justify-between items-center">
             <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter">ELNENX<span class="text-blue-500">.</span></a>
             
@@ -142,7 +176,9 @@
                 <a href="#skills" class="hover:text-white transition-colors" data-i18n="nav_skills">Skills</a>
                 <a href="#projects" class="hover:text-white transition-colors" data-i18n="nav_projects">Projects</a>
                 <a href="#cv" class="hover:text-white transition-colors text-purple-400 font-bold" data-i18n="nav_cv">My CV</a>
+                
                 <div class="w-px h-5 bg-white/20 mx-2"></div>
+                
                 <button id="lang-toggle" class="hover:text-white transition-colors font-bold text-blue-400">عربي</button>
                 <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20" data-i18n="nav_hire">Hire Me</a>
             </div>
@@ -170,18 +206,21 @@
         <!-- Hero Section -->
         <section class="pt-32 pb-16 px-6 md:pt-40 md:pb-20 overflow-hidden">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-                <div class="flex-1 space-y-6 md:space-y-8">
-                    <div class="inline-block px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-bold tracking-wider uppercase" data-i18n="hero_badge">
-                        WordPress Developer
+                <div class="flex-1 space-y-6 md:space-y-8 relative z-10">
+                    <div class="inline-block px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(144,19,254,0.2)]" data-i18n="hero_badge">
+                        Front-End Developer
                     </div>
                     
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                        <span data-i18n="hero_title_1">Building robust web experiences with</span> <br class="hidden md:block">
-                        <span class="gradient-text" data-i18n="hero_title_2">WordPress & WooCommerce.</span>
-                    </h1>
+                    <!-- Fixed height to prevent layout shift during typing -->
+                    <div class="min-h-[120px] md:min-h-[150px] flex flex-col justify-center">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                            <span data-i18n="hero_title_1">Simplifying technology. Creating innovation.</span> <br class="hidden md:block">
+                            <span class="gradient-text" id="typewriter-text"></span><span class="typewriter-cursor"></span>
+                        </h1>
+                    </div>
                     
                     <p class="text-lg text-gray-400 max-w-xl leading-relaxed" data-i18n="hero_desc">
-                        I'm Mohamed — a WordPress Developer specializing in custom WooCommerce solutions and performance. I turn Figma designs into fast, secure, and user-friendly websites.
+                        I'm Mohamed — a developer specializing in custom Front-End interfaces and WordPress solutions. I turn Figma designs into fast, secure, and user-friendly web experiences.
                     </p>
                     
                     <div class="flex flex-wrap items-center gap-4 pt-4">
@@ -213,7 +252,7 @@
                 <div class="flex-1 w-full max-w-md relative">
                     <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-[2rem] blur-3xl"></div>
                     <div class="animate-float">
-                        <div class="glass-card p-6 relative shadow-2xl border-white/10 rounded-[2rem]">
+                        <div class="glass-card p-6 relative shadow-[0_0_50px_rgba(144,19,254,0.15)] border-white/10 rounded-[2rem]" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
                             <div class="flex gap-2 mb-6">
                                 <div class="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
                                 <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
@@ -225,9 +264,9 @@
 
 <span class="token-php">function</span> <span class="token-func">mohamed_portfolio</span><span class="token-punctuation">(</span><span class="token-punctuation">)</span> <span class="token-punctuation">{</span>
     <span class="token-var">$skills</span> <span class="token-punctuation">=</span> <span class="token-punctuation">[</span>
+        <span class="token-string">'Front_End'</span>   <span class="token-punctuation">=&gt;</span> <span class="token-string">'Expert'</span><span class="token-punctuation">,</span>
         <span class="token-string">'WordPress'</span>   <span class="token-punctuation">=&gt;</span> <span class="token-string">'Expert'</span><span class="token-punctuation">,</span>
-        <span class="token-string">'WooCommerce'</span> <span class="token-punctuation">=&gt;</span> <span class="token-string">'Advanced'</span><span class="token-punctuation">,</span>
-        <span class="token-string">'Performance'</span> <span class="token-punctuation">=&gt;</span> <span class="token-string">'Core_Web_Vitals'</span>
+        <span class="token-string">'UI_UX'</span>       <span class="token-punctuation">=&gt;</span> <span class="token-string">'Advanced'</span>
     <span class="token-punctuation">]</span><span class="token-punctuation">;</span>
     <span class="token-keyword">return</span> <span class="token-func">build_awesome_site</span><span class="token-punctuation">(</span><span class="token-var">$skills</span><span class="token-punctuation">)</span><span class="token-punctuation">;</span>
 <span class="token-punctuation">}</span></code></pre>
@@ -242,18 +281,18 @@
 
         <!-- About Section -->
         <section id="about" class="py-16 px-6 scroll-mt-24">
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-4xl mx-auto relative z-10">
                 <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider uppercase" data-i18n="about_badge">
                     About & Experience
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-8" data-i18n="about_title">A developer focused on clean, scalable solutions.</h2>
                 
                 <p class="text-gray-400 text-lg leading-relaxed mb-12" data-i18n="about_desc">
-                    I am a specialized WordPress Developer with a strong foundation in custom development, technical SEO, and performance optimization. I don't just use templates; I build tailored solutions based on exact project needs. With a deep understanding of UI/UX principles via Figma, I ensure every interface is modern and user-friendly.
+                    I am a specialized Front-End & WordPress Developer with a strong foundation in custom development, technical SEO, and performance optimization. I don't just use templates; I build tailored solutions based on exact project needs. With a deep understanding of UI/UX principles via Figma, I ensure every interface is modern and user-friendly.
                 </p>
 
                 <div class="space-y-6">
-                    <div class="glass-card p-6 border-l-4 border-l-purple-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-purple-500 transition-transform hover:scale-[1.01]">
+                    <div class="glass-card p-6 border-l-4 border-l-purple-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-purple-500 transition-transform hover:scale-[1.01]" data-tilt data-tilt-max="2" data-tilt-speed="400">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                             <h3 class="text-xl font-bold" data-i18n="exp_1_title">Founder / Owner</h3>
                             <span class="text-sm text-purple-400 font-mono mt-1 md:mt-0" dir="ltr">ELNENX Brand</span>
@@ -263,9 +302,9 @@
                         </p>
                     </div>
 
-                    <div class="glass-card p-6 border-l-4 border-l-blue-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-blue-500 transition-transform hover:scale-[1.01]">
+                    <div class="glass-card p-6 border-l-4 border-l-blue-500 rtl:border-l-0 rtl:border-r-4 rtl:border-r-blue-500 transition-transform hover:scale-[1.01]" data-tilt data-tilt-max="2" data-tilt-speed="400">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                            <h3 class="text-xl font-bold" data-i18n="exp_2_title">WordPress Developer</h3>
+                            <h3 class="text-xl font-bold" data-i18n="exp_2_title">Front-End / WP Developer</h3>
                             <span class="text-sm text-blue-400 font-mono mt-1 md:mt-0" dir="ltr">Code &lt;/&gt; Agency</span>
                         </div>
                         <p class="text-gray-400 text-sm mt-2" data-i18n="exp_2_desc">
@@ -281,42 +320,40 @@
 
         <!-- Skills Section -->
         <section id="skills" class="py-16 px-6 scroll-mt-24">
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-6xl mx-auto relative z-10">
                 <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wider uppercase" data-i18n="skills_badge">
                     Skills & Arsenal
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="skills_title">Tools I use.</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-1">
+                    <div class="glass-card p-6 transition-transform hover:-translate-y-1" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_1">Core Tech</h3>
                         <div class="h-px w-full bg-gradient-to-r from-gray-500/50 to-transparent rtl:from-transparent rtl:to-gray-500/50 mb-4"></div>
-                        
                         <div class="flex flex-wrap gap-2" dir="ltr">
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">WordPress</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">WooCommerce</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm">HTML5/CSS3</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm">JavaScript</span>
+                            <span class="pill px-3 py-1.5 rounded-md text-sm">React / Vue</span>
+                            <span class="pill px-3 py-1.5 rounded-md text-sm">Tailwind CSS</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm">PHP</span>
                         </div>
                     </div>
 
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-1">
+                    <div class="glass-card p-6 transition-transform hover:-translate-y-1" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_2">WP Development</h3>
                         <div class="h-px w-full bg-gradient-to-r from-blue-500/50 to-transparent rtl:from-transparent rtl:to-blue-500/50 mb-4"></div>
-                        
                         <div class="flex flex-wrap gap-2">
+                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WordPress</span>
+                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WooCommerce</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_1">Custom Plugins</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_2">Theme Dev</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">Elementor Pro</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">API Integration</span>
                         </div>
                     </div>
 
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-1">
+                    <div class="glass-card p-6 transition-transform hover:-translate-y-1" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_3">Optimization</h3>
                         <div class="h-px w-full bg-gradient-to-r from-cyan-500/50 to-transparent rtl:from-transparent rtl:to-cyan-500/50 mb-4"></div>
-                        
                         <div class="flex flex-wrap gap-2">
                             <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_3">Technical SEO</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_4">Web Vitals</span>
@@ -325,10 +362,9 @@
                         </div>
                     </div>
 
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-1">
+                    <div class="glass-card p-6 transition-transform hover:-translate-y-1" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_4">Design</h3>
                         <div class="h-px w-full bg-gradient-to-r from-purple-500/50 to-transparent rtl:from-transparent rtl:to-purple-500/50 mb-4"></div>
-                        
                         <div class="flex flex-wrap gap-2">
                             <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">Figma</span>
                             <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_7">UI/UX</span>
@@ -348,25 +384,25 @@
             <div class="max-w-6xl mx-auto text-center relative z-10">
                 <h2 class="text-2xl md:text-4xl font-bold mb-12" data-i18n="cap_title">What I Can Do For Your Business</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 transition-transform hover:-translate-y-2">
+                    <div class="glass-card p-8 transition-transform hover:-translate-y-2" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="w-14 h-14 mx-auto bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(74,144,226,0.3)]">
                             <i class="fa-solid fa-bolt"></i>
                         </div>
-                        <h3 class="font-bold text-xl mb-3" data-i18n="cap_1_title">Performance & Speed</h3>
+                        <h3 class="font-bold text-xl mb-3 transform-style-preserve-3d translate-z-10" data-i18n="cap_1_title">Performance & Speed</h3>
                         <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_1_desc">Improve website loading speed and ensure compliance with Google Core Web Vitals for better ranking.</p>
                     </div>
-                    <div class="glass-card p-8 transition-transform hover:-translate-y-2">
+                    <div class="glass-card p-8 transition-transform hover:-translate-y-2" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="w-14 h-14 mx-auto bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(144,19,254,0.3)]">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </div>
-                        <h3 class="font-bold text-xl mb-3" data-i18n="cap_2_title">eCommerce Mastery</h3>
+                        <h3 class="font-bold text-xl mb-3 transform-style-preserve-3d translate-z-10" data-i18n="cap_2_title">eCommerce Mastery</h3>
                         <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_2_desc">Build and optimize WooCommerce shopping experiences to increase conversion rates and sales.</p>
                     </div>
-                    <div class="glass-card p-8 transition-transform hover:-translate-y-2">
+                    <div class="glass-card p-8 transition-transform hover:-translate-y-2" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="w-14 h-14 mx-auto bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(80,227,194,0.3)]">
                             <i class="fa-solid fa-pen-nib"></i>
                         </div>
-                        <h3 class="font-bold text-xl mb-3" data-i18n="cap_3_title">Modern Interfaces</h3>
+                        <h3 class="font-bold text-xl mb-3 transform-style-preserve-3d translate-z-10" data-i18n="cap_3_title">Modern Interfaces</h3>
                         <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_3_desc">Translate Figma designs into pixel-perfect, responsive, and intuitive user interfaces.</p>
                     </div>
                 </div>
@@ -376,7 +412,7 @@
         <!-- Gradient Line Separator -->
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <!-- Projects Section (Reduced bottom padding pb-8 instead of pb-20 to fix huge gap) -->
+        <!-- Projects Section -->
         <section id="projects" class="pt-16 pb-8 px-6 relative z-10 scroll-mt-24">
             <div class="max-w-6xl mx-auto">
                 <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider uppercase reveal" data-i18n="proj_badge">
@@ -384,27 +420,24 @@
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal" data-i18n="proj_title">Selected work.</h2>
 
-                <!-- ALL 9 PROJECTS -->
+                <!-- ALL PROJECTS WITH TILT EFFECT -->
                 <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     
-                    <!-- Project 01: Skank-X -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-rose-500/50">
+                    <!-- Project 01 -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-rose-500/50" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-rose-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-rose-400 transition-colors">Skank-X</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-rose-500/10 transition-colors">01</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_skankx">Modern web application focusing on high performance and clean UI/UX.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">HTML5/CSS3</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">JavaScript</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">UI/UX</span>
                             </div>
                         </div>
-                        
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-code mr-1"></i> Web App</span>
                             <button onclick="openIframeModal('https://skank-x.github.io/-/', 'Skank-X')" class="text-sm font-semibold text-white group-hover:text-rose-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -413,24 +446,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 02: Hectar Modern -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-blue-500/50">
+                    <!-- Project 02 -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-blue-500/50" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-blue-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-blue-400 transition-colors">Hectar Modern</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-blue-500/10 transition-colors">02</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce">Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Elementor Pro</span>
                             </div>
                         </div>
-                        
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-laptop-code mr-1"></i> Web App</span>
                             <button onclick="openIframeModal('https://www.hectarmodern.com/ar', 'Hectar Modern')" class="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -439,24 +469,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 03: Adfaz -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-purple-500/50">
+                    <!-- Project 03 -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-purple-500/50" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-purple-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-purple-400 transition-colors">Adfaz</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-purple-500/10 transition-colors">03</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_corporate">Corporate & Agency Website. Tailored UI/UX design converted into a pixel-perfect robust WordPress theme.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Custom UI</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Technical SEO</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-building mr-1"></i> Corporate</span>
                             <button onclick="openIframeModal('https://adfaz.sa/', 'Adfaz')" class="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -465,24 +492,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 04: El Dahan -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-orange-500/50">
+                    <!-- Project 04 -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-orange-500/50" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-orange-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-orange-400 transition-colors">El Dahan</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-orange-500/10 transition-colors">04</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_restaurant">Restaurant Chain Portal. Developed a high-performance interactive menu and locations showcase.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Performance Tuned</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Figma to WP</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-utensils mr-1"></i> Food & Bev</span>
                             <button onclick="openIframeModal('https://www.eldahan.com/', 'El Dahan')" class="text-sm font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -491,24 +515,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 05: WDE NYCourier (Hidden Initially) -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-cyan-500/50 hidden opacity-0 translate-y-8">
+                    <!-- Project 05 (Hidden) -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-cyan-500/50 hidden opacity-0 translate-y-8" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-cyan-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition-colors">WDE NYCourier</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-cyan-500/10 transition-colors">05</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_logistics">Logistics & Courier Portal. Integrated complex tracking systems and shipping rate calculations.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">API Integration</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Tracking App</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-truck-fast mr-1"></i> Logistics</span>
                             <button onclick="openIframeModal('https://wdenycourier.com', 'WDE NYCourier')" class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -517,24 +538,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 06: Hustler Brand (Hidden Initially) -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-green-500/50 hidden opacity-0 translate-y-8">
+                    <!-- Project 06 (Hidden) -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-green-500/50 hidden opacity-0 translate-y-8" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-green-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-green-400 transition-colors">Hustler Brand</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-green-500/10 transition-colors">06</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify">Shopify eCommerce Store. Optimized conversion rates with customized liquid templates and sales funnels.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Liquid Code</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">CRO Strategy</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-brands fa-shopify mr-1"></i> eCommerce</span>
                             <button onclick="openIframeModal('https://hustlerbrand-egy.myshopify.com', 'Hustler Brand')" class="text-sm font-semibold text-white group-hover:text-green-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -543,24 +561,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 07: Sutra Stores (Hidden Initially) -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-pink-500/50 hidden opacity-0 translate-y-8">
+                    <!-- Project 07 (Hidden) -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-pink-500/50 hidden opacity-0 translate-y-8" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-pink-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-pink-400 transition-colors">Sutra Stores</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-pink-500/10 transition-colors">07</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce_2">eCommerce Platform. Built a reliable and scalable store using advanced WooCommerce functionalities.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Payment Gateway</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Security</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-store mr-1"></i> Retail</span>
                             <button onclick="openIframeModal('https://sutrastores.com/', 'Sutra Stores')" class="text-sm font-semibold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -569,24 +584,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 08: ZEX EG (Hidden Initially) -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-teal-500/50 hidden opacity-0 translate-y-8">
+                    <!-- Project 08 (Hidden) -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-teal-500/50 hidden opacity-0 translate-y-8" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-teal-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-teal-400 transition-colors">ZEX EG</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-teal-500/10 transition-colors">08</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify_2">Shopify Store. Created custom integrations and localized the shopping experience for maximum conversions.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Custom Apps</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Conversion Focus</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-brands fa-shopify mr-1"></i> eCommerce</span>
                             <button onclick="openIframeModal('https://zex-eg.myshopify.com/', 'ZEX EG')" class="text-sm font-semibold text-white group-hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -595,24 +607,21 @@
                         </div>
                     </div>
 
-                    <!-- Project 09: TFT VIP Trade (Hidden Initially) -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden hover:-translate-y-2 transition-all duration-500 border border-white/10 hover:border-yellow-500/50 hidden opacity-0 translate-y-8">
+                    <!-- Project 09 (Hidden) -->
+                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-yellow-500/50 hidden opacity-0 translate-y-8" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.1">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-yellow-500/10"></div>
-                        
                         <div class="flex-grow z-10 relative">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-2xl font-bold group-hover:text-yellow-400 transition-colors">TFT VIP Trade</h3>
                                 <div class="text-5xl font-black text-white/5 font-mono group-hover:text-yellow-500/10 transition-colors">09</div>
                             </div>
                             <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_trading">Trading & Investment Platform. Secured data handling and built custom dashboards for users.</p>
-                            
                             <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Data APIs</span>
                                 <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">High Security</span>
                             </div>
                         </div>
-
                         <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                             <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-chart-line mr-1"></i> Finance</span>
                             <button onclick="openIframeModal('https://tftviptrade.com/', 'TFT VIP Trade')" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors flex items-center gap-2 cursor-pointer">
@@ -637,39 +646,23 @@
     <!-- ================= CV PAGE ================= -->
     <div id="cv-page" class="page-section hidden-page pt-32 pb-20 px-6 min-h-screen flex items-center justify-center">
         <div class="max-w-md w-full mx-auto relative">
-            
             <h1 class="text-3xl md:text-4xl font-extrabold mb-12 text-white tracking-tight text-center" data-i18n="cv_page_title">My CV.</h1>
-            
-            <!-- Glow Effect behind the card (Matching the hero code block) -->
             <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 rounded-[2rem] blur-3xl mt-20 opacity-80 z-0"></div>
-
-            <!-- PDF Floating Card -->
             <div class="animate-float relative z-10">
-                <div class="glass-card p-10 md:p-14 flex flex-col items-center justify-center border border-white/10 bg-[#1f2022] rounded-[2rem] shadow-2xl relative overflow-hidden">
-                    
-                    <!-- Decorative Dots (Matching hero code block) -->
+                <div class="glass-card p-10 md:p-14 flex flex-col items-center justify-center border border-white/10 bg-[#1f2022] rounded-[2rem] shadow-2xl relative overflow-hidden" data-tilt data-tilt-max="5" data-tilt-glare="true" data-tilt-max-glare="0.2">
                     <div class="absolute top-6 left-6 flex gap-2">
                         <div class="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
                         <div class="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
                     </div>
-
-                    <!-- PDF Icon Image -->
                     <img src="https://pxdrop.online/raw/d8o46a6hv1ts73bau8pg" alt="PDF Icon" class="w-24 h-24 mb-6 opacity-40 object-contain drop-shadow-xl filter invert mt-6">
-                    
-                    <!-- CV Title -->
                     <h3 class="text-3xl font-black mb-10 text-white tracking-[0.2em] uppercase" data-i18n="cv_title_text">CV</h3>
-                    
                     <div class="flex flex-col w-full gap-4">
-                        <!-- Preview Button -->
                         <a href="https://drive.google.com/file/d/1epa_EedIAme1gHwvCdGnDWXdT26ePg7O/view?usp=drivesdk" target="_blank" class="w-full text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-4 px-8 rounded-xl hover:opacity-90 hover:-translate-y-1 transition-all shadow-lg" data-i18n="cv_preview">Preview</a>
-                        
-                        <!-- Download Button -->
                         <a href="https://drive.google.com/file/d/1epa_EedIAme1gHwvCdGnDWXdT26ePg7O/view?usp=drivesdk" download class="w-full text-center bg-white/5 border border-white/10 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/10 hover:-translate-y-1 transition-all" data-i18n="cv_download">Download</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <!-- ================= END CV PAGE ================= -->
@@ -677,33 +670,68 @@
     <!-- Gradient Line Separator -->
     <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-    <!-- Contact Section (Reduced top padding pt-10 to fix huge gap) -->
-    <section id="contact" class="pt-10 pb-16 px-6 relative scroll-mt-24">
-        <div class="max-w-3xl mx-auto relative z-10 text-center">
-            <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-bold tracking-wider uppercase" data-i18n="contact_badge">
-                Contact
-            </div>
-            <h2 class="text-4xl md:text-5xl font-black mb-8 tracking-tight" data-i18n="contact_title">Let's build something great.</h2>
-            
-            <div class="glass-card p-8 md:p-12 text-center md:text-left rtl:md:text-right mt-12 border-t-4 border-t-blue-500">
-                <p class="text-gray-300 text-center mb-8 text-lg" data-i18n="contact_desc">
-                    Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.
-                </p>
-                <div class="flex flex-col gap-4 max-w-lg mx-auto">
-                    <a href="mailto:wepelnenx@gmail.com" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold text-center hover:-translate-y-1 transition-all flex justify-center items-center gap-3 shadow-lg">
-                        <i class="fa-solid fa-envelope"></i> <span data-i18n="btn_email">Email Me</span>
-                    </a>
-                    <a href="https://wa.me/201129268929" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] font-semibold text-center hover:bg-[#25D366]/20 hover:-translate-y-1 transition-all flex justify-center items-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> <span data-i18n="btn_whatsapp">WhatsApp</span>
-                    </a>
+    <!-- Contact Section -->
+    <section id="contact" class="pt-16 pb-24 px-6 relative scroll-mt-24">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-bold tracking-wider uppercase" data-i18n="contact_badge">
+                    Contact
                 </div>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight" data-i18n="contact_title">Let's build something great.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                
+                <!-- Left: Quick Info & Links -->
+                <div class="lg:col-span-2 space-y-6 text-center lg:text-left rtl:lg:text-right">
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8" data-i18n="contact_desc">
+                        Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.
+                    </p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <a href="mailto:wepelnenx@gmail.com" class="w-full py-4 px-6 rounded-xl glass-card text-white font-semibold flex justify-center items-center gap-3 hover:-translate-y-1 hover:border-blue-500/50 transition-all">
+                            <i class="fa-solid fa-envelope text-blue-400 text-xl"></i> 
+                            <span data-i18n="btn_email">Email Me</span>
+                        </a>
+                        <a href="https://wa.me/201129268929" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-xl glass-card text-white font-semibold flex justify-center items-center gap-3 hover:-translate-y-1 hover:border-[#25D366]/50 transition-all">
+                            <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i> 
+                            <span data-i18n="btn_whatsapp">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="lg:col-span-3">
+                    <div class="glass-card p-8 border-t-4 border-t-blue-500" data-tilt data-tilt-max="2" data-tilt-glare="true" data-tilt-max-glare="0.05">
+                        <form action="https://formspree.io/f/mykarnrq" method="POST" class="space-y-5 text-left rtl:text-right">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div class="space-y-2">
+                                    <label class="text-sm font-semibold text-gray-300" data-i18n="form_name">Name</label>
+                                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg text-sm" data-i18n-placeholder="form_placeholder_name" placeholder="John Doe">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-sm font-semibold text-gray-300" data-i18n="form_email">Email</label>
+                                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg text-sm" data-i18n-placeholder="form_placeholder_email" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-gray-300" data-i18n="form_message">Message</label>
+                                <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg text-sm resize-none" data-i18n-placeholder="form_placeholder_msg" placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-lg hover:opacity-90 hover:-translate-y-1 transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 mt-4 cursor-pointer">
+                                <span data-i18n="form_send">Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-white/5 text-center text-sm text-gray-500">
-        <p>&copy; 2026 Mohamed. <span data-i18n="footer_text">WordPress Developer & Founder of ELNENX.</span></p>
+    <footer class="py-8 px-6 border-t border-white/5 text-center text-sm text-gray-500 relative z-10">
+        <p>&copy; 2026 Mohamed. <span data-i18n="footer_text">Front-End Developer & Founder of ELNENX.</span></p>
     </footer>
 
     <!-- iPhone Preview Modal -->
@@ -730,13 +758,16 @@
     </div>
 
     <!-- Scripts -->
+    <!-- Vanilla Tilt JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
     <script>
         // Translations Dictionary Updated
         const translations = {
             en: {
                 nav_home: "Home", nav_about: "About", nav_skills: "Skills", nav_projects: "Projects", nav_cv: "My CV", nav_contact: "Contact", nav_hire: "Hire Me",
-                hero_badge: "WordPress Developer", hero_title_1: "Building robust web experiences with", hero_title_2: "WordPress & WooCommerce.",
-                hero_desc: "I'm Mohamed — a WordPress Developer specializing in custom WooCommerce solutions and performance. I turn Figma designs into fast, secure, and user-friendly websites.",
+                hero_badge: "Front-End Developer", hero_title_1: "Simplifying technology. Creating innovation.",
+                hero_desc: "I'm Mohamed — a developer specializing in custom Front-End interfaces and WordPress solutions. I turn Figma designs into fast, secure, and user-friendly web experiences.",
                 btn_projects: "View Projects", btn_view_cv: "View CV",
                 stat_1_num: "200+", stat_1_text: "UX Design", 
                 stat_2_num: "15+", stat_2_text: "Projects", 
@@ -744,16 +775,19 @@
                 
                 cv_page_title: "My CV.", cv_title_text: "CV", cv_preview: "Preview", cv_download: "Download",
 
-                about_badge: "About & Experience", about_title: "A developer focused on clean, scalable solutions.", about_desc: "I am a specialized WordPress Developer with a strong foundation in custom development, technical SEO, and performance optimization. I don't just use templates; I build tailored solutions based on exact project needs. With a deep understanding of UI/UX principles via Figma, I ensure every interface is modern and user-friendly.",
+                about_badge: "About & Experience", about_title: "A developer focused on clean, scalable solutions.", about_desc: "I am a specialized Front-End & WordPress Developer with a strong foundation in custom development, technical SEO, and performance optimization. I don't just use templates; I build tailored solutions based on exact project needs. With a deep understanding of UI/UX principles via Figma, I ensure every interface is modern and user-friendly.",
                 exp_1_title: "Founder / Owner", exp_1_desc: "Managing digital projects, developing the eCommerce platform, optimizing the WooCommerce shopping experience, and improving online sales through conversion rate optimization.",
-                exp_2_title: "WordPress Developer", exp_2_desc: "Built professional websites, integrated APIs, and developed custom solutions. Focused on Core Web Vitals, site speed, and troubleshooting complex WordPress issues.",
+                exp_2_title: "Front-End / WP Developer", exp_2_desc: "Built professional websites, integrated APIs, and developed custom solutions. Focused on Core Web Vitals, site speed, and troubleshooting complex WordPress issues.",
+                
                 skills_badge: "Skills & Arsenal", skills_title: "Tools I use.",
                 skill_cat_1: "Core Tech", skill_cat_2: "WP Development", skill_cat_3: "Optimization", skill_cat_4: "Design",
                 skill_1: "Custom Plugins", skill_2: "Theme Dev", skill_3: "Technical SEO", skill_4: "Web Vitals", skill_5: "Speed Tuning", skill_6: "Security", skill_7: "UI/UX", skill_8: "Responsive", skill_9: "Conversion Opt.",
+                
                 cap_title: "What I Can Do For Your Business",
                 cap_1_title: "Performance & Speed", cap_1_desc: "Improve website loading speed and ensure compliance with Google Core Web Vitals for better ranking.",
                 cap_2_title: "eCommerce Mastery", cap_2_desc: "Build and optimize WooCommerce shopping experiences to increase conversion rates and sales.",
                 cap_3_title: "Modern Interfaces", cap_3_desc: "Translate Figma designs into pixel-perfect, responsive, and intuitive user interfaces.",
+                
                 proj_badge: "Projects Portfolio", proj_title: "Selected work.", btn_preview: "View Site",
                 tag_skankx: "Modern web application focusing on high performance and clean UI/UX.",
                 tag_ecommerce: "Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.", 
@@ -766,13 +800,19 @@
                 tag_trading: "Trading & Investment Platform. Secured data handling and built custom dashboards for users.",
                 btn_show_more: "Show More Projects", btn_show_less: "Show Less",
                 btn_open_tab: "Open Web", msg_iframe_sec: "If the site doesn't load due to security policies, click 'Open Web' above.",
+                
                 contact_badge: "Contact", contact_title: "Let's build something great.", contact_desc: "Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.",
-                btn_email: "Email Me", btn_whatsapp: "WhatsApp", footer_text: "WordPress Developer & Founder of ELNENX."
+                btn_email: "Email Me", btn_whatsapp: "WhatsApp", 
+                
+                form_name: "Name", form_email: "Email", form_message: "Message", form_send: "Send Message",
+                form_placeholder_name: "John Doe", form_placeholder_email: "john@example.com", form_placeholder_msg: "Tell me about your project...",
+
+                footer_text: "Front-End Developer & Founder of ELNENX."
             },
             ar: {
                 nav_home: "الرئيسية", nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_cv: "سيرتي الذاتية", nav_contact: "تواصل معي", nav_hire: "وظفني",
-                hero_badge: "مطور ووردبريس", hero_title_1: "بناء تجارب ويب قوية باستخدام", hero_title_2: "ووردبريس وووكومرس.",
-                hero_desc: "أنا محمد — مطور ووردبريس متخصص في المتاجر الإلكترونية (WooCommerce) وتحسين الأداء. أحول تصميمات Figma إلى مواقع سريعة، آمنة، وسهلة الاستخدام.",
+                hero_badge: "مطور واجهات أمامية (Front-End)", hero_title_1: "نُبسط التقنية. ونصنع الإبداع.", 
+                hero_desc: "أنا محمد — مطور متخصص في الواجهات الأمامية (Front-End) وحلول الووردبريس. أحول تصميمات Figma إلى مواقع سريعة، آمنة، وسهلة الاستخدام.",
                 btn_projects: "شاهد أعمالي", btn_view_cv: "عرض السيرة الذاتية",
                 stat_1_num: "+200", stat_1_text: "تصميم واجهات (UX)", 
                 stat_2_num: "+15", stat_2_text: "مشروع", 
@@ -780,16 +820,19 @@
                 
                 cv_page_title: "السيرة الذاتية.", cv_title_text: "CV", cv_preview: "معاينة", cv_download: "تنزيل",
 
-                about_badge: "الخبرة والنبذة", about_title: "مطور يركز على الحلول النظيفة والقابلة للتوسع.", about_desc: "أنا مطور ووردبريس متخصص مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة. من خلال فهمي العميق لمبادئ UI/UX باستخدام Figma، أضمن أن كل واجهة مستخدم حديثة وسهلة الاستخدام.",
+                about_badge: "الخبرة والنبذة", about_title: "مطور يركز على الحلول النظيفة والقابلة للتوسع.", about_desc: "أنا مطور واجهات أمامية وووردبريس مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة. من خلال فهمي العميق لمبادئ UI/UX باستخدام Figma، أضمن أن كل واجهة مستخدم حديثة وسهلة الاستخدام.",
                 exp_1_title: "مؤسس / مالك", exp_1_desc: "إدارة المشاريع الرقمية، تطوير منصة التجارة الإلكترونية، تحسين تجربة التسوق على ووكومرس، وزيادة المبيعات عبر الإنترنت من خلال تحسين معدل التحويل (CRO).",
-                exp_2_title: "مطور ووردبريس", exp_2_desc: "بناء مواقع احترافية، دمج واجهات برمجة التطبيقات (APIs)، وتطوير حلول مخصصة. التركيز على سرعة الموقع، Core Web Vitals، وحل مشاكل الووردبريس المعقدة.",
+                exp_2_title: "مطور واجهات وووردبريس", exp_2_desc: "بناء مواقع احترافية، دمج واجهات برمجة التطبيقات (APIs)، وتطوير حلول مخصصة. التركيز على سرعة الموقع، Core Web Vitals، وحل مشاكل الووردبريس المعقدة.",
+                
                 skills_badge: "المهارات والأدوات", skills_title: "الأدوات التي أستخدمها.",
                 skill_cat_1: "التقنيات الأساسية", skill_cat_2: "تطوير ووردبريس", skill_cat_3: "تحسين الأداء", skill_cat_4: "التصميم والاستراتيجية",
                 skill_1: "برمجة إضافات", skill_2: "تطوير قوالب", skill_3: "سيو تقني", skill_4: "مؤشرات الويب", skill_5: "تسريع المواقع", skill_6: "حماية المواقع", skill_7: "واجهة وتجربة المستخدم", skill_8: "تصميم متجاوب", skill_9: "تحسين التحويلات",
+                
                 cap_title: "ما يمكنني تقديمه لعملك",
                 cap_1_title: "الأداء والسرعة", cap_1_desc: "تحسين سرعة تحميل الموقع وضمان التوافق مع مؤشرات الويب الأساسية من جوجل لتحسين ترتيبك في البحث.",
                 cap_2_title: "احتراف التجارة الإلكترونية", cap_2_desc: "بناء وتحسين تجارب التسوق على ووكومرس لزيادة معدلات التحويل والمبيعات بشكل ملحوظ.",
                 cap_3_title: "واجهات مستخدم حديثة", cap_3_desc: "تحويل تصميمات Figma إلى واجهات مستخدم دقيقة، متجاوبة، وسهلة الاستخدام على جميع الشاشات.",
+                
                 proj_badge: "معرض الأعمال", proj_title: "أبرز مشاريعي.", btn_preview: "عرض الموقع",
                 tag_skankx: "تطبيق ويب حديث يركز على الأداء العالي وتجربة مستخدم سلسة ونظيفة.",
                 tag_ecommerce: "منصة تجارة إلكترونية وشركات. التركيز على تجربة مستخدم سلسة وسرعة تحميل فائقة.", 
@@ -802,8 +845,14 @@
                 tag_trading: "منصة تداول واستثمار. تأمين قواعد البيانات وبناء لوحات تحكم مخصصة للمستخدمين.",
                 btn_show_more: "باقي المشاريع", btn_show_less: "إخفاء المشاريع",
                 btn_open_tab: "فتح الموقع", msg_iframe_sec: "بسبب سياسات الأمان الخاصة ببعض المواقع، قد لا يظهر الموقع هنا. اضغط (فتح الموقع) بالأعلى.",
+                
                 contact_badge: "تواصل معي", contact_title: "لنقم ببناء شيء عظيم.", contact_desc: "متاح لفرص العمل الحر، وعقود العمل. تواصل معي ودعنا نناقش مشروعك القادم.",
-                btn_email: "راسلني عبر الإيميل", btn_whatsapp: "واتساب", footer_text: "مطور ووردبريس ومؤسس ELNENX."
+                btn_email: "راسلني عبر الإيميل", btn_whatsapp: "واتساب", 
+                
+                form_name: "الاسم", form_email: "البريد الإلكتروني", form_message: "الرسالة", form_send: "إرسال الرسالة",
+                form_placeholder_name: "اكتب اسمك هنا...", form_placeholder_email: "name@example.com", form_placeholder_msg: "حدثني عن مشروعك القادم...",
+
+                footer_text: "مطور واجهات أمامية ومؤسس ELNENX."
             }
         };
 
@@ -822,6 +871,50 @@
         const modalExtLink = document.getElementById('modal-ext-link');
         const iframeLoading = document.getElementById('iframe-loading');
         
+        // --- TYPEWRITER SYSTEM ---
+        const typeWriterElement = document.getElementById('typewriter-text');
+        let typeInterval;
+        let isDeleting = false;
+        let currentStringIndex = 0;
+        let currentCharIndex = 0;
+        const typingDelay = 80;
+        const erasingDelay = 40;
+        const newTextDelay = 2000;
+
+        const typeWriterStrings = {
+            en: ["Front-End Developer", "WordPress Developer", "UI/UX Designer"],
+            ar: ["مطور واجهات أمامية", "مطور ووردبريس", "مصمم واجهات المستخدم"]
+        };
+
+        function type() {
+            const currentStrings = typeWriterStrings[currentLang];
+            const currentString = currentStrings[currentStringIndex];
+
+            if (isDeleting) {
+                typeWriterElement.textContent = currentString.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typeWriterElement.textContent = currentString.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+
+            let typeSpeed = isDeleting ? erasingDelay : typingDelay;
+
+            if (!isDeleting && currentCharIndex === currentString.length) {
+                typeSpeed = newTextDelay;
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentStringIndex++;
+                if (currentStringIndex === currentStrings.length) {
+                    currentStringIndex = 0;
+                }
+                typeSpeed = 500;
+            }
+
+            typeInterval = setTimeout(type, typeSpeed);
+        }
+
         // --- ROUTING SYSTEM ---
         function handleRouting() {
             const hash = window.location.hash;
@@ -862,12 +955,27 @@
             
             langToggleBtns.forEach(btn => btn.innerText = lang === 'ar' ? 'English' : 'عربي');
             
+            // Translate normal texts
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang][key]) element.innerHTML = translations[lang][key];
             });
 
+            // Translate placeholders for form
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) element.setAttribute('placeholder', translations[lang][key]);
+            });
+
             updateShowMoreText();
+
+            // Reset Typewriter on Language Change
+            clearTimeout(typeInterval);
+            isDeleting = false;
+            currentStringIndex = 0;
+            currentCharIndex = 0;
+            typeWriterElement.textContent = '';
+            typeInterval = setTimeout(type, 500);
         }
 
         // Event Listeners
@@ -919,8 +1027,19 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
+        // Form Submit Handler (To clear form after Formspree redirect - optional handling)
+        const contactForm = document.querySelector('form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                // Formspree handles the submission normally, this just adds a tiny delay UI state if needed
+                const btn = contactForm.querySelector('button[type="submit"]');
+                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+            });
+        }
+
         // Initialize
-        setLanguage('en');
+        setLanguage('ar'); // Defaulted to Arabic as per request
         handleRouting();
 
         // Scroll Animations
