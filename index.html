@@ -5,37 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELNENX | مطور واجهات أمامية وووردبريس</title>
     
-    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'Cairo', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        dark: {
-                            100: '#1A1C23',
-                            200: '#13151A',
-                            300: '#0B0C10',
-                        }
-                    }
+                    fontFamily: { sans: ['Inter', 'Cairo', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: { dark: { 100: '#1A1C23', 200: '#13151A', 300: '#0B0C10' } }
                 }
             }
         }
@@ -45,12 +30,10 @@
 
     <div id="scroll-progress"></div>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 bg-blue-500 hover:bg-blue-600 text-white w-12 h-12 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.5)] flex items-center justify-center text-xl transition-all duration-300 opacity-0 pointer-events-none z-50 cursor-pointer translate-y-5" aria-label="العودة للأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Floating Navbar -->
     <nav class="fixed top-4 left-4 right-4 md:left-1/2 md:transform md:-translate-x-1/2 md:w-[95%] md:max-w-6xl z-40">
         <div class="glass-card !rounded-full px-6 py-3 flex justify-between items-center">
             <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter" dir="ltr" aria-label="Logo">ELNENX<span class="text-blue-500">.</span></a>
@@ -60,9 +43,7 @@
                 <a href="#skills" class="hover:text-white transition-colors" data-i18n="nav_skills">المهارات</a>
                 <a href="#projects" class="hover:text-white transition-colors" data-i18n="nav_projects">المشاريع</a>
                 <a href="#cv" class="hover:text-white transition-colors text-purple-400 font-bold" data-i18n="nav_cv">سيرتي الذاتية</a>
-                
                 <div class="w-px h-5 bg-white/20 mx-2"></div>
-                
                 <button id="lang-toggle" class="hover:text-white transition-colors font-bold text-blue-400" aria-label="Change Language">English</button>
                 <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20" data-i18n="nav_hire">وظفني</a>
             </div>
@@ -75,7 +56,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 mt-2 glass-card flex flex-col p-6 space-y-4 text-center shadow-2xl">
             <a href="#home" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_home">الرئيسية</a>
             <a href="#about" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_about">نبذة عني</a>
@@ -86,17 +66,12 @@
         </div>
     </nav>
 
-    <!-- ================= MAIN HOME PAGE ================= -->
     <div id="home-page" class="page-section">
-        <!-- Hero Section -->
         <section class="pt-32 pb-16 px-6 md:pt-40 md:pb-20 overflow-hidden">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-1 space-y-6 md:space-y-8 relative z-10">
-                    <div class="inline-block px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-bold tracking-wider shadow-[0_0_15px_rgba(144,19,254,0.2)]" data-i18n="hero_badge">
-                        مطور واجهات أمامية
-                    </div>
+                    <div class="inline-block px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-bold tracking-wider shadow-[0_0_15px_rgba(144,19,254,0.2)]" data-i18n="hero_badge">مطور واجهات أمامية</div>
                     
-                    <!-- تم التثبيت بـ Height ثابت لمنع قفز الموقع -->
                     <div class="h-[140px] md:h-[180px] flex flex-col justify-start pt-2">
                         <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
                             <span data-i18n="hero_title_1">نُبسط التقنية. ونصنع الإبداع.</span> <br class="hidden md:block">
@@ -109,15 +84,12 @@
                     </p>
                     
                     <div class="flex flex-wrap items-center gap-4 pt-4">
-                        <a href="#projects" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#4facfe] to-[#00f2fe] text-black font-semibold hover:-translate-y-1 transition-transform shadow-[0_0_20px_rgba(79,172,254,0.3)]" data-i18n="btn_projects">
-                            شاهد أعمالي
-                        </a>
+                        <a href="#projects" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#4facfe] to-[#00f2fe] text-black font-semibold hover:-translate-y-1 transition-transform shadow-[0_0_20px_rgba(79,172,254,0.3)]" data-i18n="btn_projects">شاهد أعمالي</a>
                         <a href="#cv" class="px-8 py-3.5 rounded-full bg-dark-100 border border-white/10 text-white font-medium hover:bg-white/5 hover:-translate-y-1 transition-transform flex items-center gap-2">
                             <i class="fa-regular fa-file-pdf"></i> <span data-i18n="btn_view_cv">عرض السيرة الذاتية</span>
                         </a>
                     </div>
 
-                    <!-- Stats Row -->
                     <div class="flex flex-wrap justify-start items-center gap-8 md:gap-12 pt-8 border-t border-white/10">
                         <div class="flex flex-col items-center text-center">
                             <div class="text-2xl md:text-3xl font-bold" dir="ltr" data-i18n="stat_1_num">+200</div>
@@ -162,37 +134,25 @@
 
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <!-- About Section -->
         <section id="about" class="py-16 px-6 scroll-mt-24">
             <div class="max-w-4xl mx-auto relative z-10 reveal">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider" data-i18n="about_badge">
-                    الخبرة والنبذة
-                </div>
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider" data-i18n="about_badge">الخبرة والنبذة</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-8" data-i18n="about_title">مطور يركز على الحلول النظيفة والقابلة للتوسع.</h2>
-                
-                <p class="text-gray-300 text-lg leading-relaxed mb-12" data-i18n="about_desc">
-                    أنا مطور واجهات أمامية وووردبريس مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة.
-                </p>
-
+                <p class="text-gray-300 text-lg leading-relaxed mb-12" data-i18n="about_desc">أنا مطور واجهات أمامية وووردبريس مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة.</p>
                 <div class="space-y-6">
                     <div class="glass-card p-6 border-r-4 border-r-purple-500 rtl:border-r-purple-500 ltr:border-l-4 ltr:border-l-purple-500 transition-transform hover:-translate-y-1 hover:shadow-lg">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                             <h3 class="text-xl font-bold" data-i18n="exp_1_title">مؤسس / مالك</h3>
                             <span class="text-sm text-purple-400 font-mono mt-1 md:mt-0" dir="ltr">ELNENX Brand</span>
                         </div>
-                        <p class="text-gray-400 text-sm mt-2" data-i18n="exp_1_desc">
-                            إدارة المشاريع الرقمية، تطوير منصة التجارة الإلكترونية، تحسين تجربة التسوق على ووكومرس، وزيادة المبيعات عبر الإنترنت من خلال تحسين معدل التحويل (CRO).
-                        </p>
+                        <p class="text-gray-400 text-sm mt-2" data-i18n="exp_1_desc">إدارة المشاريع الرقمية، تطوير منصة التجارة الإلكترونية، تحسين تجربة التسوق على ووكومرس، وزيادة المبيعات عبر الإنترنت من خلال تحسين معدل التحويل (CRO).</p>
                     </div>
-
                     <div class="glass-card p-6 border-r-4 border-r-blue-500 rtl:border-r-blue-500 ltr:border-l-4 ltr:border-l-blue-500 transition-transform hover:-translate-y-1 hover:shadow-lg">
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
                             <h3 class="text-xl font-bold" data-i18n="exp_2_title">مطور واجهات وووردبريس</h3>
                             <span class="text-sm text-blue-400 font-mono mt-1 md:mt-0" dir="ltr">Code &lt;/&gt; Agency</span>
                         </div>
-                        <p class="text-gray-400 text-sm mt-2" data-i18n="exp_2_desc">
-                            بناء مواقع احترافية، دمج واجهات برمجة التطبيقات (APIs)، وتطوير حلول مخصصة. التركيز على سرعة الموقع، Core Web Vitals، وحل مشاكل الووردبريس المعقدة.
-                        </p>
+                        <p class="text-gray-400 text-sm mt-2" data-i18n="exp_2_desc">بناء مواقع احترافية، دمج واجهات برمجة التطبيقات (APIs)، وتطوير حلول مخصصة. التركيز على سرعة الموقع، Core Web Vitals، وحل مشاكل الووردبريس المعقدة.</p>
                     </div>
                 </div>
             </div>
@@ -200,59 +160,30 @@
 
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <!-- Skills Section -->
         <section id="skills" class="py-16 px-6 scroll-mt-24">
             <div class="max-w-6xl mx-auto relative z-10 reveal">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wider" data-i18n="skills_badge">
-                    المهارات والأدوات
-                </div>
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wider" data-i18n="skills_badge">المهارات والأدوات</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="skills_title">الأدوات التي أستخدمها.</h2>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-white/20">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_1">التقنيات الأساسية</h3>
                         <div class="h-px w-full bg-gradient-to-l from-gray-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2" dir="ltr">
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">HTML5/CSS3</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">JavaScript</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">React / Vue</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">Tailwind CSS</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm">PHP</span>
-                        </div>
+                        <div class="flex flex-wrap gap-2" dir="ltr"><span class="pill px-3 py-1.5 rounded-md text-sm">HTML5/CSS3</span><span class="pill px-3 py-1.5 rounded-md text-sm">JavaScript</span><span class="pill px-3 py-1.5 rounded-md text-sm">React / Vue</span><span class="pill px-3 py-1.5 rounded-md text-sm">Tailwind CSS</span><span class="pill px-3 py-1.5 rounded-md text-sm">PHP</span></div>
                     </div>
-
                     <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-blue-500/30">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_2">تطوير ووردبريس</h3>
                         <div class="h-px w-full bg-gradient-to-l from-blue-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WordPress</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WooCommerce</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_1">برمجة إضافات</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_2">تطوير قوالب</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">API Integration</span>
-                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WordPress</span><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WooCommerce</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_1">برمجة إضافات</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_2">تطوير قوالب</span><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">API Integration</span></div>
                     </div>
-
                     <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-cyan-500/30">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_3">تحسين الأداء</h3>
                         <div class="h-px w-full bg-gradient-to-l from-cyan-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_3">سيو تقني</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_4">مؤشرات الويب</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_5">تسريع المواقع</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_6">حماية المواقع</span>
-                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_3">سيو تقني</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_4">مؤشرات الويب</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_5">تسريع المواقع</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_6">حماية المواقع</span></div>
                     </div>
-
                     <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-purple-500/30">
                         <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_4">التصميم والاستراتيجية</h3>
                         <div class="h-px w-full bg-gradient-to-l from-purple-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">Figma</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_7">تجربة المستخدم</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_8">تصميم متجاوب</span>
-                            <span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_9">تحسين التحويلات</span>
-                        </div>
+                        <div class="flex flex-wrap gap-2"><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">Figma</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_7">تجربة المستخدم</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_8">تصميم متجاوب</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_9">تحسين التحويلات</span></div>
                     </div>
                 </div>
             </div>
@@ -260,29 +191,22 @@
 
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <!-- Capabilities Section -->
         <section class="py-16 px-6 relative">
             <div class="max-w-6xl mx-auto text-center relative z-10 reveal">
                 <h2 class="text-2xl md:text-4xl font-bold mb-12" data-i18n="cap_title">ما يمكنني تقديمه لعملك</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="glass-card p-8 transition-transform hover:-translate-y-2 hover:border-blue-500/20">
-                        <div class="w-14 h-14 mx-auto bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(74,144,226,0.3)]">
-                            <i class="fa-solid fa-bolt"></i>
-                        </div>
+                        <div class="w-14 h-14 mx-auto bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(74,144,226,0.3)]"><i class="fa-solid fa-bolt"></i></div>
                         <h3 class="font-bold text-xl mb-3" data-i18n="cap_1_title">الأداء والسرعة</h3>
                         <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_1_desc">تحسين سرعة تحميل الموقع وضمان التوافق مع مؤشرات الويب الأساسية من جوجل لتحسين ترتيبك في البحث.</p>
                     </div>
                     <div class="glass-card p-8 transition-transform hover:-translate-y-2 hover:border-purple-500/20">
-                        <div class="w-14 h-14 mx-auto bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(144,19,254,0.3)]">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
+                        <div class="w-14 h-14 mx-auto bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(144,19,254,0.3)]"><i class="fa-solid fa-cart-shopping"></i></div>
                         <h3 class="font-bold text-xl mb-3" data-i18n="cap_2_title">احتراف التجارة الإلكترونية</h3>
                         <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_2_desc">بناء وتحسين تجارب التسوق على ووكومرس لزيادة معدلات التحويل والمبيعات بشكل ملحوظ.</p>
                     </div>
                     <div class="glass-card p-8 transition-transform hover:-translate-y-2 hover:border-cyan-500/20">
-                        <div class="w-14 h-14 mx-auto bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(80,227,194,0.3)]">
-                            <i class="fa-solid fa-pen-nib"></i>
-                        </div>
+                        <div class="w-14 h-14 mx-auto bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(80,227,194,0.3)]"><i class="fa-solid fa-pen-nib"></i></div>
                         <h3 class="font-bold text-xl mb-3" data-i18n="cap_3_title">واجهات مستخدم حديثة</h3>
                         <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_3_desc">تحويل تصميمات Figma إلى واجهات مستخدم دقيقة، متجاوبة، وسهلة الاستخدام على جميع الشاشات.</p>
                     </div>
@@ -292,216 +216,14 @@
 
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <!-- Projects Section -->
+        <!-- المشاريع الديناميكية -->
         <section id="projects" class="pt-16 pb-8 px-6 relative z-10 scroll-mt-24">
             <div class="max-w-6xl mx-auto">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider reveal" data-i18n="proj_badge">
-                    معرض الأعمال
-                </div>
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider reveal" data-i18n="proj_badge">معرض الأعمال</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal" data-i18n="proj_title">أبرز مشاريعي.</h2>
 
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-rose-500/50 reveal hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-rose-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-rose-400 transition-colors" dir="ltr">Saknk-X</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-rose-500/10 transition-colors">01</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_skankx">تطبيق ويب حديث يركز على الأداء العالي وتجربة مستخدم سلسة ونظيفة.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">HTML5/CSS3</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">JavaScript</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">UI/UX</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-code mx-1"></i> Web App</span>
-                            <button onclick="openIframeModal('https://skank-x.github.io/-/', 'Saknk-X')" class="text-sm font-semibold text-white group-hover:text-rose-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview Saknk-X">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-blue-500/50 reveal hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-blue-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-blue-400 transition-colors" dir="ltr">Hectar Modern</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-blue-500/10 transition-colors">02</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce">منصة تجارة إلكترونية وشركات. التركيز على تجربة مستخدم سلسة وسرعة تحميل فائقة.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Elementor Pro</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-laptop-code mx-1"></i> Web App</span>
-                            <button onclick="openIframeModal('https://www.hectarmodern.com/ar', 'Hectar Modern')" class="text-sm font-semibold text-white group-hover:text-blue-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview Hectar Modern">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-purple-500/50 reveal hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-purple-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-purple-400 transition-colors" dir="ltr">Adfaz</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-purple-500/10 transition-colors">03</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_corporate">موقع شركة ووكالة. تحويل تصميمات واجهة المستخدم (UI/UX) بدقة لقالب ووردبريس قوي ومخصص.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Custom UI</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Technical SEO</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-building mx-1"></i> Corporate</span>
-                            <button onclick="openIframeModal('https://adfaz.sa/', 'Adfaz')" class="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview Adfaz">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 hover:border-orange-500/50 reveal hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-orange-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-orange-400 transition-colors" dir="ltr">El Dahan</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-orange-500/10 transition-colors">04</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_restaurant">موقع سلسلة مطاعم. تطوير منيو تفاعلي سريع وعرض ذكي لفروع المطعم.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Performance Tuned</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Figma to WP</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-utensils mx-1"></i> Food & Bev</span>
-                            <button onclick="openIframeModal('https://www.eldahan.com/', 'El Dahan')" class="text-sm font-semibold text-white group-hover:text-orange-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview El Dahan">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Note: Removed 'hidden' and 'opacity-0' so they show instantly or reveal correctly -->
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-cyan-500/50 hidden translate-y-8 hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-cyan-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-cyan-400 transition-colors" dir="ltr">WDE NYCourier</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-cyan-500/10 transition-colors">05</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_logistics">منصة شحن ولوجستيات. ربط أنظمة تتبع معقدة وحساب تلقائي لأسعار الشحن.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">API Integration</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Tracking App</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-truck-fast mx-1"></i> Logistics</span>
-                            <button onclick="openIframeModal('https://wdenycourier.com', 'WDE NYCourier')" class="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview WDE NYCourier">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-green-500/50 hidden translate-y-8 hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-green-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-green-400 transition-colors" dir="ltr">Hustler Brand</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-green-500/10 transition-colors">06</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify">متجر شوبيفاي. تحسين معدلات التحويل باستخدام أكواد Liquid مخصصة وبناء مسارات بيع ذكية.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Liquid Code</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">CRO Strategy</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-brands fa-shopify mx-1"></i> eCommerce</span>
-                            <button onclick="openIframeModal('https://hustlerbrand-egy.myshopify.com', 'Hustler Brand')" class="text-sm font-semibold text-white group-hover:text-green-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview Hustler Brand">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-pink-500/50 hidden translate-y-8 hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-pink-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-pink-400 transition-colors" dir="ltr">Sutra Stores</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-pink-500/10 transition-colors">07</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_ecommerce_2">منصة تجارة إلكترونية. بناء متجر موثوق وقابل للتطوير باستخدام إمكانيات ووكومرس المتقدمة.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WooCommerce</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Payment Gateway</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Security</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-store mx-1"></i> Retail</span>
-                            <button onclick="openIframeModal('https://sutrastores.com/', 'Sutra Stores')" class="text-sm font-semibold text-white group-hover:text-pink-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview Sutra Stores">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-teal-500/50 hidden translate-y-8 hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-teal-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-teal-400 transition-colors" dir="ltr">ZEX EG</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-teal-500/10 transition-colors">08</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_shopify_2">متجر شوبيفاي. إنشاء تكاملات مخصصة وتحسين تجربة التسوق لتحقيق أقصى قدر من التحويلات.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Shopify</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Custom Apps</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Conversion Focus</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-brands fa-shopify mx-1"></i> eCommerce</span>
-                            <button onclick="openIframeModal('https://zex-eg.myshopify.com/', 'ZEX EG')" class="text-sm font-semibold text-white group-hover:text-teal-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview ZEX EG">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item project-hidden border border-white/10 hover:border-yellow-500/50 hidden translate-y-8 hover:-translate-y-2">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/5 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 group-hover:bg-yellow-500/10"></div>
-                        <div class="flex-grow z-10 relative">
-                            <div class="flex justify-between items-center mb-6">
-                                <h3 class="text-2xl font-bold group-hover:text-yellow-400 transition-colors" dir="ltr">TFT VIP Trade</h3>
-                                <div class="text-5xl font-black text-white/5 font-mono group-hover:text-yellow-500/10 transition-colors">09</div>
-                            </div>
-                            <p class="text-gray-400 mb-8 leading-relaxed" data-i18n="tag_trading">منصة تداول واستثمار. تأمين قواعد البيانات وبناء لوحات تحكم مخصصة للمستخدمين.</p>
-                            <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">WordPress</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">Data APIs</span>
-                                <span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">High Security</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
-                            <span class="text-xs text-gray-500 font-mono"><i class="fa-solid fa-chart-line mx-1"></i> Finance</span>
-                            <button onclick="openIframeModal('https://tftviptrade.com/', 'TFT VIP Trade')" class="text-sm font-semibold text-white group-hover:text-yellow-400 transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview TFT VIP Trade">
-                                <span data-i18n="btn_preview">عرض الموقع</span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+                <!-- الحاوية التي سيتم رسم المشاريع بداخلها بواسطة الجافاسكريبت -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
 
                 <div class="mt-8 mb-4 text-center">
                     <button id="toggle-more-projects" class="px-8 py-3.5 rounded-full border border-white/20 hover:bg-white hover:text-black transition-colors font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg" aria-label="Toggle Projects">
@@ -514,6 +236,7 @@
 
     <!-- CV PAGE -->
     <div id="cv-page" class="page-section hidden-page pt-32 pb-20 px-6 min-h-screen flex items-center justify-center">
+        <!-- ... نفس كود الـ CV ... -->
         <div class="max-w-md w-full mx-auto relative">
             <h1 class="text-3xl md:text-4xl font-extrabold mb-12 text-white tracking-tight text-center" data-i18n="cv_page_title">السيرة الذاتية.</h1>
             <div class="animate-float relative z-10">
@@ -533,28 +256,22 @@
 
     <!-- Contact Section -->
     <section id="contact" class="pt-16 pb-24 px-6 relative scroll-mt-24">
+        <!-- ... نفس كود نموذج الاتصال بالكامل بدون أي تغيير ... -->
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-12 reveal">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-bold tracking-wider" data-i18n="contact_badge">
-                    تواصل معي
-                </div>
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-bold tracking-wider" data-i18n="contact_badge">تواصل معي</div>
                 <h2 class="text-4xl md:text-5xl font-black tracking-tight" data-i18n="contact_title">لنقم ببناء شيء عظيم.</h2>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start reveal">
-                
                 <div class="lg:col-span-2 space-y-6 text-center lg:text-right ltr:lg:text-left">
-                    <p class="text-gray-400 text-lg leading-relaxed mb-8" data-i18n="contact_desc">
-                        متاح لفرص العمل الحر، وعقود العمل. تواصل معي ودعنا نناقش مشروعك القادم.
-                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8" data-i18n="contact_desc">متاح لفرص العمل الحر، وعقود العمل. تواصل معي ودعنا نناقش مشروعك القادم.</p>
                     <div class="flex flex-col gap-4">
                         <a href="mailto:wepelnenx@gmail.com" class="w-full py-4 px-6 rounded-xl glass-card text-white font-semibold flex justify-center items-center gap-3 hover:-translate-y-1 hover:border-blue-500/50 transition-all">
-                            <i class="fa-solid fa-envelope text-blue-400 text-xl"></i> 
-                            <span data-i18n="btn_email">راسلني عبر الإيميل</span>
+                            <i class="fa-solid fa-envelope text-blue-400 text-xl"></i> <span data-i18n="btn_email">راسلني عبر الإيميل</span>
                         </a>
                         <a href="https://wa.me/201129268929" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-xl glass-card text-white font-semibold flex justify-center items-center gap-3 hover:-translate-y-1 hover:border-[#25D366]/50 transition-all">
-                            <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i> 
-                            <span data-i18n="btn_whatsapp">واتساب</span>
+                            <i class="fa-brands fa-whatsapp text-[#25D366] text-xl"></i> <span data-i18n="btn_whatsapp">واتساب</span>
                         </a>
                     </div>
                 </div>
@@ -605,35 +322,28 @@
                                     <span class="text-red-500 text-xs hidden error-msg"></span>
                                 </div>
                             </div>
-
                             <div class="space-y-2">
                                 <label class="text-sm font-semibold text-gray-300" data-i18n="form_message">تفاصيل المشروع</label>
                                 <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg text-sm resize-none transition-colors border border-white/10" data-i18n-placeholder="form_placeholder_msg" placeholder="حدثني عن مشروعك القادم بالتفصيل..."></textarea>
                                 <span class="text-red-500 text-xs hidden error-msg"></span>
                             </div>
-                            
                             <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-lg hover:opacity-90 hover:-translate-y-1 transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 mt-4 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0">
-                                <span id="btn-text" data-i18n="form_send">إرسال الطلب</span> 
-                                <i id="btn-icon" class="fa-solid fa-paper-plane ltr:fa-paper-plane"></i>
+                                <span id="btn-text" data-i18n="form_send">إرسال الطلب</span> <i id="btn-icon" class="fa-solid fa-paper-plane ltr:fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Success Modal -->
+    <!-- النوافذ المنبثقة -->
     <div id="success-modal" class="hidden fixed inset-0 z-[200] bg-black/80 backdrop-blur-md flex flex-col items-center justify-center p-4 transition-opacity duration-300 opacity-0" aria-modal="true" role="dialog">
         <div class="glass-card w-full max-w-md p-8 text-center relative border-t-4 border-t-green-500 shadow-[0_0_50px_rgba(34,197,94,0.15)] transform scale-95 transition-transform duration-300" id="success-modal-content">
-            <div class="w-16 h-16 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 shadow-[0_0_15px_rgba(34,197,94,0.3)]">
-                <i class="fa-solid fa-check"></i>
-            </div>
+            <div class="w-16 h-16 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 shadow-[0_0_15px_rgba(34,197,94,0.3)]"><i class="fa-solid fa-check"></i></div>
             <h3 class="text-2xl font-bold mb-4 text-white" data-i18n="modal_success_title">🎉 تم إرسال طلب المشروع بنجاح</h3>
             <p class="text-gray-300 mb-8 leading-relaxed text-sm md:text-base">
-                <span data-i18n="modal_success_p1">شكراً لتواصلك! تم استلام طلب مشروعك بنجاح. سأقوم بمراجعة تفاصيل المشروع والتواصل معك في أقرب وقت ممكن.</span>
-                <br><br>
+                <span data-i18n="modal_success_p1">شكراً لتواصلك! تم استلام طلب مشروعك بنجاح. سأقوم بمراجعة تفاصيل المشروع والتواصل معك في أقرب وقت ممكن.</span><br><br>
                 <strong class="text-white" data-i18n="modal_success_p2">وقت الرد المتوقع: خلال 24 ساعة.</strong>
             </p>
             <div class="flex flex-col gap-3">
@@ -643,7 +353,6 @@
         </div>
     </div>
 
-    <!-- Iframe Preview Modal -->
     <div id="device-modal" class="hidden fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 transition-opacity duration-300 opacity-0" aria-modal="true" role="dialog">
         <button onclick="closeIframeModal()" class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-red-400 transition-colors z-[110] cursor-pointer" aria-label="Close Preview">
             <i class="fa-solid fa-xmark text-4xl"></i>
@@ -671,7 +380,9 @@
         <p>&copy; 2026 Mohamed. <span>Front-End Developer & Founder of ELNENX.</span></p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ربط ملف المشاريع قبل ملف الجافاسكريبت الرئيسي -->
+    <script src="projects.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 </html>
+
