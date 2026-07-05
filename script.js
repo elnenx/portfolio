@@ -1,4 +1,3 @@
-// Attach Modal functions to Window globally so they work in HTML onclick attributes
 window.openIframeModal = function(url, name) {
     const iframeModal = document.getElementById('device-modal');
     const iframeElement = document.getElementById('device-iframe');
@@ -40,7 +39,7 @@ window.closeSuccessModal = function(focusForm = false) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Data & Translations
+    // تم إزالة نصوص المشاريع من هنا، لأنها أصبحت تُقرأ من ملف projects.js
     const translations = {
         ar: {
             nav_home: "الرئيسية", nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_cv: "سيرتي الذاتية", nav_contact: "تواصل معي", nav_hire: "وظفني",
@@ -59,8 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cap_title: "ما يمكنني تقديمه لعملك", cap_1_title: "الأداء والسرعة", cap_1_desc: "تحسين سرعة تحميل الموقع وضمان التوافق مع مؤشرات الويب الأساسية من جوجل لتحسين ترتيبك في البحث.",
             cap_2_title: "احتراف التجارة الإلكترونية", cap_2_desc: "بناء وتحسين تجارب التسوق على ووكومرس لزيادة معدلات التحويل والمبيعات بشكل ملحوظ.", cap_3_title: "واجهات مستخدم حديثة", cap_3_desc: "تحويل تصميمات Figma إلى واجهات مستخدم دقيقة، متجاوبة، وسهلة الاستخدام على جميع الشاشات.",
             proj_badge: "معرض الأعمال", proj_title: "أبرز مشاريعي.", btn_preview: "عرض الموقع",
-            tag_skankx: "تطبيق ويب حديث يركز على الأداء العالي وتجربة مستخدم سلسة ونظيفة.", tag_ecommerce: "منصة تجارة إلكترونية وشركات. التركيز على تجربة مستخدم سلسة وسرعة تحميل فائقة.", tag_corporate: "موقع شركة ووكالة. تحويل تصميمات واجهة المستخدم (UI/UX) بدقة لقالب ووردبريس قوي ومخصص.", tag_restaurant: "موقع سلسلة مطاعم. تطوير منيو تفاعلي سريع وعرض ذكي لفروع المطعم.",
-            tag_logistics: "منصة شحن ولوجستيات. ربط أنظمة تتبع معقدة وحساب تلقائي لأسعار الشحن.", tag_shopify: "متجر شوبيفاي. تحسين معدلات التحويل باستخدام أكواد Liquid مخصصة وبناء مسارات بيع ذكية.", tag_ecommerce_2: "منصة تجارة إلكترونية. بناء متجر موثوق وقابل للتطوير باستخدام إمكانيات ووكومرس المتقدمة.", tag_shopify_2: "متجر شوبيفاي. إنشاء تكاملات مخصصة وتحسين تجربة التسوق لتحقيق أقصى قدر من التحويلات.", tag_trading: "منصة تداول واستثمار. تأمين قواعد البيانات وبناء لوحات تحكم مخصصة للمستخدمين.",
             btn_show_more: "باقي المشاريع", btn_show_less: "إخفاء المشاريع", btn_open_tab: "فتح الموقع", msg_iframe_sec: "بسبب سياسات الأمان الخاصة ببعض المواقع، قد لا يظهر الموقع هنا. اضغط (فتح الموقع) بالأعلى.",
             contact_badge: "تواصل معي", contact_title: "لنقم ببناء شيء عظيم.", contact_desc: "متاح لفرص العمل الحر، وعقود العمل. تواصل معي ودعنا نناقش مشروعك القادم.",
             btn_email: "راسلني عبر الإيميل", btn_whatsapp: "واتساب", 
@@ -86,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             skill_1: "Custom Plugins", skill_2: "Theme Dev", skill_3: "Technical SEO", skill_4: "Web Vitals", skill_5: "Speed Tuning", skill_6: "Security", skill_7: "UI/UX", skill_8: "Responsive", skill_9: "Conversion Opt.",
             cap_title: "What I Can Do For Your Business", cap_1_title: "Performance & Speed", cap_1_desc: "Improve website loading speed and ensure compliance with Google Core Web Vitals for better ranking.", cap_2_title: "eCommerce Mastery", cap_2_desc: "Build and optimize WooCommerce shopping experiences to increase conversion rates and sales.", cap_3_title: "Modern Interfaces", cap_3_desc: "Translate Figma designs into pixel-perfect, responsive, and intuitive user interfaces.",
             proj_badge: "Projects Portfolio", proj_title: "Selected work.", btn_preview: "View Site",
-            tag_skankx: "Modern web application focusing on high performance and clean UI/UX.", tag_ecommerce: "Modern eCommerce & Corporate Platform. Focusing on seamless user experience and fast loading speeds.", tag_corporate: "Corporate & Agency Website. Tailored UI/UX design converted into a pixel-perfect robust WordPress theme.", tag_restaurant: "Restaurant Chain Portal. Developed a high-performance interactive menu and locations showcase.", tag_logistics: "Logistics & Courier Portal. Integrated complex tracking systems and shipping rate calculations.", tag_shopify: "Shopify eCommerce Store. Optimized conversion rates with customized liquid templates and sales funnels.", tag_ecommerce_2: "eCommerce Platform. Built a reliable and scalable store using advanced WooCommerce functionalities.", tag_shopify_2: "Shopify Store. Created custom integrations and localized the shopping experience for maximum conversions.", tag_trading: "Trading & Investment Platform. Secured data handling and built custom dashboards for users.",
             btn_show_more: "Show More Projects", btn_show_less: "Show Less", btn_open_tab: "Open Web", msg_iframe_sec: "If the site doesn't load due to security policies, click 'Open Web' above.",
             contact_badge: "Contact", contact_title: "Let's build something great.", contact_desc: "Open to freelance opportunities, contract work, and full-time positions. Reach out and let's discuss your next project.",
             btn_email: "Email Me", btn_whatsapp: "WhatsApp", 
@@ -101,9 +97,74 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLang = 'ar';
     let isExpanded = false;
 
+    // Scroll Reveal Observer
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // ==========================================
+    // نظام رسم المشاريع من ملف projects.js
+    // ==========================================
+    function initProjects() {
+        const grid = document.getElementById('projects-grid');
+        if (!grid || typeof projectsData === 'undefined') return;
+
+        const colorsMap = {
+            rose: { border: 'hover:border-rose-500/50', bg: 'bg-rose-500/5', bgHover: 'group-hover:bg-rose-500/10', text: 'group-hover:text-rose-400', num: 'group-hover:text-rose-500/10' },
+            blue: { border: 'hover:border-blue-500/50', bg: 'bg-blue-500/5', bgHover: 'group-hover:bg-blue-500/10', text: 'group-hover:text-blue-400', num: 'group-hover:text-blue-500/10' },
+            purple: { border: 'hover:border-purple-500/50', bg: 'bg-purple-500/5', bgHover: 'group-hover:bg-purple-500/10', text: 'group-hover:text-purple-400', num: 'group-hover:text-purple-500/10' },
+            orange: { border: 'hover:border-orange-500/50', bg: 'bg-orange-500/5', bgHover: 'group-hover:bg-orange-500/10', text: 'group-hover:text-orange-400', num: 'group-hover:text-orange-500/10' },
+            cyan: { border: 'hover:border-cyan-500/50', bg: 'bg-cyan-500/5', bgHover: 'group-hover:bg-cyan-500/10', text: 'group-hover:text-cyan-400', num: 'group-hover:text-cyan-500/10' },
+            green: { border: 'hover:border-green-500/50', bg: 'bg-green-500/5', bgHover: 'group-hover:bg-green-500/10', text: 'group-hover:text-green-400', num: 'group-hover:text-green-500/10' },
+            pink: { border: 'hover:border-pink-500/50', bg: 'bg-pink-500/5', bgHover: 'group-hover:bg-pink-500/10', text: 'group-hover:text-pink-400', num: 'group-hover:text-pink-500/10' },
+            teal: { border: 'hover:border-teal-500/50', bg: 'bg-teal-500/5', bgHover: 'group-hover:bg-teal-500/10', text: 'group-hover:text-teal-400', num: 'group-hover:text-teal-500/10' },
+            yellow: { border: 'hover:border-yellow-500/50', bg: 'bg-yellow-500/5', bgHover: 'group-hover:bg-yellow-500/10', text: 'group-hover:text-yellow-400', num: 'group-hover:text-yellow-500/10' }
+        };
+
+        let htmlContent = '';
+        
+        projectsData.forEach((proj) => {
+            const c = colorsMap[proj.colorTheme] || colorsMap.blue;
+            const hiddenClasses = proj.isHiddenInitially ? 'project-hidden hidden translate-y-8' : 'reveal reveal-init';
+            let tagsHtml = proj.tags.map(tag => `<span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">${tag}</span>`).join('');
+
+            htmlContent += `
+            <div class="glass-card p-8 flex flex-col group relative overflow-hidden project-item border border-white/10 ${c.border} ${hiddenClasses} hover:-translate-y-2">
+                <div class="absolute top-0 right-0 w-64 h-64 ${c.bg} rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-150 ${c.bgHover}"></div>
+                <div class="flex-grow z-10 relative">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold ${c.text} transition-colors" dir="ltr">${proj.title}</h3>
+                        <div class="text-5xl font-black text-white/5 font-mono ${c.num} transition-colors">${proj.id}</div>
+                    </div>
+                    <p class="text-gray-400 mb-8 leading-relaxed dynamic-proj-desc" data-proj-id="${proj.id}"></p>
+                    <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
+                        ${tagsHtml}
+                    </div>
+                </div>
+                <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
+                    <span class="text-xs text-gray-500 font-mono"><i class="${proj.iconClass} mx-1"></i> ${proj.type}</span>
+                    <button onclick="openIframeModal('${proj.url}', '${proj.title}')" class="text-sm font-semibold text-white ${c.text} transition-colors flex items-center gap-2 cursor-pointer" aria-label="Preview ${proj.title}">
+                        <span data-i18n="btn_preview"></span> <i class="fa-solid fa-arrow-left ltr:fa-arrow-right group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>`;
+        });
+
+        grid.innerHTML = htmlContent;
+    }
+    
+    // تشغيل بناء المشاريع أولاً
+    initProjects();
+
+    // ==========================================
+
     const langToggleBtns = [document.getElementById('lang-toggle'), document.getElementById('lang-toggle-mobile')];
     const toggleBtn = document.getElementById('toggle-more-projects');
-    const hiddenProjects = document.querySelectorAll('.project-hidden');
     const toggleIcon = document.getElementById('toggle-icon');
     const scrollProgress = document.getElementById('scroll-progress');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -126,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         langToggleBtns.forEach(btn => { if(btn) btn.innerText = lang === 'ar' ? 'English' : 'عربي'; });
         
+        // ترجمة النصوص الثابتة
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) el.innerHTML = translations[lang][key];
@@ -135,6 +197,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = el.getAttribute('data-i18n-placeholder');
             if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
         });
+
+        // ترجمة نصوص المشاريع الديناميكية
+        if (typeof projectsData !== 'undefined') {
+            document.querySelectorAll('.dynamic-proj-desc').forEach(el => {
+                const id = el.getAttribute('data-proj-id');
+                const proj = projectsData.find(p => p.id === id);
+                if (proj) el.innerHTML = proj.desc[lang];
+            });
+        }
+
         updateShowMoreText();
     }
 
@@ -149,30 +221,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Reveal (Fail-Safe)
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
+    // تفعيل الحركة على الأقسام الموجودة في HTML (بما في ذلك المشاريع الظاهرة)
     document.querySelectorAll('.reveal').forEach(el => {
-        el.classList.add('reveal-init'); // Elements only hide if JS successfully runs
+        el.classList.add('reveal-init');
         revealObserver.observe(el);
     });
 
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             isExpanded = !isExpanded;
+            // يجب استدعاء المشاريع المخفية من داخل الحدث لضمان التقاطها بعد بنائها
+            const hiddenProjects = document.querySelectorAll('.project-hidden'); 
             hiddenProjects.forEach(proj => {
                 if(isExpanded) {
                     proj.classList.remove('hidden');
                     setTimeout(() => {
                         proj.classList.remove('translate-y-8');
-                        proj.classList.add('transition-all', 'duration-500'); // Smooth reveal for Show More
+                        proj.classList.add('transition-all', 'duration-500'); 
                     }, 20);
                 } else {
                     proj.classList.add('translate-y-8');
@@ -271,15 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (response.ok) {
                     contactForm.reset();
-                    const successModal = document.getElementById('success-modal');
-                    const modalContent = document.getElementById('success-modal-content');
-                    document.body.style.overflow = 'hidden';
-                    successModal.classList.remove('hidden');
-                    setTimeout(() => {
-                        successModal.classList.remove('opacity-0');
-                        modalContent.classList.remove('scale-95');
-                        modalContent.classList.add('scale-100');
-                    }, 10);
+                    openSuccessModal();
                 } else throw new Error('Network error');
             } catch (error) { 
                 alert(translations[currentLang]['msg_error']);
