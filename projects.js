@@ -1,4 +1,4 @@
-const projectsData = [
+window.projectsData = [
     {
         id: "01",
         title: "Skank-X",
@@ -16,16 +16,16 @@ const projectsData = [
     {
         id: "02",
         title: "NEON VOGUE",
-        colorTheme: "pink", // لون زهري/نيون يتماشى مع اسم وتصميم البراند
+        colorTheme: "pink",
         desc: {
             ar: "براند ملابس مصري بتصميم أجنبي عصري، يركز على تجربة تسوق تفاعلية وجذابة.",
             en: "An Egyptian clothing brand with a modern foreign design aesthetic, focusing on an interactive and engaging shopping experience."
         },
         tags: ["Front-End", "E-commerce", "Modern UI"],
-        iconClass: "fa-solid fa-shirt", // أيقونة ملابس/أزياء
+        iconClass: "fa-solid fa-shirt",
         type: "Fashion & Retail",
         url: "https://elnenx.github.io/Brand-/",
-        isHiddenInitially: false // سيظهر ضمن أول 4 مشاريع
+        isHiddenInitially: false
     },
     {
         id: "03",
@@ -67,7 +67,7 @@ const projectsData = [
         iconClass: "fa-solid fa-utensils",
         type: "Food & Bev",
         url: "https://www.eldahan.com/",
-        isHiddenInitially: true // تم إخفاؤه مبدئياً ليظهر عند الضغط على باقي المشاريع
+        isHiddenInitially: true
     },
     {
         id: "06",
@@ -140,4 +140,3 @@ const projectsData = [
         isHiddenInitially: true
     }
 ];
-
