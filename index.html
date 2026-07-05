@@ -9,21 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
     
     <script>
-        tailwind.config = {
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Inter', 'Cairo', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
                     colors: { dark: { 100: '#1A1C23', 200: '#13151A', 300: '#0B0C10' } }
                 }
             }
-        }
+        };
     </script>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white relative">
@@ -79,9 +78,7 @@
                         </h1>
                     </div>
                     
-                    <p class="text-lg text-gray-300 max-w-xl leading-relaxed mt-0" data-i18n="hero_desc">
-                        أنا محمد — مطور متخصص في الواجهات الأمامية (Front-End) وحلول الووردبريس. أحول تصميمات Figma إلى مواقع سريعة، آمنة، وسهلة الاستخدام.
-                    </p>
+                    <p class="text-lg text-gray-300 max-w-xl leading-relaxed mt-0" data-i18n="hero_desc">أنا محمد — مطور متخصص في الواجهات الأمامية (Front-End) وحلول الووردبريس. أحول تصميمات Figma إلى مواقع سريعة، آمنة، وسهلة الاستخدام.</p>
                     
                     <div class="flex flex-wrap items-center gap-4 pt-4">
                         <a href="#projects" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#4facfe] to-[#00f2fe] text-black font-semibold hover:-translate-y-1 transition-transform shadow-[0_0_20px_rgba(79,172,254,0.3)]" data-i18n="btn_projects">شاهد أعمالي</a>
@@ -216,17 +213,21 @@
 
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <!-- المشاريع الديناميكية -->
         <section id="projects" class="pt-16 pb-8 px-6 relative z-10 scroll-mt-24">
             <div class="max-w-6xl mx-auto">
                 <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider reveal" data-i18n="proj_badge">معرض الأعمال</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal" data-i18n="proj_title">أبرز مشاريعي.</h2>
 
-                <!-- الحاوية التي سيتم رسم المشاريع بداخلها بواسطة الجافاسكريبت -->
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+                <!-- رسالة الطوارئ في حال لم يتم قراءة ملف المشاريع -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="text-center col-span-1 md:col-span-2 py-10">
+                        <i class="fa-solid fa-spinner fa-spin text-3xl text-blue-500 mb-4"></i>
+                        <p class="text-gray-400 text-sm">جاري تحميل المشاريع... (تأكد من وجود ملف projects.js في نفس المجلد)</p>
+                    </div>
+                </div>
 
                 <div class="mt-8 mb-4 text-center">
-                    <button id="toggle-more-projects" class="px-8 py-3.5 rounded-full border border-white/20 hover:bg-white hover:text-black transition-colors font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg" aria-label="Toggle Projects">
+                    <button id="toggle-more-projects" class="px-8 py-3.5 rounded-full border border-white/20 hover:bg-white hover:text-black transition-colors font-bold text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg hidden" aria-label="Toggle Projects">
                         <span data-i18n="btn_show_more">باقي المشاريع</span> <i id="toggle-icon" class="fa-solid fa-chevron-down"></i>
                     </button>
                 </div>
@@ -236,7 +237,6 @@
 
     <!-- CV PAGE -->
     <div id="cv-page" class="page-section hidden-page pt-32 pb-20 px-6 min-h-screen flex items-center justify-center">
-        <!-- ... نفس كود الـ CV ... -->
         <div class="max-w-md w-full mx-auto relative">
             <h1 class="text-3xl md:text-4xl font-extrabold mb-12 text-white tracking-tight text-center" data-i18n="cv_page_title">السيرة الذاتية.</h1>
             <div class="animate-float relative z-10">
@@ -254,15 +254,12 @@
 
     <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-    <!-- Contact Section -->
     <section id="contact" class="pt-16 pb-24 px-6 relative scroll-mt-24">
-        <!-- ... نفس كود نموذج الاتصال بالكامل بدون أي تغيير ... -->
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-12 reveal">
                 <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-white/10 bg-white/5 text-gray-300 text-xs font-bold tracking-wider" data-i18n="contact_badge">تواصل معي</div>
                 <h2 class="text-4xl md:text-5xl font-black tracking-tight" data-i18n="contact_title">لنقم ببناء شيء عظيم.</h2>
             </div>
-            
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start reveal">
                 <div class="lg:col-span-2 space-y-6 text-center lg:text-right ltr:lg:text-left">
                     <p class="text-gray-400 text-lg leading-relaxed mb-8" data-i18n="contact_desc">متاح لفرص العمل الحر، وعقود العمل. تواصل معي ودعنا نناقش مشروعك القادم.</p>
@@ -275,7 +272,6 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="lg:col-span-3">
                     <div class="glass-card p-8 border-t-4 border-t-blue-500">
                         <form id="ajax-contact-form" action="https://formspree.io/f/mykarnrq" method="POST" class="space-y-5 text-right ltr:text-left" novalidate>
@@ -380,9 +376,8 @@
         <p>&copy; 2026 Mohamed. <span>Front-End Developer & Founder of ELNENX.</span></p>
     </footer>
 
-    <!-- ربط ملف المشاريع قبل ملف الجافاسكريبت الرئيسي -->
+    <!-- ربط ملفات الجافاسكريبت -->
     <script src="projects.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 </html>
-
