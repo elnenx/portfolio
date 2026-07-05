@@ -39,7 +39,7 @@ window.closeSuccessModal = function(focusForm = false) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // تم إزالة نصوص المشاريع من هنا، لأنها أصبحت تُقرأ من ملف projects.js
+    
     const translations = {
         ar: {
             nav_home: "الرئيسية", nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_cv: "سيرتي الذاتية", nav_contact: "تواصل معي", nav_hire: "وظفني",
@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLang = 'ar';
     let isExpanded = false;
 
-    // Scroll Reveal Observer
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -107,12 +106,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    // ==========================================
-    // نظام رسم المشاريع من ملف projects.js
-    // ==========================================
+    const toggleBtn = document.getElementById('toggle-more-projects');
+
+    // وظيفة رسم المشاريع
     function initProjects() {
         const grid = document.getElementById('projects-grid');
-        if (!grid || typeof projectsData === 'undefined') return;
+        if (!grid) return;
+
+        // التأكد من وجود البيانات
+        if (typeof window.projectsData === 'undefined') {
+            console.error("لم يتم العثور على ملف projects.js");
+            return;
+        }
 
         const colorsMap = {
             rose: { border: 'hover:border-rose-500/50', bg: 'bg-rose-500/5', bgHover: 'group-hover:bg-rose-500/10', text: 'group-hover:text-rose-400', num: 'group-hover:text-rose-500/10' },
@@ -127,10 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         let htmlContent = '';
+        let hasHidden = false;
         
-        projectsData.forEach((proj) => {
+        window.projectsData.forEach((proj) => {
             const c = colorsMap[proj.colorTheme] || colorsMap.blue;
             const hiddenClasses = proj.isHiddenInitially ? 'project-hidden hidden translate-y-8' : 'reveal reveal-init';
+            if (proj.isHiddenInitially) hasHidden = true;
+            
             let tagsHtml = proj.tags.map(tag => `<span class="pill px-3 py-1.5 text-xs rounded-md text-gray-300">${tag}</span>`).join('');
 
             htmlContent += `
@@ -142,9 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="text-5xl font-black text-white/5 font-mono ${c.num} transition-colors">${proj.id}</div>
                     </div>
                     <p class="text-gray-400 mb-8 leading-relaxed dynamic-proj-desc" data-proj-id="${proj.id}"></p>
-                    <div class="flex flex-wrap gap-2 mb-8" dir="ltr">
-                        ${tagsHtml}
-                    </div>
+                    <div class="flex flex-wrap gap-2 mb-8" dir="ltr">${tagsHtml}</div>
                 </div>
                 <div class="mt-auto pt-5 border-t border-white/10 flex justify-between items-center z-10 relative">
                     <span class="text-xs text-gray-500 font-mono"><i class="${proj.iconClass} mx-1"></i> ${proj.type}</span>
@@ -156,19 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         grid.innerHTML = htmlContent;
+        
+        // إظهار زر "باقي المشاريع" فقط إذا كان هناك مشاريع مخفية
+        if(hasHidden && toggleBtn) {
+            toggleBtn.classList.remove('hidden');
+        }
     }
     
-    // تشغيل بناء المشاريع أولاً
     initProjects();
 
-    // ==========================================
-
     const langToggleBtns = [document.getElementById('lang-toggle'), document.getElementById('lang-toggle-mobile')];
-    const toggleBtn = document.getElementById('toggle-more-projects');
     const toggleIcon = document.getElementById('toggle-icon');
-    const scrollProgress = document.getElementById('scroll-progress');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const backToTopBtn = document.getElementById('back-to-top');
 
     function updateShowMoreText() {
         if (!toggleBtn) return;
@@ -187,7 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         langToggleBtns.forEach(btn => { if(btn) btn.innerText = lang === 'ar' ? 'English' : 'عربي'; });
         
-        // ترجمة النصوص الثابتة
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) el.innerHTML = translations[lang][key];
@@ -198,11 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
         });
 
-        // ترجمة نصوص المشاريع الديناميكية
-        if (typeof projectsData !== 'undefined') {
+        if (typeof window.projectsData !== 'undefined') {
             document.querySelectorAll('.dynamic-proj-desc').forEach(el => {
                 const id = el.getAttribute('data-proj-id');
-                const proj = projectsData.find(p => p.id === id);
+                const proj = window.projectsData.find(p => p.id === id);
                 if (proj) el.innerHTML = proj.desc[lang];
             });
         }
@@ -213,15 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLang);
     langToggleBtns.forEach(btn => { if(btn) btn.addEventListener('click', () => setLanguage(currentLang === 'ar' ? 'en' : 'ar')) });
 
+    const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    if(mobileMenuBtn) {
+    if(mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
     }
 
-    // تفعيل الحركة على الأقسام الموجودة في HTML (بما في ذلك المشاريع الظاهرة)
     document.querySelectorAll('.reveal').forEach(el => {
         el.classList.add('reveal-init');
         revealObserver.observe(el);
@@ -230,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             isExpanded = !isExpanded;
-            // يجب استدعاء المشاريع المخفية من داخل الحدث لضمان التقاطها بعد بنائها
             const hiddenProjects = document.querySelectorAll('.project-hidden'); 
             hiddenProjects.forEach(proj => {
                 if(isExpanded) {
@@ -267,7 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setTimeout(type, 500); 
 
+    const scrollProgress = document.getElementById('scroll-progress');
+    const backToTopBtn = document.getElementById('back-to-top');
     let isScrolling = false;
+    
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
@@ -336,7 +340,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (response.ok) {
                     contactForm.reset();
-                    openSuccessModal();
+                    window.closeSuccessModal(); // Used to init state
+                    const successModal = document.getElementById('success-modal');
+                    const modalContent = document.getElementById('success-modal-content');
+                    document.body.style.overflow = 'hidden';
+                    successModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        successModal.classList.remove('opacity-0');
+                        modalContent.classList.remove('scale-95');
+                        modalContent.classList.add('scale-100');
+                    }, 10);
                 } else throw new Error('Network error');
             } catch (error) { 
                 alert(translations[currentLang]['msg_error']);
@@ -360,3 +373,4 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', handleRouting);
     handleRouting();
 });
+
