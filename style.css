@@ -107,7 +107,6 @@ input:focus, textarea:focus, select:focus {
     background: rgba(255, 255, 255, 0.05); 
 }
 
-/* Make Dropdown Options Readable in Dark Mode */
 select option {
     background-color: #1A1C23;
     color: white;
@@ -146,4 +145,3 @@ input.border-red-500, textarea.border-red-500, select.border-red-500 {
     0% { transform: rotate(0deg); } 
     100% { transform: rotate(360deg); } 
 }
-
