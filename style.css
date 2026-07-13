@@ -1,0 +1,149 @@
+body {
+    background-color: #0B0C10;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%, #a18cd1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+    background: rgba(19, 21, 26, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@keyframes float {
+    0% { transform: translate(0px, 0px); }
+    33% { transform: translate(12px, -15px); }
+    66% { transform: translate(-12px, 12px); }
+    100% { transform: translate(0px, 0px); }
+}
+
+.animate-float {
+    animation: float 8s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Syntax Highlighting */
+.token-php { color: #c678dd; }
+.token-func { color: #61afef; }
+.token-string { color: #98c379; }
+.token-var { color: #e5c07b; }
+.token-comment { color: #5c6370; font-style: italic; }
+
+/* Fail-Safe Scroll Reveal System */
+.reveal {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.reveal-init {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-init.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0B0C10; }
+::-webkit-scrollbar-thumb { background: #2a2d38; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #4facfe; }
+
+/* Page Transitions */
+.page-section { transition: opacity 0.3s ease-in-out; }
+.hidden-page { display: none !important; opacity: 0; }
+.scroll-mt-24 { scroll-margin-top: 6rem; }
+
+/* Typewriter Cursor */
+.typewriter-cursor {
+    display: inline-block; 
+    width: 3px; 
+    height: 1em;
+    background-color: #4facfe; 
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom; 
+    margin-inline-start: 4px;
+}
+
+@keyframes blink { 
+    0%, 100% { opacity: 1; } 
+    50% { opacity: 0; } 
+}
+
+/* Form Inputs */
+input, textarea, select {
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white; 
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus { 
+    outline: none; 
+    border-color: #4facfe; 
+    background: rgba(255, 255, 255, 0.05); 
+}
+
+select option {
+    background-color: #1A1C23;
+    color: white;
+}
+
+/* Error States */
+input.border-red-500, textarea.border-red-500, select.border-red-500 {
+    border-color: #ef4444;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    height: 3px;
+    background: linear-gradient(to right, #4facfe, #9013FE); 
+    transform-origin: left; 
+    transform: scaleX(0); 
+    z-index: 100000;
+    will-change: transform;
+}
+
+/* Iframe Loader Animation */
+.iframe-loader {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left-color: #4facfe;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 
+    0% { transform: rotate(0deg); } 
+    100% { transform: rotate(360deg); } 
+}
+
+
