@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELNENX | مطور واجهات أمامية وووردبريس</title>
+    <title>VORTX Dev | مطور واجهات أمامية وووردبريس</title>
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         window.tailwind = window.tailwind || {};
         window.tailwind.config = {
@@ -35,11 +40,10 @@
 
     <nav class="fixed top-4 left-4 right-4 md:left-1/2 md:transform md:-translate-x-1/2 md:w-[95%] md:max-w-6xl z-40">
         <div class="glass-card !rounded-full px-6 py-3 flex justify-between items-center">
-            <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter" dir="ltr" aria-label="Logo">ELNENX<span class="text-blue-500">.</span></a>
+            <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter" dir="ltr" aria-label="Logo">VORTX Dev<span class="text-blue-500">.</span></a>
             
             <div class="hidden md:flex space-x-6 items-center text-sm font-medium text-gray-300 rtl:space-x-reverse">
                 <a href="#about" class="hover:text-white transition-colors" data-i18n="nav_about">نبذة عني</a>
-                <a href="#skills" class="hover:text-white transition-colors" data-i18n="nav_skills">المهارات</a>
                 <a href="#projects" class="hover:text-white transition-colors" data-i18n="nav_projects">المشاريع</a>
                 <a href="#cv" class="hover:text-white transition-colors text-purple-400 font-bold" data-i18n="nav_cv">سيرتي الذاتية</a>
                 <div class="w-px h-5 bg-white/20 mx-2"></div>
@@ -58,7 +62,6 @@
         <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 mt-2 glass-card flex flex-col p-6 space-y-4 text-center shadow-2xl">
             <a href="#home" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_home">الرئيسية</a>
             <a href="#about" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_about">نبذة عني</a>
-            <a href="#skills" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_skills">المهارات</a>
             <a href="#projects" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_projects">المشاريع</a>
             <a href="#cv" class="mobile-link text-purple-400 font-bold" data-i18n="nav_cv">سيرتي الذاتية</a>
             <a href="#contact" class="mobile-link text-gray-300 hover:text-white" data-i18n="nav_contact">تواصل معي</a>
@@ -66,7 +69,7 @@
     </nav>
 
     <div id="home-page" class="page-section">
-        <section class="pt-32 pb-16 px-6 md:pt-40 md:pb-20 overflow-hidden">
+        <section id="home" class="pt-32 pb-16 px-6 md:pt-40 md:pb-20 overflow-hidden">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
                 <div class="flex-1 space-y-6 md:space-y-8 relative z-10">
                     <div class="inline-block px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-bold tracking-wider shadow-[0_0_15px_rgba(144,19,254,0.2)]" data-i18n="hero_badge">مطور واجهات أمامية</div>
@@ -78,7 +81,7 @@
                         </h1>
                     </div>
                     
-                    <p class="text-lg text-gray-300 max-w-xl leading-relaxed mt-0" data-i18n="hero_desc">أنا محمد — مطور متخصص في الواجهات الأمامية (Front-End) وحلول الووردبريس. أحول تصميمات Figma إلى مواقع سريعة، آمنة، وسهلة الاستخدام.</p>
+                    <p class="text-lg text-gray-300 max-w-xl leading-relaxed mt-0" data-i18n="hero_desc">متخصصون في تطوير الواجهات الأمامية (Front-End) وحلول WordPress، ونحوّل تصميمات Figma إلى مواقع سريعة وسهلة الاستخدام.</p>
                     
                     <div class="flex flex-wrap items-center gap-4 pt-4">
                         <a href="#projects" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#4facfe] to-[#00f2fe] text-black font-semibold hover:-translate-y-1 transition-transform shadow-[0_0_20px_rgba(79,172,254,0.3)]" data-i18n="btn_projects">شاهد أعمالي</a>
@@ -131,82 +134,79 @@
 
         <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-        <section id="about" class="py-16 px-6 scroll-mt-24">
-            <div class="max-w-4xl mx-auto relative z-10 reveal">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider" data-i18n="about_badge">الخبرة والنبذة</div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-8" data-i18n="about_title">مطور يركز على الحلول النظيفة والقابلة للتوسع.</h2>
-                <p class="text-gray-300 text-lg leading-relaxed mb-12" data-i18n="about_desc">أنا مطور واجهات أمامية وووردبريس مع أساس قوي في التطوير المخصص، السيو التقني، وتحسين الأداء. لا أعتمد على القوالب الجاهزة فقط بل أبني حلولاً مخصصة تناسب احتياجات المشروع بدقة.</p>
-                <div class="space-y-6">
-                    <div class="glass-card p-6 border-r-4 border-r-purple-500 rtl:border-r-purple-500 ltr:border-l-4 ltr:border-l-purple-500 transition-transform hover:-translate-y-1 hover:shadow-lg">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                            <h3 class="text-xl font-bold" data-i18n="exp_1_title">مؤسس / مالك</h3>
-                            <span class="text-sm text-purple-400 font-mono mt-1 md:mt-0" dir="ltr">ELNENX Brand</span>
-                        </div>
-                        <p class="text-gray-400 text-sm mt-2" data-i18n="exp_1_desc">إدارة المشاريع الرقمية، تطوير منصة التجارة الإلكترونية، تحسين تجربة التسوق على ووكومرس، وزيادة المبيعات عبر الإنترنت من خلال تحسين معدل التحويل (CRO).</p>
-                    </div>
-                    <div class="glass-card p-6 border-r-4 border-r-blue-500 rtl:border-r-blue-500 ltr:border-l-4 ltr:border-l-blue-500 transition-transform hover:-translate-y-1 hover:shadow-lg">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                            <h3 class="text-xl font-bold" data-i18n="exp_2_title">مطور واجهات وووردبريس</h3>
-                            <span class="text-sm text-blue-400 font-mono mt-1 md:mt-0" dir="ltr">Code &lt;/&gt; Agency</span>
-                        </div>
-                        <p class="text-gray-400 text-sm mt-2" data-i18n="exp_2_desc">بناء مواقع احترافية، دمج واجهات برمجة التطبيقات (APIs)، وتطوير حلول مخصصة. التركيز على سرعة الموقع، Core Web Vitals، وحل مشاكل الووردبريس المعقدة.</p>
-                    </div>
+        <!-- Bento Grid Section -->
+        <section id="about" class="py-20 px-6 scroll-mt-24 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal mb-12">
+                    <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-xs font-bold tracking-wider" data-i18n="about_badge">الخبرة والمهارات</div>
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4" data-i18n="about_title">ما وراء الكود.</h2>
+                    <p class="text-gray-400 text-lg max-w-2xl" data-i18n="about_desc">أبني حلولاً مخصصة لا تعتمد على القوالب الجاهزة، مع تركيز تام على الأداء وتجربة المستخدم.</p>
                 </div>
-            </div>
-        </section>
 
-        <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="glass-card md:col-span-2 p-8 reveal flex flex-col justify-center hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#4facfe]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4" data-i18n="bento_1_title">خبرة في بناء الأعمال الرقمية</h3>
+                        <p class="text-gray-400 leading-relaxed text-sm md:text-base" data-i18n="bento_1_desc">كمؤسس لـ VORTX Dev، أنا لا أكتب الكود فقط، بل أفهم كيف تعمل الأعمال التجارية على الإنترنت. أقوم بتطوير منصات التجارة الإلكترونية وتحسين معدلات التحويل (CRO) لضمان أن كل سطر برمجي يساهم في زيادة أرباح عملائك.</p>
+                    </div>
 
-        <section id="skills" class="py-16 px-6 scroll-mt-24">
-            <div class="max-w-6xl mx-auto relative z-10 reveal">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-xs font-bold tracking-wider" data-i18n="skills_badge">المهارات والأدوات</div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-12" data-i18n="skills_title">الأدوات التي أستخدمها.</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-white/20">
-                        <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_1">التقنيات الأساسية</h3>
-                        <div class="h-px w-full bg-gradient-to-l from-gray-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2" dir="ltr"><span class="pill px-3 py-1.5 rounded-md text-sm">HTML5/CSS3</span><span class="pill px-3 py-1.5 rounded-md text-sm">JavaScript</span><span class="pill px-3 py-1.5 rounded-md text-sm">React / Vue</span><span class="pill px-3 py-1.5 rounded-md text-sm">Tailwind CSS</span><span class="pill px-3 py-1.5 rounded-md text-sm">PHP</span></div>
+                    <div class="glass-card p-8 reveal hover:-translate-y-1 border-t-2 border-t-purple-500/50">
+                        <h3 class="text-xl font-bold mb-6" data-i18n="bento_2_title">ترسانة التقنية</h3>
+                        <div class="flex flex-wrap gap-2" dir="ltr">
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">React</span>
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">Vue.js</span>
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">Tailwind</span>
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">WordPress</span>
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">PHP</span>
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">JavaScript</span>
+                            <span class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs text-gray-300 font-mono">Figma</span>
+                        </div>
                     </div>
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-blue-500/30">
-                        <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_2">تطوير ووردبريس</h3>
-                        <div class="h-px w-full bg-gradient-to-l from-blue-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2"><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WordPress</span><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">WooCommerce</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_1">برمجة إضافات</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_2">تطوير قوالب</span><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">API Integration</span></div>
-                    </div>
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-cyan-500/30">
-                        <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_3">تحسين الأداء</h3>
-                        <div class="h-px w-full bg-gradient-to-l from-cyan-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2"><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_3">سيو تقني</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_4">مؤشرات الويب</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_5">تسريع المواقع</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_6">حماية المواقع</span></div>
-                    </div>
-                    <div class="glass-card p-6 transition-transform hover:-translate-y-2 hover:border-purple-500/30">
-                        <h3 class="text-lg font-bold mb-3" data-i18n="skill_cat_4">التصميم والاستراتيجية</h3>
-                        <div class="h-px w-full bg-gradient-to-l from-purple-500/50 to-transparent ltr:bg-gradient-to-r mb-4"></div>
-                        <div class="flex flex-wrap gap-2"><span class="pill px-3 py-1.5 rounded-md text-sm" dir="ltr">Figma</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_7">تجربة المستخدم</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_8">تصميم متجاوب</span><span class="pill px-3 py-1.5 rounded-md text-sm" data-i18n="skill_9">تحسين التحويلات</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <div class="h-px w-full max-w-6xl mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                    <div class="glass-card p-8 reveal bg-gradient-to-br from-[#13151a] to-[#4facfe]/10 hover:-translate-y-1">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold" data-i18n="bento_3_title">Core Web Vitals</h3>
+                            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div class="space-y-4 mt-6">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 text-gray-400"><span>LCP (Speed)</span> <span class="text-white">98%</span></div>
+                                <div class="w-full bg-white/10 rounded-full h-1.5"><div class="bg-green-400 h-1.5 rounded-full" style="width: 98%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1 text-gray-400"><span>SEO (Tech)</span> <span class="text-white">100%</span></div>
+                                <div class="w-full bg-white/10 rounded-full h-1.5"><div class="bg-green-400 h-1.5 rounded-full" style="width: 100%"></div></div>
+                            </div>
+                        </div>
+                    </div>
 
-        <section class="py-16 px-6 relative">
-            <div class="max-w-6xl mx-auto text-center relative z-10 reveal">
-                <h2 class="text-2xl md:text-4xl font-bold mb-12" data-i18n="cap_title">ما يمكنني تقديمه لعملك</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 transition-transform hover:-translate-y-2 hover:border-blue-500/20">
-                        <div class="w-14 h-14 mx-auto bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(74,144,226,0.3)]"><i class="fa-solid fa-bolt"></i></div>
-                        <h3 class="font-bold text-xl mb-3" data-i18n="cap_1_title">الأداء والسرعة</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_1_desc">تحسين سرعة تحميل الموقع وضمان التوافق مع مؤشرات الويب الأساسية من جوجل لتحسين ترتيبك في البحث.</p>
+                    <div class="glass-card md:col-span-2 p-8 reveal hover:-translate-y-1 border-t-2 border-t-[#4facfe]/50">
+                        <h3 class="text-xl font-bold mb-6" data-i18n="bento_4_title">كيف يمكنني مساعدتك؟</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex gap-4 items-start">
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm mb-1" data-i18n="srv_1">متاجر إلكترونية عالية التحويل</h4>
+                                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="srv_1_desc">بناء وتخصيص متاجر ووكومرس لتحقيق أقصى قدر من المبيعات السلسة.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm mb-1" data-i18n="srv_2">تطوير واجهات متقدمة</h4>
+                                    <p class="text-xs text-gray-400 leading-relaxed" data-i18n="srv_2_desc">تحويل تصاميم Figma المعقدة إلى واجهات دقيقة ومتجاوبة (Pixel Perfect).</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="glass-card p-8 transition-transform hover:-translate-y-2 hover:border-purple-500/20">
-                        <div class="w-14 h-14 mx-auto bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(144,19,254,0.3)]"><i class="fa-solid fa-cart-shopping"></i></div>
-                        <h3 class="font-bold text-xl mb-3" data-i18n="cap_2_title">احتراف التجارة الإلكترونية</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_2_desc">بناء وتحسين تجارب التسوق على ووكومرس لزيادة معدلات التحويل والمبيعات بشكل ملحوظ.</p>
-                    </div>
-                    <div class="glass-card p-8 transition-transform hover:-translate-y-2 hover:border-cyan-500/20">
-                        <div class="w-14 h-14 mx-auto bg-cyan-500/20 text-cyan-400 rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-[0_0_15px_rgba(80,227,194,0.3)]"><i class="fa-solid fa-pen-nib"></i></div>
-                        <h3 class="font-bold text-xl mb-3" data-i18n="cap_3_title">واجهات مستخدم حديثة</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed" data-i18n="cap_3_desc">تحويل تصميمات Figma إلى واجهات مستخدم دقيقة، متجاوبة، وسهلة الاستخدام على جميع الشاشات.</p>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -218,11 +218,10 @@
                 <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-bold tracking-wider reveal" data-i18n="proj_badge">معرض الأعمال</div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 reveal" data-i18n="proj_title">أبرز مشاريعي.</h2>
 
-                <!-- رسالة الطوارئ في حال لم يتم قراءة ملف المشاريع -->
                 <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="text-center col-span-1 md:col-span-2 py-10">
                         <i class="fa-solid fa-spinner fa-spin text-3xl text-blue-500 mb-4"></i>
-                        <p class="text-gray-400 text-sm">جاري تحميل المشاريع... (تأكد من وجود ملف projects.js في نفس المجلد)</p>
+                        <p class="text-gray-400 text-sm">جاري تحميل المشاريع...</p>
                     </div>
                 </div>
 
@@ -237,15 +236,16 @@
 
     <!-- CV PAGE -->
     <div id="cv-page" class="page-section hidden-page pt-32 pb-20 px-6 min-h-screen flex items-center justify-center">
-        <div class="max-w-md w-full mx-auto relative">
+        <div class="max-w-md w-full mx-auto relative z-50">
             <h1 class="text-3xl md:text-4xl font-extrabold mb-12 text-white tracking-tight text-center" data-i18n="cv_page_title">السيرة الذاتية.</h1>
-            <div class="animate-float relative z-10">
+            <div class="animate-float relative z-50">
                 <div class="glass-card p-10 md:p-14 flex flex-col items-center justify-center border border-white/10 bg-[#1f2022] rounded-[2rem] shadow-[0_0_50px_rgba(144,19,254,0.15)] relative overflow-hidden">
-                    <img src="https://pxdrop.online/raw/d8o46a6hv1ts73bau8pg" alt="PDF Icon" class="w-24 h-24 mb-6 opacity-40 object-contain drop-shadow-xl filter invert mt-6">
-                    <h3 class="text-3xl font-black mb-10 text-white tracking-[0.2em] uppercase" dir="ltr" data-i18n="cv_title_text">CV</h3>
-                    <div class="flex flex-col w-full gap-4">
-                        <a href="https://drive.google.com/file/d/1epa_EedIAme1gHwvCdGnDWXdT26ePg7O/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-4 px-8 rounded-xl hover:opacity-90 hover:-translate-y-1 transition-all shadow-lg" data-i18n="cv_preview">معاينة</a>
-                        <a href="https://drive.google.com/uc?export=download&id=1epa_EedIAme1gHwvCdGnDWXdT26ePg7O" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white/5 border border-white/10 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/10 hover:-translate-y-1 transition-all" data-i18n="cv_download">تنزيل</a>
+                    <img src="https://pxdrop.online/raw/d8o46a6hv1ts73bau8pg" alt="PDF Icon" class="w-24 h-24 mb-6 opacity-40 object-contain drop-shadow-xl filter invert mt-6 pointer-events-none">
+                    <h3 class="text-3xl font-black mb-10 text-white tracking-[0.2em] uppercase pointer-events-none" dir="ltr" data-i18n="cv_title_text">CV</h3>
+                    
+                    <div class="flex flex-col w-full gap-4 relative z-50">
+                        <a href="https://drive.google.com/file/d/1epa_EedIAme1gHwvCdGnDWXdT26ePg7O/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-4 px-8 rounded-xl hover:opacity-90 hover:-translate-y-1 transition-all shadow-lg block cursor-pointer" data-i18n="cv_preview">معاينة</a>
+                        <a href="https://drive.google.com/uc?export=download&id=1epa_EedIAme1gHwvCdGnDWXdT26ePg7O" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-white/5 border border-white/10 text-white font-bold py-4 px-8 rounded-xl hover:bg-white/10 hover:-translate-y-1 transition-all block cursor-pointer" data-i18n="cv_download">تنزيل</a>
                     </div>
                 </div>
             </div>
@@ -330,10 +330,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- النوافذ المنبثقة -->
+    <!-- Modals -->
     <div id="success-modal" class="hidden fixed inset-0 z-[200] bg-black/80 backdrop-blur-md flex flex-col items-center justify-center p-4 transition-opacity duration-300 opacity-0" aria-modal="true" role="dialog">
         <div class="glass-card w-full max-w-md p-8 text-center relative border-t-4 border-t-green-500 shadow-[0_0_50px_rgba(34,197,94,0.15)] transform scale-95 transition-transform duration-300" id="success-modal-content">
             <div class="w-16 h-16 mx-auto bg-green-500/20 text-green-400 rounded-full flex items-center justify-center text-3xl mb-6 shadow-[0_0_15px_rgba(34,197,94,0.3)]"><i class="fa-solid fa-check"></i></div>
@@ -357,7 +356,7 @@
             <div class="absolute top-2 inset-x-0 h-6 w-32 bg-black mx-auto rounded-full z-20"></div>
             <div class="bg-[#1f2022] text-xs px-4 py-3 text-center text-gray-300 z-10 pt-8 flex justify-between items-center border-b border-white/10">
                 <div class="truncate w-48 text-right ltr:text-left font-semibold text-white" id="modal-title">Loading...</div>
-                <a id="modal-ext-link" href="#" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-white transition-colors bg-blue-500/10 hover:bg-blue-500/20 px-3 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer">
+                <a id="modal-ext-link" href="#" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-white transition-colors bg-blue-500/10 hover:bg-blue-500/20 px-3 py-1.5 rounded-full flex items-center gap-1.5 cursor-pointer">
                     <span data-i18n="btn_open_tab">فتح الموقع</span> <i class="fa-solid fa-external-link text-[10px]"></i>
                 </a>
             </div>
@@ -373,11 +372,14 @@
 
     <!-- Footer -->
     <footer class="py-8 px-6 border-t border-white/5 text-center text-sm text-gray-500 relative z-10" dir="ltr">
-        <p>&copy; 2026 Mohamed. <span>Front-End Developer & Founder of ELNENX.</span></p>
+        <p>&copy; 2026 Mohamed. <span>Front-End Developer & Founder of VORTX Dev.</span></p>
     </footer>
 
-    <!-- ربط ملفات الجافاسكريبت -->
-    <script src="projects.js" defer></script>
-    <script src="script.js" defer></script>
+    <!-- Scripts -->
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+
