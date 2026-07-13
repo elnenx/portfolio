@@ -26,6 +26,7 @@ window.closeSuccessModal = function(focusForm = false) {
     const successModal = document.getElementById('success-modal');
     const modalContent = document.getElementById('success-modal-content');
     const contactForm = document.getElementById('ajax-contact-form');
+    // إرجاع السكرول للموقع عند إغلاق النافذة
     document.body.style.overflow = '';
     successModal.classList.add('opacity-0');
     modalContent.classList.remove('scale-100');
@@ -264,6 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top');
     let isScrolling = false;
     
+    // ضبط الـ Transitions للزر لمنع الارتعاش أثناء تفادي الفوتر
+    if (backToTopBtn) {
+        backToTopBtn.style.transition = 'opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease';
+    }
+    
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
@@ -272,9 +278,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                     scrollProgress.style.transform = `scaleX(${winScroll / height})`;
                 }
+                
                 if(backToTopBtn) {
-                    if (document.documentElement.scrollTop > 500) backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-5');
-                    else backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-5');
+                    // إظهار وإخفاء الزر بناءً على التمرير
+                    if (document.documentElement.scrollTop > 500) {
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-5');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-5');
+                    }
+
+                    // نظام تفادي الفوتر (حتى لا ينزل الزر عليه)
+                    const footer = document.querySelector('footer');
+                    if (footer) {
+                        const footerRect = footer.getBoundingClientRect();
+                        if (footerRect.top < window.innerHeight) {
+                            // عندما يظهر الفوتر في الشاشة، نقوم بدفع الزر للأعلى بمسافة ظهور الفوتر
+                            const overlap = window.innerHeight - footerRect.top;
+                            backToTopBtn.style.marginBottom = `${overlap}px`;
+                        } else {
+                            // إعادة الزر لموقعه الطبيعي عندما لا يكون الفوتر مرئياً
+                            backToTopBtn.style.marginBottom = '0px';
+                        }
+                    }
                 }
                 isScrolling = false;
             });
@@ -332,10 +357,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (response.ok) {
                     contactForm.reset();
-                    window.closeSuccessModal();
+                    
+                    // إظهار نافذة النجاح (وإزالة كود الإغلاق الخاطئ الذي كان يعطل السكرول)
                     const successModal = document.getElementById('success-modal');
                     const modalContent = document.getElementById('success-modal-content');
-                    document.body.style.overflow = 'hidden';
+                    
+                    document.body.style.overflow = 'hidden'; // إيقاف السكرول في الخلفية أثناء عرض الرسالة
+                    
                     successModal.classList.remove('hidden');
                     setTimeout(() => {
                         successModal.classList.remove('opacity-0');
