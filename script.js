@@ -40,7 +40,7 @@ window.closeSuccessModal = function(focusForm = false) {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // الترجمة لـ 7 لغات (الأساسية: عربي)
+    // تم تعريف المتغيرات هنا أولاً لمنع حدوث (ReferenceError) الذي أوقف الموقع
     const translations = {
         ar: {
             nav_home: "الرئيسية", nav_about: "نبذة عني", nav_skills: "المهارات", nav_projects: "المشاريع", nav_cv: "سيرتي الذاتية", nav_contact: "تواصل معي", nav_hire: "وظفني",
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             stat_1_num: "200+", stat_1_text: "UX Design", stat_2_num: "15+", stat_2_text: "Projects", stat_3_num: "10+", stat_3_text: "Technologies",
             cv_page_title: "My CV.", cv_title_text: "CV", cv_preview: "Preview", cv_download: "Download",
             about_badge: "Experience & Skills", about_title: "Beyond the code.", about_desc: "I build custom, template-free solutions with an absolute focus on performance and user experience.",
-            bento_1_title: "Digital Business Expertise", bento_1_desc: "As the founder of VORTX Dev, I understand how online businesses work. I optimize eCommerce platforms and CRO to ensure every line of code increases your revenue.",
+            bento_1_title: "Digital Business Expertise", bento_1_desc: "As the founder of VORTX Dev, I don't just write code; I understand how online businesses work. I optimize eCommerce platforms and CRO to ensure every line of code increases your revenue.",
             bento_2_title: "Tech Arsenal", bento_3_title: "Core Web Vitals", bento_4_title: "How I can help?",
             srv_1: "High-Converting eCommerce", srv_1_desc: "Building and customizing WooCommerce stores for maximum seamless sales.",
             srv_2: "Advanced UI Development", srv_2_desc: "Converting complex Figma designs into responsive, pixel-perfect interfaces.",
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_badge: "前端开发工程师", hero_title_1: "简化技术。创造创新。", hero_desc: "专注于前端开发和WordPress解决方案，将Figma设计转化为快速、用户友好的网站。",
             btn_projects: "查看项目", btn_view_cv: "查看简历", stat_1_num: "200+", stat_1_text: "UX设计", stat_2_num: "15+", stat_2_text: "项目", stat_3_num: "10+", stat_3_text: "技术",
             cv_page_title: "我的简历.", cv_title_text: "简历", cv_preview: "预览", cv_download: "下载", about_badge: "经验与技能", about_title: "代码之外。", about_desc: "我构建无模板的定制解决方案，绝对关注性能和用户体验。",
-            bento_1_title: "数字商业专长", bento_1_desc: "作为VORTX Dev的创始人，我不仅编写代码；我了解在线业务。我优化电子商务以增加您的收入。", bento_2_title: "技术武器库", bento_3_title: "核心Web指标", bento_4_title: "我能帮什么忙？",
+            bento_1_title: "数字商业专长", bento_1_desc: "作为VORTX Dev的创始人，我了解在线业务。我优化电子商务以增加您的收入。", bento_2_title: "技术武器库", bento_3_title: "核心Web指标", bento_4_title: "我能帮什么忙？",
             srv_1: "高转化电子商务", srv_1_desc: "构建和优化WooCommerce商店。", srv_2: "高级UI开发", srv_2_desc: "将Figma设计转换为像素级完美的界面。",
             proj_badge: "作品集", proj_title: "精选项目。", btn_preview: "查看网站", btn_show_more: "显示更多", btn_show_less: "显示更少", btn_open_tab: "打开网页", msg_iframe_sec: "由于安全策略，请点击“打开网页”。",
             contact_badge: "联系我", contact_title: "让我们创造伟大。", contact_desc: "可接受自由职业项目。联系我，讨论您的下一个项目。",
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_badge: "फ्रंट-एंड डेवलपर", hero_title_1: "प्रौद्योगिकी को सरल बनाना। नवाचार बनाना।", hero_desc: "फ्रंट-एंड डेवलपमेंट और वर्डप्रेस समाधानों में विशेषज्ञता, फिगमा डिज़ाइनों को तेज़, उपयोगकर्ता के अनुकूल वेबसाइटों में बदलना।",
             btn_projects: "प्रोजेक्ट्स देखें", btn_view_cv: "सीवी देखें", stat_1_num: "200+", stat_1_text: "UX डिज़ाइन", stat_2_num: "15+", stat_2_text: "प्रोजेक्ट्स", stat_3_num: "10+", stat_3_text: "तकनीक",
             cv_page_title: "मेरा सीवी.", cv_title_text: "सीवी", cv_preview: "पूर्वावलोकन", cv_download: "डाउनलोड", about_badge: "अनुभव और कौशल", about_title: "कोड के परे।", about_desc: "मैं प्रदर्शन और उपयोगकर्ता अनुभव पर पूर्ण ध्यान देने के साथ कस्टम समाधान बनाता हूं।",
-            bento_1_title: "डिजिटल व्यवसाय विशेषज्ञता", bento_1_desc: "VORTX Dev के संस्थापक के रूप में, मैं केवल कोड नहीं लिखता; मैं समझता हूँ कि ऑनलाइन व्यवसाय कैसे काम करते हैं। मैं आपके राजस्व को बढ़ाने के लिए ईकामर्स को अनुकूलित करता हूं।", bento_2_title: "तकनीकी शस्त्रागार", bento_3_title: "कोर वेब वाइटल्स", bento_4_title: "मैं कैसे मदद कर सकता हूँ?",
+            bento_1_title: "डिजिटल व्यवसाय विशेषज्ञता", bento_1_desc: "VORTX Dev के संस्थापक के रूप में, मैं समझता हूँ कि ऑनलाइन व्यवसाय कैसे काम करते हैं। मैं आपके राजस्व को बढ़ाने के लिए ईकामर्स को अनुकूलित करता हूं।", bento_2_title: "तकनीकी शस्त्रागार", bento_3_title: "कोर वेब वाइटल्स", bento_4_title: "मैं कैसे मदद कर सकता हूँ?",
             srv_1: "उच्च-रूपांतरण ईकामर्स", srv_1_desc: "WooCommerce स्टोर्स का निर्माण और अनुकूलन।", srv_2: "उन्नत UI विकास", srv_2_desc: "जटिल Figma डिज़ाइनों को उत्तरदायी इंटरफेस में बदलना।",
             proj_badge: "पोर्टफोलियो", proj_title: "चयनित कार्य।", btn_preview: "साइट देखें", btn_show_more: "और दिखाएं", btn_show_less: "कम दिखाएं", btn_open_tab: "वेब खोलें", msg_iframe_sec: "साइट दृश्य को रोक सकती है। 'वेब खोलें' पर क्लिक करें।",
             contact_badge: "संपर्क करें", contact_title: "आइए कुछ शानदार बनाएं।", contact_desc: "फ्रीलांस परियोजनाओं के लिए उपलब्ध। संपर्क करें और अपने अगले प्रोजेक्ट पर चर्चा करें।",
@@ -177,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentLang = 'ar';
     let isExpanded = false;
+
+    // تم إعلان متغيرات الآلة الكاتبة هنا مبكراً لتجنب أي أخطاء
+    let typeWriterStrings = translations['ar'].typewriter_arr;
+    let isDeleting = false, currentStringIndex = 0, currentCharIndex = 0;
+    const typeWriterElement = document.getElementById('typewriter-text');
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -194,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!grid) return;
 
         if (typeof window.projectsData === 'undefined') {
-            console.error("لم يتم العثور على ملف projects.js");
+            console.error("لم يتم العثور على بيانات المشاريع");
             return;
         }
 
@@ -241,9 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         grid.innerHTML = htmlContent;
-        if(hasHidden && toggleBtn) {
-            toggleBtn.classList.remove('hidden');
-        }
+        if(hasHidden && toggleBtn) toggleBtn.classList.remove('hidden');
     }
     initProjects();
 
@@ -261,40 +264,33 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLang = lang;
         const isRtl = (lang === 'ar');
         
-        // إعداد اتجاه الصفحة
         document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
         document.documentElement.lang = lang;
         document.body.dir = isRtl ? 'rtl' : 'ltr';
         document.documentElement.classList.toggle('ltr', !isRtl);
         document.documentElement.classList.toggle('rtl', isRtl);
         
-        // تحديث نص الزر الرئيسي (الكمبيوتر)
         const desktopLangText = document.getElementById('current-lang-desktop');
         if (desktopLangText) desktopLangText.innerText = langNames[lang];
         
-        // تحديث النصوص الأساسية
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) el.innerHTML = translations[lang][key];
         });
 
-        // تحديث العناصر النائبة (Placeholders)
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
             if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
         });
 
-        // تحديث نصوص المشاريع
         if (typeof window.projectsData !== 'undefined') {
             document.querySelectorAll('.dynamic-proj-desc').forEach(el => {
                 const id = el.getAttribute('data-proj-id');
                 const proj = window.projectsData.find(p => p.id === id);
-                // استخدام الإنجليزي كافتراضي في حال لم تتوفر الترجمة للغة معينة للمشاريع
                 if (proj) el.innerHTML = proj.desc[lang] || proj.desc['en'];
             });
         }
 
-        // تحديث تصميم أزرار اللغات (الكمبيوتر)
         document.querySelectorAll('.lang-btn-desktop').forEach(btn => {
             if (btn.dataset.lang === lang) {
                 btn.classList.replace('text-gray-400', 'text-blue-400');
@@ -305,56 +301,75 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // تحديث تصميم أزرار اللغات (الموبايل)
         document.querySelectorAll('.lang-btn-mobile').forEach(btn => {
             if (btn.dataset.lang === lang) {
                 btn.classList.replace('text-gray-400', 'text-blue-400');
-                btn.classList.replace('border-transparent', 'border-blue-500/50');
             } else {
                 btn.classList.replace('text-blue-400', 'text-gray-400');
-                btn.classList.replace('border-blue-500/50', 'border-transparent');
             }
         });
 
-        // إعادة تشغيل تأثير الآلة الكاتبة باللغة الجديدة
+        // تحديث وتصفير الآلة الكاتبة لتتناسب مع اللغة
         typeWriterStrings = translations[lang].typewriter_arr || translations['en'].typewriter_arr;
         currentStringIndex = 0;
         currentCharIndex = 0;
         isDeleting = false;
         
         updateShowMoreText();
+        
+        // إغلاق قائمة اللغات في الموبايل إن كانت مفتوحة
+        const mobileLangDropdown = document.getElementById('mobile-lang-dropdown');
+        if(mobileLangDropdown) {
+            mobileLangDropdown.classList.add('hidden');
+            mobileLangDropdown.classList.remove('flex');
+        }
     }
 
-    // تفعيل اللغات عند الضغط (كمبيوتر وموبايل)
+    // تفعيل أزرار اللغات
     document.querySelectorAll('.lang-btn-desktop, .lang-btn-mobile').forEach(btn => {
         btn.addEventListener('click', (e) => {
             setLanguage(e.target.dataset.lang);
         });
     });
 
-    setLanguage('ar'); // اللغة الافتراضية
+    setLanguage('ar'); // بدء التشغيل باللغة العربية
 
-    // منطق القائمة الجانبية للموبايل
+    // تفعيل قائمة لغات الموبايل (Dropdown)
+    const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+    const mobileLangDropdown = document.getElementById('mobile-lang-dropdown');
+    
+    if (mobileLangToggle && mobileLangDropdown) {
+        mobileLangToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileLangDropdown.classList.toggle('hidden');
+            mobileLangDropdown.classList.toggle('flex');
+        });
+    }
+
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     
     if(mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // منع إغلاقها فوراً
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
         });
-        
-        // إغلاق عند اختيار أي رابط
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
     }
 
-    // إغلاق القائمة الجانبية عند الضغط في أي مكان خارجها (الحل المطلوب)
+    // إغلاق القوائم عند النقر في أي مكان خارجها (الحل المطلوب)
     document.addEventListener('click', (e) => {
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
             if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                 mobileMenu.classList.add('hidden');
+            }
+        }
+        if (mobileLangDropdown && !mobileLangDropdown.classList.contains('hidden')) {
+            if (!mobileLangDropdown.contains(e.target) && !mobileLangToggle.contains(e.target)) {
+                mobileLangDropdown.classList.add('hidden');
+                mobileLangDropdown.classList.remove('flex');
             }
         }
     });
@@ -384,13 +399,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // تأثير الآلة الكاتبة (Typewriter)
-    const typeWriterElement = document.getElementById('typewriter-text');
-    let typeWriterStrings = translations['ar'].typewriter_arr;
-    let isDeleting = false, currentStringIndex = 0, currentCharIndex = 0;
-
     function type() {
-        if(!typeWriterElement) return;
+        if(!typeWriterElement || typeWriterStrings.length === 0) return;
         const currentString = typeWriterStrings[currentStringIndex];
         typeWriterElement.textContent = currentString.substring(0, currentCharIndex + (isDeleting ? -1 : 1));
         currentCharIndex += isDeleting ? -1 : 1;
@@ -529,4 +539,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', handleRouting);
     handleRouting();
 });
-
