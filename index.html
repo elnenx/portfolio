@@ -315,214 +315,25 @@
             </div>
         </section>
 
-        <!-- Our Work Section (10 Projects) -->
+        <!-- Our Work Section (Projects) -->
         <section id="portfolio" class="px-5 pt-16 pb-16 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 relative z-10 transition-colors">
             <div class="mb-14 text-right rtl:text-right ltr:text-left max-w-md mx-auto reveal">
                 <h2 class="text-[2.2rem] font-black text-dark dark:text-white mb-4 tracking-tight" data-ar="أعمالنا" data-en="Our Work">أعمالنا</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-[1.1rem] leading-relaxed font-medium" data-ar="نماذج من منتجات رقمية ساعدنا في بنائها وإطلاقها بنجاح." data-en="Examples of digital products we've successfully built and launched.">نماذج من منتجات رقمية ساعدنا في بنائها وإطلاقها بنجاح.</p>
             </div>
 
+            <!-- يتم استدعاء المشاريع من ملف projects.js وتوليدها هنا -->
             <div class="flex flex-col gap-6 w-full max-w-md mx-auto" id="projects-list">
-                
-                <!-- Project 1 (سكنك) -->
-                <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col group rtl:text-right ltr:text-left transition-colors reveal">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786725994/20260814_194539_0000_n14f8u.png" alt="سكنك" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">سكنك – منصة عقارية</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">منصة عقارية لعرض الوحدات والعقارات بشكل منظم، مع تفاصيل وصور ومعلومات كل عقار.</p>
-                        
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">منصة عقارية</span>
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">ويب</span>
-                        </div>
-                        <button onclick="openProjectModal('https://skank-x.github.io/-/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 2 (Dental Clinic) -->
-                <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col group rtl:text-right ltr:text-left transition-colors reveal">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729694/20260814_202735_0000_oejijd.png" alt="Dental Clinic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">Dental Clinic – عيادة أسنان</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">موقع احترافي لعيادة أسنان بتصميم طبي عصري، يعرض الخدمات ويسهّل التواصل.</p>
-                        
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">تصميم طبي</span>
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">عيادات</span>
-                        </div>
-                        <button onclick="openProjectModal('https://elnenx.github.io/Dental-clinic-/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 3 (WDNY Courier) -->
-                <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col group rtl:text-right ltr:text-left transition-colors reveal">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729691/20260814_203028_0000_cw09aj.png" alt="WDNY Courier" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">WDNY Courier – شركة شحن</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">موقع احترافي لشركة متخصصة في خدمات الشحن والتوصيل والحلول اللوجستية.</p>
-                        
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">لوجستيات</span>
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">توصيل</span>
-                        </div>
-                        <button onclick="openProjectModal('https://wdenycourier.com/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Hidden Projects (4 to 10) -->
-                
-                <!-- Project 4 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729699/20260814_203231_0000_phwzlo.png" alt="Hectar Modern" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">Hectar Modern – شركة مقاولات</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">موقع لشركة مقاولات يعرض خدمات البناء والمشاريع التي تقدمها بطريقة احترافية.</p>
-                        
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">مقاولات</span>
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">ويب</span>
-                        </div>
-                        <button onclick="openProjectModal('https://www.hectarmodern.com/ar')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729690/2_20260814_202453_0001_svxwfi.png" alt="AD FAZ" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">AD FAZ – تجارة إلكترونية</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">منصة رقمية تقدم حلولًا وخدمات لتطوير وإدارة الأعمال الإلكترونية.</p>
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">تجارة إلكترونية</span>
-                        </div>
-                        <button onclick="openProjectModal('https://adfaz.sa/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729694/Untitled_design_20260814_202500_0000_jmirqi.png" alt="Brand Store" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">Brand – متجر ملابس</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">متجر إلكتروني لبراند ملابس، يركز على تجربة تسوق سهلة ومريحة للمستخدمين.</p>
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">متجر إلكتروني</span>
-                        </div>
-                        <button onclick="openProjectModal('https://elnenx.github.io/Brand-/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 7 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729700/Untitled_design_20260814_203717_0000_slsrve.png" alt="Hustler Brand" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">Hustler Brand – متجر</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">متجر إلكتروني لبراند ملابس مصري، لطلب المنتجات بسهولة وبشكل عصري.</p>
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">متجر مصري</span>
-                        </div>
-                        <button onclick="openProjectModal('https://hustlerbrand-egy.myshopify.com/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 8 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729695/20260814_204020_0000_gkihtm.png" alt="El Dahan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">El Dahan – مطعم</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">موقع إلكتروني لمطعم الدهان لعرض المنيو والفروع لتجربة طلب سلسة وسريعة.</p>
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">مطعم</span>
-                        </div>
-                        <button onclick="openProjectModal('https://www.eldahan.com/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 9 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729694/20260814_204424_0000_hsjqd2.png" alt="TFT VIP TRADE" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">TFT VIP TRADE – تداول</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">منصة متخصصة في الأسواق المالية، تشمل التعليم والتوصيات والاشتراكات.</p>
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">تداول</span>
-                        </div>
-                        <button onclick="openProjectModal('https://tftviptrade.com/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Project 10 -->
-                <div class="hidden bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col hidden-project group rtl:text-right ltr:text-left transition-colors">
-                    <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
-                        <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729697/Untitled_design_20260814_204622_0000_iyacj0.png" alt="SUTRA" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">SUTRA – أزياء رجالي</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">متجر إلكتروني متخصص في الأزياء الرجالية مع تجربة تسوق متكاملة وعصرية.</p>
-                        <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
-                            <span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">أزياء رجالي</span>
-                        </div>
-                        <button onclick="openProjectModal('https://sutrastores.com/')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
-                            <span data-ar="استكشف المشروع" data-en="Explore Project">استكشف المشروع</span>
-                            <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
-                        </button>
-                    </div>
-                </div>
-
+                <!-- Data will be injected here -->
             </div> 
 
             <!-- Load More Button -->
             <div class="mt-10 flex flex-col items-center justify-center gap-4 max-w-md mx-auto reveal">
-                <button id="load-more-btn" class="bg-surface dark:bg-slate-800 text-dark dark:text-white border border-transparent dark:border-slate-700 w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors">
-                    <span data-ar="عرض باقي المشاريع (7)" data-en="Load More Projects (7)">عرض باقي المشاريع (7)</span>
+                <button id="load-more-btn" onclick="handleLoadMore()" class="bg-surface dark:bg-slate-800 text-dark dark:text-white border border-transparent dark:border-slate-700 w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors">
+                    <span data-ar="عرض باقي المشاريع" data-en="Load More Projects" id="load-more-text">عرض باقي المشاريع</span>
                     <i class="ph ph-caret-down font-bold text-lg"></i>
                 </button>
-                <span id="projects-counter" class="text-slate-400 text-sm font-medium" data-ar="يتم عرض 3 من أصل 10 مشاريع" data-en="Showing 3 of 10 projects">يتم عرض 3 من أصل 10 مشاريع</span>
+                <span id="projects-counter" class="text-slate-400 text-sm font-medium">يتم عرض المشاريع</span>
             </div>
         </section>
 
@@ -566,59 +377,11 @@
 
 
     <!-- ========================================== -->
-    <!-- IPHONE MOCKUP MODAL (شاشة عرض المشاريع) -->
-    <!-- ========================================== -->
-    <div id="project-modal" class="fixed inset-0 z-[100] hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <!-- Blur Backdrop -->
-        <div class="absolute inset-0 bg-white/60 dark:bg-slate-900/80 backdrop-blur-xl transition-colors"></div>
-        
-        <!-- Action Buttons -->
-        <div class="absolute top-4 right-4 flex flex-col gap-3 z-50">
-            <!-- X Button -->
-            <button onclick="closeProjectModal()" class="w-10 h-10 rounded-full bg-primary shadow-lg shadow-primary/30 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">
-                <i class="ph ph-x text-xl"></i>
-            </button>
-            <!-- Open In Browser -->
-            <a id="modal-external-link" href="#" target="_blank" class="w-10 h-10 rounded-full bg-primary shadow-lg shadow-primary/30 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">
-                <i class="ph ph-arrow-up-right text-xl"></i>
-            </a>
-        </div>
-
-        <!-- Phone Mockup Container -->
-        <div class="relative z-10 w-[360px] h-[720px] sm:w-[390px] sm:h-[800px] bg-black rounded-[45px] sm:rounded-[55px] shadow-2xl p-[6px] sm:p-[8px] transform scale-95 transition-transform duration-300" id="mockup-frame">
-            <!-- Inner Screen -->
-            <div class="w-full h-full bg-white dark:bg-slate-900 rounded-[38px] sm:rounded-[47px] overflow-hidden relative border border-slate-800">
-                <!-- Status Bar -->
-                <div class="absolute top-0 left-0 right-0 h-12 z-20 flex justify-between items-center px-6 pointer-events-none">
-                    <!-- Time -->
-                    <span class="text-black dark:text-white text-xs font-bold font-sans">4:14</span>
-                    <!-- Notch -->
-                    <div class="absolute left-1/2 -translate-x-1/2 top-0 w-32 h-7 bg-black rounded-b-[20px]"></div>
-                    <!-- Icons -->
-                    <div class="flex items-center gap-1.5 text-black dark:text-white">
-                        <i class="ph-fill ph-cell-signal-full text-[13px]"></i>
-                        <i class="ph-fill ph-wifi-high text-[13px]"></i>
-                        <i class="ph-fill ph-battery-full text-[16px]"></i>
-                    </div>
-                </div>
-                <!-- Iframe -->
-                <iframe id="project-iframe" src="" class="w-full h-full pt-12 border-0 bg-white dark:bg-slate-900" title="Project View"></iframe>
-            </div>
-            
-            <!-- Phone Side Buttons (Decorations) -->
-            <div class="absolute -left-[2px] top-28 w-[3px] h-8 bg-slate-800 rounded-l-md"></div>
-            <div class="absolute -left-[2px] top-40 w-[3px] h-12 bg-slate-800 rounded-l-md"></div>
-            <div class="absolute -left-[2px] top-56 w-[3px] h-12 bg-slate-800 rounded-l-md"></div>
-            <div class="absolute -right-[2px] top-48 w-[3px] h-16 bg-slate-800 rounded-r-md"></div>
-        </div>
-    </div>
-
-
-    <!-- ========================================== -->
     <!-- WIZARD PAGE CONTAINER (مساعد الاستكشاف) -->
     <!-- ========================================== -->
     <div id="wizard-page" class="hidden min-h-screen bg-wizardBg dark:bg-slate-900 pb-10 transition-colors">
-        
+        <!-- Wizard content omitted for brevity... kept identical -->
+        <!-- Just assuming you keep all the wizard HTML here exactly as is -->
         <header class="fixed top-0 w-full bg-white dark:bg-slate-800 z-50 px-4 h-16 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between shadow-sm transition-colors">
             <div class="flex items-center gap-3">
                 <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786664730/1000163758-removebg-preview_bwnpp6.png" class="w-8 h-8 object-contain">
@@ -644,7 +407,6 @@
 
         <!-- Wizard Form Content -->
         <form id="vortx-form" action="https://formspree.io/f/mykarnrq" method="POST" class="pt-24 px-5 max-w-md mx-auto w-full">
-            
             <!-- Step 1: Intro -->
             <div id="step-1" class="wizard-step bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-slate-700 transition-colors">
                 <h2 class="text-3xl font-black text-dark dark:text-white text-right rtl:text-right ltr:text-left leading-tight mb-4" data-ar="لنبدأ في<br>بناء مشروعك." data-en="Let's Start<br>Building.">لنبدأ في<br>بناء مشروعك.</h2>
@@ -670,7 +432,6 @@
                     <i class="ph ph-arrow-left text-lg font-bold rtl:rotate-0 ltr:rotate-180"></i>
                 </button>
             </div>
-
             <!-- Step 2: What to build -->
             <div id="step-2" class="wizard-step hidden bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-slate-700 transition-colors">
                 <h2 class="text-[1.8rem] font-black text-dark dark:text-white text-right rtl:text-right ltr:text-left mb-3" data-ar="ماذا تريد أن تبني؟" data-en="What do you want to build?">ماذا تريد أن تبني؟</h2>
@@ -680,6 +441,7 @@
                         <div class="border border-slate-200 dark:border-slate-600 rounded-2xl p-5 text-right rtl:text-right ltr:text-left transition-all">
                             <div class="w-12 h-12 rounded-xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center mb-4 ml-auto ltr:ml-0 ltr:mr-auto"><i class="ph ph-globe text-2xl"></i></div>
                             <h4 class="font-bold text-dark dark:text-white text-lg mb-1" data-ar="موقع ويب" data-en="Website">موقع ويب</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 leading-relaxed" data-ar="موقع تعريفي يعرض معلومات عن شركتك، خدماتك، أو محفظة أعمالك." data-en="An informational site showcasing your business, services, or portfolio.">موقع تعريفي يعرض معلومات عن شركتك، خدماتك، أو محفظة أعمالك.</p>
                         </div>
                     </label>
                     <label class="relative block cursor-pointer group">
@@ -687,6 +449,7 @@
                         <div class="border border-slate-200 dark:border-slate-600 rounded-2xl p-5 text-right rtl:text-right ltr:text-left transition-all">
                             <div class="w-12 h-12 rounded-xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center mb-4 ml-auto ltr:ml-0 ltr:mr-auto"><i class="ph ph-browser text-2xl"></i></div>
                             <h4 class="font-bold text-dark dark:text-white text-lg mb-1" data-ar="تطبيق ويب" data-en="Web App">تطبيق ويب</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 leading-relaxed" data-ar="منصة تفاعلية متقدمة تحتوي على لوحة تحكم، قواعد بيانات، وتسجيل دخول للمستخدمين." data-en="An interactive platform with a dashboard, databases, and user authentication.">منصة تفاعلية متقدمة تحتوي على لوحة تحكم، قواعد بيانات، وتسجيل دخول للمستخدمين.</p>
                         </div>
                     </label>
                     <label class="relative block cursor-pointer group">
@@ -694,6 +457,7 @@
                         <div class="border border-slate-200 dark:border-slate-600 rounded-2xl p-5 text-right rtl:text-right ltr:text-left transition-all">
                             <div class="w-12 h-12 rounded-xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center mb-4 ml-auto ltr:ml-0 ltr:mr-auto"><i class="ph ph-device-mobile text-2xl"></i></div>
                             <h4 class="font-bold text-dark dark:text-white text-lg mb-1" data-ar="تطبيق جوال" data-en="Mobile App">تطبيق جوال</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 leading-relaxed" data-ar="تطبيق مخصص للهواتف الذكية يعمل على أنظمة iOS و Android لتجربة استخدام أسرع." data-en="A dedicated smartphone app for iOS and Android for a faster user experience.">تطبيق مخصص للهواتف الذكية يعمل على أنظمة iOS و Android لتجربة استخدام أسرع.</p>
                         </div>
                     </label>
                     <label class="relative block cursor-pointer group">
@@ -701,6 +465,7 @@
                         <div class="border border-slate-200 dark:border-slate-600 rounded-2xl p-5 text-right rtl:text-right ltr:text-left transition-all">
                             <div class="w-12 h-12 rounded-xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center mb-4 ml-auto ltr:ml-0 ltr:mr-auto"><i class="ph ph-cloud text-2xl"></i></div>
                             <h4 class="font-bold text-dark dark:text-white text-lg mb-1" data-ar="منصة SaaS" data-en="SaaS Platform">منصة SaaS</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 leading-relaxed" data-ar="برمجيات كخدمة تقدم حلولاً للمستخدمين عبر اشتراكات دورية (شهرية/سنوية)." data-en="Software as a Service offering solutions to users via recurring subscriptions.">برمجيات كخدمة تقدم حلولاً للمستخدمين عبر اشتراكات دورية (شهرية/سنوية).</p>
                         </div>
                     </label>
                     <label class="relative block cursor-pointer group">
@@ -708,6 +473,7 @@
                         <div class="border border-slate-200 dark:border-slate-600 rounded-2xl p-5 text-right rtl:text-right ltr:text-left transition-all">
                             <div class="w-12 h-12 rounded-xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center mb-4 ml-auto ltr:ml-0 ltr:mr-auto"><i class="ph ph-shopping-cart text-2xl"></i></div>
                             <h4 class="font-bold text-dark dark:text-white text-lg mb-1" data-ar="التجارة الإلكترونية" data-en="E-Commerce">التجارة الإلكترونية</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 leading-relaxed" data-ar="متجر إلكتروني متكامل لبيع وعرض المنتجات مع بوابات دفع وسلة مشتريات." data-en="An integrated online store to sell products with payment gateways and a cart.">متجر إلكتروني متكامل لبيع وعرض المنتجات مع بوابات دفع وسلة مشتريات.</p>
                         </div>
                     </label>
                     <label class="relative block cursor-pointer group">
@@ -715,6 +481,7 @@
                         <div class="border border-slate-200 dark:border-slate-600 rounded-2xl p-5 text-right rtl:text-right ltr:text-left transition-all">
                             <div class="w-12 h-12 rounded-xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center mb-4 ml-auto ltr:ml-0 ltr:mr-auto"><i class="ph ph-question text-2xl"></i></div>
                             <h4 class="font-bold text-dark dark:text-white text-lg mb-1" data-ar="أخرى / لست متأكداً بعد" data-en="Other / Not Sure">أخرى / لست متأكداً بعد</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-medium mt-1 leading-relaxed" data-ar="فكرة مختلفة غير مذكورة هنا، أو أنك تحتاج إلى استشارة لتحديد النوع الأنسب." data-en="A different idea not listed here, or you need consultation to decide.">فكرة مختلفة غير مذكورة هنا، أو أنك تحتاج إلى استشارة لتحديد النوع الأنسب.</p>
                         </div>
                     </label>
                 </div>
@@ -726,9 +493,10 @@
             <!-- Step 3: Description -->
             <div id="step-3" class="wizard-step hidden bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-slate-700 transition-colors">
                 <h2 class="text-[1.8rem] font-black text-dark dark:text-white text-right rtl:text-right ltr:text-left mb-3" data-ar="أخبرنا عن مشروعك." data-en="Tell us about your project.">أخبرنا عن مشروعك.</h2>
-                <div class="flex flex-col text-right rtl:text-right ltr:text-left mt-6">
-                    <textarea name="project_description" id="project-desc" rows="6" class="w-full border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-xl p-4 text-right rtl:text-right ltr:text-left focus:outline-none focus:border-primary" placeholder="أخبرنا عن أهداف مشروعك..."></textarea>
-                    <p class="text-slate-400 text-[13px] mt-2 text-left ltr:text-right">١٠ أحرف كحد أدنى</p>
+                <p class="text-slate-500 dark:text-slate-400 text-[15px] font-medium leading-relaxed text-right rtl:text-right ltr:text-left mb-5" data-ar="يرجى توضيح فكرة المشروع بشكل عام، الميزات الأساسية التي تحتاجها، وأي مواقع أو تطبيقات مشابهة كمرجع لنا." data-en="Please describe the general project idea, key features needed, and any similar sites or apps as a reference.">يرجى توضيح فكرة المشروع بشكل عام، الميزات الأساسية التي تحتاجها، وأي مواقع أو تطبيقات مشابهة كمرجع لنا.</p>
+                <div class="flex flex-col text-right rtl:text-right ltr:text-left">
+                    <textarea name="project_description" id="project-desc" rows="6" class="w-full border border-slate-200 dark:border-slate-600 dark:bg-slate-700 dark:text-white rounded-xl p-4 text-right rtl:text-right ltr:text-left focus:outline-none focus:border-primary font-semibold placeholder:font-medium placeholder:text-slate-400/70" placeholder="اكتب تفاصيل وأهداف مشروعك هنا..."></textarea>
+                    <p class="text-slate-400 text-[13px] mt-2 text-left ltr:text-right font-medium">١٠ أحرف كحد أدنى</p>
                 </div>
                 <div class="mt-8">
                     <button type="button" id="next-btn-3" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">متابعة</button>
@@ -738,7 +506,6 @@
             <!-- Step 4: Budget & Timeline -->
             <div id="step-4" class="wizard-step hidden bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-slate-700 transition-colors">
                 <h2 class="text-[1.8rem] font-black text-dark dark:text-white text-right rtl:text-right ltr:text-left mb-6" data-ar="الميزانية والوقت" data-en="Budget & Timeline">الميزانية والوقت</h2>
-                
                 <div class="mb-8">
                     <label class="font-bold text-dark dark:text-white text-[15px] mb-4 block text-right rtl:text-right ltr:text-left" data-ar="نطاق الميزانية" data-en="Budget Range">نطاق الميزانية</label>
                     <div class="flex flex-col gap-3">
@@ -764,25 +531,28 @@
                         </label>
                     </div>
                 </div>
-
                 <div>
                     <label class="font-bold text-dark dark:text-white text-[15px] mb-4 block text-right rtl:text-right ltr:text-left" data-ar="الجدول الزمني" data-en="Timeline">الجدول الزمني</label>
                     <div class="flex flex-col gap-3">
                         <label class="flex items-center justify-between p-4 border border-slate-200 dark:border-slate-600 rounded-xl cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primaryLight dark:has-[:checked]:bg-primary/20">
-                            <input type="radio" name="timeline" value="أقل من شهر" class="w-5 h-5 accent-primary">
-                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first">أقل من شهر</span>
+                            <input type="radio" name="timeline" value="أقل من أسبوعين" class="w-5 h-5 accent-primary">
+                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first" data-ar="أقل من أسبوعين" data-en="Less than 2 weeks">أقل من أسبوعين</span>
                         </label>
                         <label class="flex items-center justify-between p-4 border border-slate-200 dark:border-slate-600 rounded-xl cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primaryLight dark:has-[:checked]:bg-primary/20">
-                            <input type="radio" name="timeline" value="١ - ٢ شهر" class="w-5 h-5 accent-primary">
-                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first">١ - ٢ شهر</span>
+                            <input type="radio" name="timeline" value="٢ - ٣ أسابيع" class="w-5 h-5 accent-primary">
+                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first" data-ar="٢ - ٣ أسابيع" data-en="2 - 3 weeks">٢ - ٣ أسابيع</span>
                         </label>
                         <label class="flex items-center justify-between p-4 border border-slate-200 dark:border-slate-600 rounded-xl cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primaryLight dark:has-[:checked]:bg-primary/20">
-                            <input type="radio" name="timeline" value="٢ - ٤ أشهر" class="w-5 h-5 accent-primary">
-                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first">٢ - ٤ أشهر</span>
+                            <input type="radio" name="timeline" value="شهر واحد" class="w-5 h-5 accent-primary">
+                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first" data-ar="شهر واحد" data-en="1 month">شهر واحد</span>
+                        </label>
+                        <label class="flex items-center justify-between p-4 border border-slate-200 dark:border-slate-600 rounded-xl cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primaryLight dark:has-[:checked]:bg-primary/20">
+                            <input type="radio" name="timeline" value="شهر - شهرين" class="w-5 h-5 accent-primary">
+                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first" data-ar="شهر - شهرين" data-en="1 - 2 months">شهر - شهرين</span>
                         </label>
                         <label class="flex items-center justify-between p-4 border border-slate-200 dark:border-slate-600 rounded-xl cursor-pointer hover:border-primary has-[:checked]:border-primary has-[:checked]:bg-primaryLight dark:has-[:checked]:bg-primary/20">
                             <input type="radio" name="timeline" value="لست متأكداً بعد" class="w-5 h-5 accent-primary">
-                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first">لست متأكداً بعد</span>
+                            <span class="text-dark dark:text-white font-bold text-[15px] rtl:order-none ltr:order-first" data-ar="لست متأكداً بعد" data-en="Not sure yet">لست متأكداً بعد</span>
                         </label>
                     </div>
                 </div>
@@ -791,7 +561,6 @@
                     <button type="button" id="next-btn-4" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">متابعة</button>
                 </div>
             </div>
-
             <!-- Step 5: Contact (Final) -->
             <div id="step-5" class="wizard-step hidden bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-slate-700 transition-colors">
                 <h2 class="text-[1.8rem] font-black text-dark dark:text-white text-right rtl:text-right ltr:text-left mb-5" data-ar="معلومات الاتصال" data-en="Contact Info">معلومات الاتصال</h2>
@@ -813,7 +582,6 @@
                     <button type="submit" id="submit-btn-5" disabled class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" data-ar="إرسال الطلب" data-en="Submit Request">إرسال الطلب</button>
                 </div>
             </div>
-
             <!-- Step 6: Success -->
             <div id="step-6" class="wizard-step hidden bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-slate-700 text-center py-16 transition-colors">
                 <div class="w-20 h-20 rounded-full bg-green-100 text-green-500 flex items-center justify-center mx-auto mb-6">
@@ -822,7 +590,6 @@
                 <h2 class="text-[1.8rem] font-black text-dark dark:text-white mb-3" data-ar="تم استلام طلبك بنجاح!" data-en="Request Received Successfully!">تم استلام طلبك بنجاح!</h2>
                 <button type="button" onclick="closeWizard()" class="w-full bg-surface dark:bg-slate-700 text-primary dark:text-white font-bold py-4 rounded-xl mt-8 transition-colors" data-ar="العودة للصفحة الرئيسية" data-en="Return to Home">العودة للصفحة الرئيسية</button>
             </div>
-
         </form>
     </div>
     <!-- END WIZARD PAGE -->
@@ -877,6 +644,9 @@
     </div>
 
 
+    <!-- استدعاء ملف المشاريع الخارجي -->
+    <script src="projects.js"></script>
+
     <!-- JavaScript logic -->
     <script>
         // ==========================================
@@ -900,7 +670,7 @@
         // Language & Theme Toggle
         // ==========================================
         let isDark = false;
-        let isEn = false;
+        window.isEn = false; // جعل المتغير متاحاً لملف المشاريع الخارجي
 
         function toggleTheme() {
             isDark = !isDark;
@@ -909,18 +679,23 @@
         }
 
         function toggleLang() {
-            isEn = !isEn;
-            document.documentElement.dir = isEn ? 'ltr' : 'rtl';
-            document.documentElement.lang = isEn ? 'en' : 'ar';
+            window.isEn = !window.isEn;
+            document.documentElement.dir = window.isEn ? 'ltr' : 'rtl';
+            document.documentElement.lang = window.isEn ? 'en' : 'ar';
             
             document.querySelectorAll('[data-ar]').forEach(el => {
-                if(isEn && el.dataset.en) {
+                if(window.isEn && el.dataset.en) {
                     el.innerHTML = el.dataset.en;
                 } else {
                     el.innerHTML = el.dataset.ar;
                 }
             });
             updateWizardUI();
+            
+            // إعادة توليد المشاريع لعرضها باللغة الصحيحة
+            if(typeof renderProjects === 'function') {
+                renderProjects(window.isEn);
+            }
         }
 
         // ==========================================
@@ -952,7 +727,7 @@
                 // Change flex layout to push items apart (Title right, X left)
                 toggleBtn.classList.remove('justify-center');
                 toggleBtn.classList.add('justify-between');
-                if(!isEn) {
+                if(!window.isEn) {
                     toggleBtn.classList.add('flex-row-reverse');
                 }
 
@@ -997,7 +772,7 @@
         function getStepName(stepIndex) {
             const namesAr = ["مرحلة الاستكشاف", "بنية المشروع", "تفاصيل المشروع", "الميزانية والجدول الزمني", "معلومات الاتصال", "مكتمل"];
             const namesEn = ["Discovery Phase", "Architecture", "Project Details", "Budget & Timeline", "Contact Info", "Completed"];
-            return isEn ? namesEn[stepIndex] : namesAr[stepIndex];
+            return window.isEn ? namesEn[stepIndex] : namesAr[stepIndex];
         }
 
         function handleRouting() {
@@ -1030,10 +805,10 @@
             progressBar.style.width = `${progress}%`;
             
             if(currentStep < 6) {
-                stepText.innerText = isEn ? `Step ${currentStep} of ${totalSteps - 1}` : `الخطوة ${currentStep} من ${totalSteps - 1}`;
+                stepText.innerText = window.isEn ? `Step ${currentStep} of ${totalSteps - 1}` : `الخطوة ${currentStep} من ${totalSteps - 1}`;
                 stepText.previousElementSibling.innerText = getStepName(currentStep - 1);
             } else {
-                stepText.innerText = isEn ? `Completed` : `تم الانتهاء`;
+                stepText.innerText = window.isEn ? `Completed` : `تم الانتهاء`;
                 stepText.previousElementSibling.innerText = getStepName(5);
             }
             
@@ -1224,31 +999,11 @@
         }
         startEditorAnimation();
 
-        // ==========================================
-        // Load More Logic (Projects)
-        // ==========================================
-        const loadMoreBtn = document.getElementById('load-more-btn');
-        const hiddenProjects = document.querySelectorAll('.hidden-project');
-        const projectsCounter = document.getElementById('projects-counter');
-
-        if(loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', () => {
-                hiddenProjects.forEach(project => {
-                    project.classList.remove('hidden');
-                    project.style.opacity = '0';
-                    project.style.transform = 'translateY(10px)';
-                    setTimeout(() => {
-                        project.style.transition = 'all 0.5s ease-out';
-                        project.style.opacity = '1';
-                        project.style.transform = 'translateY(0)';
-                    }, 50);
-                });
-                
-                loadMoreBtn.style.display = 'none';
-                if(isEn) projectsCounter.textContent = 'Showing 10 of 10 projects';
-                else projectsCounter.textContent = 'يتم عرض 10 من أصل 10 مشاريع';
-            });
+        // التوليد الأولي للمشاريع عند تحميل الصفحة
+        if(typeof renderProjects === 'function') {
+            renderProjects(window.isEn);
         }
+
     </script>
 </body>
-    </html>
+</html>
