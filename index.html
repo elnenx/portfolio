@@ -16,6 +16,9 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -84,7 +87,6 @@
             pointer-events: none;
         }
 
-        /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -95,7 +97,6 @@
             transform: translateY(0);
         }
         
-        /* Iframe scrollbar styling */
         iframe::-webkit-scrollbar { width: 4px; }
         iframe::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
     </style>
@@ -114,13 +115,11 @@
             
             <!-- Menu Container -->
             <div id="nav-menu-container" class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-[26px] shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-white/50 dark:border-slate-700/50 transition-all duration-500 ease-in-out w-[52px] flex flex-col overflow-hidden shrink-0">
-                <!-- Menu Toggle Button -->
                 <button id="menu-toggle-btn" onclick="toggleMenu()" class="h-[52px] w-full flex items-center justify-center px-4 text-slate-700 dark:text-slate-200 transition-transform hover:scale-105">
                     <span id="menu-title" class="font-bold text-dark dark:text-white opacity-0 hidden transition-opacity duration-300" data-ar="القائمة الرئيسية" data-en="Main Menu">القائمة الرئيسية</span>
                     <i class="ph ph-list text-[24px] transition-transform duration-300" id="menu-icon"></i>
                 </button>
                 
-                <!-- Menu Dropdown Links -->
                 <nav id="menu-dropdown" class="hidden flex-col px-3 pb-8 pt-2 opacity-0 transition-opacity duration-300">
                     <div class="w-full h-[1px] bg-slate-200 dark:bg-slate-700 mb-4"></div>
                     
@@ -168,15 +167,14 @@
                     <div class="text-white text-[12px] font-sans tracking-wide font-bold opacity-90">build_product.js</div>
                     <div class="w-[44px]"></div>
                 </div>
-                <!-- Fixed Height for exactly 2 lines -->
                 <div class="px-4 sm:px-5 py-3 h-[74px] relative overflow-hidden font-mono text-[13px] sm:text-[14px] text-slate-600 dark:text-slate-300 bg-transparent transition-colors" id="code-editor-body"></div>
             </div>
 
             <div class="w-full max-w-lg mt-2">
-                <h1 class="text-[2.4rem] sm:text-[2.6rem] leading-[1.3] font-black text-right rtl:text-right ltr:text-left text-dark dark:text-white transition-colors reveal" data-ar="نحوّل الأفكار<br>إلى منتجات<br>رقمية <span class='text-primary tracking-wide'>تصنع أثرًا.</span>" data-en="We Turn Ideas<br>Into Digital<br>Products <span class='text-primary tracking-wide'>That Impact.</span>">
+                <h1 id="hero-title-el" class="text-[2.4rem] sm:text-[2.6rem] leading-[1.3] font-black text-right rtl:text-right ltr:text-left text-dark dark:text-white transition-colors reveal" data-ar="نحوّل الأفكار<br>إلى منتجات<br>رقمية <span class='text-primary tracking-wide'>تصنع أثرًا.</span>" data-en="We Turn Ideas<br>Into Digital<br>Products <span class='text-primary tracking-wide'>That Impact.</span>">
                     نحوّل الأفكار<br>إلى منتجات<br>رقمية <span class="text-primary tracking-wide">تصنع أثرًا.</span>
                 </h1>
-                <p class="text-right rtl:text-right ltr:text-left text-slate-500 dark:text-slate-400 mt-6 text-base leading-relaxed font-medium transition-colors reveal" data-ar="تساعد VORTX DEV الشركات والفرق على تحويل الأفكار إلى منتجات رقمية ناجحة، من اكتشاف الفرصة وصياغة الرؤية، إلى التصميم والتطوير والإطلاق." data-en="VORTX DEV helps companies turn ideas into successful digital products, from vision to launch.">
+                <p id="hero-desc-el" class="text-right rtl:text-right ltr:text-left text-slate-500 dark:text-slate-400 mt-6 text-base leading-relaxed font-medium transition-colors reveal" data-ar="تساعد VORTX DEV الشركات والفرق على تحويل الأفكار إلى منتجات رقمية ناجحة، من اكتشاف الفرصة وصياغة الرؤية، إلى التصميم والتطوير والإطلاق." data-en="VORTX DEV helps companies turn ideas into successful digital products, from vision to launch.">
                     تساعد VORTX DEV الشركات والفرق على تحويل الأفكار إلى منتجات رقمية ناجحة، من اكتشاف الفرصة وصياغة الرؤية، إلى التصميم والتطوير والإطلاق.
                 </p>
 
@@ -214,31 +212,8 @@
                 <p class="text-slate-600 dark:text-slate-400 text-[1.1rem] leading-relaxed mb-6 font-medium" data-ar="هندسة برمجيات شاملة، مصممة وفق أهداف عملك." data-en="Comprehensive software engineering tailored to your goals.">هندسة برمجيات شاملة، مصممة وفق أهداف عملك.</p>
             </div>
 
-            <div class="flex flex-col gap-6 w-full max-w-md mx-auto">
-                <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none relative overflow-hidden rtl:text-right ltr:text-left transition-colors reveal">
-                    <div class="flex justify-between items-start mb-10 rtl:flex-row ltr:flex-row-reverse">
-                        <div class="w-14 h-14 rounded-2xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center"><i class="ph ph-globe text-[28px]"></i></div>
-                        <span class="text-slate-600 dark:text-slate-400 font-bold text-sm mt-1 tracking-wider">01</span>
-                    </div>
-                    <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-3" data-ar="تطبيقات الويب" data-en="Web Applications">تطبيقات الويب</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] font-medium" data-ar="تطبيقات ويب سريعة ومتجاوبة مهندسة بـ React و Next.js." data-en="Fast, responsive web apps engineered with React and Next.js.">تطبيقات ويب سريعة ومتجاوبة مهندسة بـ React و Next.js.</p>
-                </div>
-                <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none relative overflow-hidden rtl:text-right ltr:text-left transition-colors reveal">
-                    <div class="flex justify-between items-start mb-10 rtl:flex-row ltr:flex-row-reverse">
-                        <div class="w-14 h-14 rounded-2xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center"><i class="ph ph-device-mobile text-[28px]"></i></div>
-                        <span class="text-slate-600 dark:text-slate-400 font-bold text-sm mt-1 tracking-wider">02</span>
-                    </div>
-                    <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-3" data-ar="تطبيقات الهاتف" data-en="Mobile Apps">تطبيقات الهاتف</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] font-medium" data-ar="تجارب هاتف عالية الجودة مبنية بـ React Native و Flutter." data-en="High-quality mobile experiences built with React Native and Flutter.">تجارب هاتف عالية الجودة مبنية بـ React Native و Flutter.</p>
-                </div>
-                <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none relative overflow-hidden rtl:text-right ltr:text-left transition-colors reveal">
-                    <div class="flex justify-between items-start mb-10 rtl:flex-row ltr:flex-row-reverse">
-                        <div class="w-14 h-14 rounded-2xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center"><i class="ph ph-spinner-gap text-[28px]"></i></div>
-                        <span class="text-slate-600 dark:text-slate-400 font-bold text-sm mt-1 tracking-wider">03</span>
-                    </div>
-                    <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-3" data-ar="الذكاء الاصطناعي" data-en="Artificial Intelligence">الذكاء الاصطناعي</h3>
-                    <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] font-medium" data-ar="نماذج لغوية وتنبؤية مهندسة مباشرة داخل منتجك." data-en="Predictive and language models engineered directly into your product.">نماذج لغوية وتنبؤية مهندسة مباشرة داخل منتجك.</p>
-                </div>
+            <div id="services-list" class="flex flex-col gap-6 w-full max-w-md mx-auto">
+                <!-- Services dynamically rendered from Supabase / fallback -->
             </div>
         </section>
 
@@ -322,9 +297,8 @@
                 <p class="text-slate-600 dark:text-slate-400 text-[1.1rem] leading-relaxed font-medium" data-ar="نماذج من منتجات رقمية ساعدنا في بنائها وإطلاقها بنجاح." data-en="Examples of digital products we've successfully built and launched.">نماذج من منتجات رقمية ساعدنا في بنائها وإطلاقها بنجاح.</p>
             </div>
 
-            <!-- يتم استدعاء المشاريع من ملف projects.js وتوليدها هنا -->
             <div class="flex flex-col gap-6 w-full max-w-md mx-auto" id="projects-list">
-                <!-- Data will be injected here -->
+                <!-- Data injected dynamically -->
             </div> 
 
             <!-- Load More Button -->
@@ -343,10 +317,10 @@
                 <h2 class="text-[2.2rem] font-black text-dark dark:text-white mb-4 tracking-tight" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-[1.1rem] leading-relaxed mb-6 font-medium" data-ar="نحن هنا لمساعدتك في بناء منتجك الرقمي التالي." data-en="We are here to help you build your next digital product.">نحن هنا لمساعدتك في بناء منتجك الرقمي التالي.</p>
                 <div class="flex flex-col gap-4">
-                    <a href="mailto:vortx.dev1@gmail.com" class="w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 bg-primary text-white hover:bg-blue-800 transition-colors shadow-lg shadow-blue-500/30">
+                    <a id="contact-email-link" href="mailto:vortx.dev1@gmail.com" class="w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 bg-primary text-white hover:bg-blue-800 transition-colors shadow-lg shadow-blue-500/30">
                         <span data-ar="راسلنا عبر البريد الإلكتروني" data-en="Email Us">راسلنا عبر البريد الإلكتروني</span>
                     </a>
-                    <a href="https://wa.me/201129268929" target="_blank" class="w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 bg-transparent text-primary dark:text-blue-400 border-2 border-primary hover:bg-primaryLight dark:hover:bg-primary/20 transition-colors">
+                    <a id="contact-wa-link" href="https://wa.me/201129268929" target="_blank" class="w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 bg-transparent text-primary dark:text-blue-400 border-2 border-primary hover:bg-primaryLight dark:hover:bg-primary/20 transition-colors">
                         <span data-ar="راسلنا عبر الواتساب" data-en="WhatsApp Us">راسلنا عبر الواتساب</span>
                     </a>
                 </div>
@@ -380,8 +354,6 @@
     <!-- WIZARD PAGE CONTAINER (مساعد الاستكشاف) -->
     <!-- ========================================== -->
     <div id="wizard-page" class="hidden min-h-screen bg-wizardBg dark:bg-slate-900 pb-10 transition-colors">
-        <!-- Wizard content omitted for brevity... kept identical -->
-        <!-- Just assuming you keep all the wizard HTML here exactly as is -->
         <header class="fixed top-0 w-full bg-white dark:bg-slate-800 z-50 px-4 h-16 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between shadow-sm transition-colors">
             <div class="flex items-center gap-3">
                 <img src="https://res.cloudinary.com/dyhlzplzb/image/upload/v1786664730/1000163758-removebg-preview_bwnpp6.png" class="w-8 h-8 object-contain">
@@ -486,7 +458,7 @@
                     </label>
                 </div>
                 <div class="mt-8">
-                    <button type="button" id="next-btn-2" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">متابعة</button>
+                    <button type="button" id="next-btn-2" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed" data-ar="متابعة" data-en="Continue">متابعة</button>
                 </div>
             </div>
 
@@ -499,7 +471,7 @@
                     <p class="text-slate-400 text-[13px] mt-2 text-left ltr:text-right font-medium">١٠ أحرف كحد أدنى</p>
                 </div>
                 <div class="mt-8">
-                    <button type="button" id="next-btn-3" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">متابعة</button>
+                    <button type="button" id="next-btn-3" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed" data-ar="متابعة" data-en="Continue">متابعة</button>
                 </div>
             </div>
 
@@ -558,7 +530,7 @@
                 </div>
 
                 <div class="mt-8">
-                    <button type="button" id="next-btn-4" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">متابعة</button>
+                    <button type="button" id="next-btn-4" disabled onclick="nextWizardStep()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed" data-ar="متابعة" data-en="Continue">متابعة</button>
                 </div>
             </div>
             <!-- Step 5: Contact (Final) -->
@@ -599,43 +571,31 @@
     <!-- IPHONE MOCKUP MODAL (شاشة عرض المشاريع) -->
     <!-- ========================================== -->
     <div id="project-modal" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300">
-        <!-- Blur Backdrop -->
         <div class="absolute inset-0 bg-white/60 dark:bg-slate-900/80 backdrop-blur-xl transition-colors"></div>
         
-        <!-- Action Buttons -->
         <div class="absolute top-6 right-6 flex flex-col gap-3 z-50">
-            <!-- X Button -->
             <button onclick="closeProjectModal()" class="w-12 h-12 rounded-full bg-primary shadow-lg shadow-primary/30 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">
                 <i class="ph ph-x text-2xl"></i>
             </button>
-            <!-- Open In Browser -->
             <a id="modal-external-link" href="#" target="_blank" class="w-12 h-12 rounded-full bg-primary shadow-lg shadow-primary/30 text-white flex items-center justify-center hover:bg-blue-800 transition-colors">
                 <i class="ph ph-arrow-up-right text-2xl"></i>
             </a>
         </div>
 
-        <!-- Phone Mockup Container -->
         <div class="relative z-10 w-[360px] h-[720px] sm:w-[390px] sm:h-[800px] bg-black rounded-[45px] sm:rounded-[55px] shadow-2xl p-[6px] sm:p-[8px] transform scale-95 transition-transform duration-300" id="mockup-frame">
-            <!-- Inner Screen -->
             <div class="w-full h-full bg-white dark:bg-slate-900 rounded-[38px] sm:rounded-[47px] overflow-hidden relative border border-slate-800">
-                <!-- Status Bar -->
                 <div class="absolute top-0 left-0 right-0 h-12 z-20 flex justify-between items-center px-6 pointer-events-none">
-                    <!-- Time -->
                     <span class="text-black dark:text-white text-[13px] font-bold font-sans">4:14</span>
-                    <!-- Notch -->
                     <div class="absolute left-1/2 -translate-x-1/2 top-0 w-[120px] h-[28px] bg-black rounded-b-[20px]"></div>
-                    <!-- Icons -->
                     <div class="flex items-center gap-1.5 text-black dark:text-white">
                         <i class="ph-fill ph-cell-signal-full text-[13px]"></i>
                         <i class="ph-fill ph-wifi-high text-[13px]"></i>
                         <i class="ph-fill ph-battery-full text-[16px]"></i>
                     </div>
                 </div>
-                <!-- Iframe Container -->
                 <iframe id="project-iframe" src="" class="w-full h-full pt-12 border-0 bg-white dark:bg-slate-900" title="Project View"></iframe>
             </div>
             
-            <!-- Phone Side Buttons -->
             <div class="absolute -left-[2px] top-28 w-[3px] h-8 bg-slate-800 rounded-l-md"></div>
             <div class="absolute -left-[2px] top-40 w-[3px] h-12 bg-slate-800 rounded-l-md"></div>
             <div class="absolute -left-[2px] top-56 w-[3px] h-12 bg-slate-800 rounded-l-md"></div>
@@ -644,11 +604,251 @@
     </div>
 
 
-    <!-- استدعاء ملف المشاريع الخارجي -->
-    <script src="projects.js"></script>
-
-    <!-- JavaScript logic -->
+    <!-- ========================================== -->
+    <!-- MERGED JAVASCRIPT + SUPABASE INTEGRATION -->
+    <!-- ========================================== -->
     <script>
+        // 1. إعداد الاتصال بـ Supabase
+        const SUPABASE_URL = 'https://wmnqwuvjfmubfdnygixn.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtbnF3dXZqZm11YmZkbnlnaXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ4MzIxNDAsImV4cCI6MjExMDQwODE0MH0.tQ9OVgaYhZowsl9JgqHq1oGQM4Ia_VBRv6PxOdOCr6Y';
+        const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // 2. البيانات الابتدائية (Fallback) لضمان سرعة التحميل الفورية
+        let projectsData = [
+            {
+                titleAr: "LIZTR ESSENS – متجر ملابس",
+                titleEn: "LIZTR ESSENS – Clothing Store",
+                descAr: "متجر إلكتروني لبراند ملابس LIZTR ESSENS، يقدم تجربة تسوق عصرية ومميزة تعكس هوية العلامة التجارية.",
+                descEn: "An online store for the clothing brand LIZTR ESSENS, offering a modern and unique shopping experience that reflects the brand identity.",
+                img: "https://res.cloudinary.com/dyhlzplzb/image/upload/v1789125545/LIZTR_ESSENS_20260911_141637_0000_e0z3as.png",
+                tagsAr: ["متجر إلكتروني", "أزياء"],
+                tagsEn: ["Online Store", "Fashion"],
+                link: "https://elnenx.github.io/09/"
+            },
+            {
+                titleAr: "سكنك – منصة عقارية",
+                titleEn: "Skank – Real Estate Platform",
+                descAr: "منصة عقارية لعرض الوحدات والعقارات بشكل منظم، مع تفاصيل وصور ومعلومات كل عقار.",
+                descEn: "A real estate platform to display units and properties in an organized manner, with details, photos, and information.",
+                img: "https://res.cloudinary.com/dyhlzplzb/image/upload/v1786725994/20260814_194539_0000_n14f8u.png",
+                tagsAr: ["منصة عقارية", "ويب"],
+                tagsEn: ["Real Estate", "Web"],
+                link: "https://skank-x.github.io/-/"
+            },
+            {
+                titleAr: "Dental Clinic – عيادة أسنان",
+                titleEn: "Dental Clinic",
+                descAr: "موقع احترافي لعيادة أسنان بتصميم طبي عصري، يعرض الخدمات ويسهّل التواصل.",
+                descEn: "A professional dental clinic website with a modern medical design, showcasing services and facilitating communication.",
+                img: "https://res.cloudinary.com/dyhlzplzb/image/upload/v1786729694/20260814_202735_0000_oejijd.png",
+                tagsAr: ["تصميم طبي", "عيادات"],
+                tagsEn: ["Medical Design", "Clinics"],
+                link: "https://elnenx.github.io/Dental-clinic-/"
+            }
+        ];
+
+        let servicesData = [
+            {
+                number_badge: "01",
+                icon: "ph-globe",
+                title_ar: "تطبيقات الويب",
+                title_en: "Web Applications",
+                desc_ar: "تطبيقات ويب سريعة ومتجاوبة مهندسة بـ React و Next.js.",
+                desc_en: "Fast, responsive web apps engineered with React and Next.js."
+            },
+            {
+                number_badge: "02",
+                icon: "ph-device-mobile",
+                title_ar: "تطبيقات الهاتف",
+                title_en: "Mobile Apps",
+                desc_ar: "تجارب هاتف عالية الجودة مبنية بـ React Native و Flutter.",
+                desc_en: "High-quality mobile experiences built with React Native and Flutter."
+            },
+            {
+                number_badge: "03",
+                icon: "ph-spinner-gap",
+                title_ar: "الذكاء الاصطناعي",
+                title_en: "Artificial Intelligence",
+                desc_ar: "نماذج لغوية وتنبؤية مهندسة مباشرة داخل منتجك.",
+                desc_en: "Predictive and language models engineered directly into your product."
+            }
+        ];
+
+        let visibleProjectsCount = 3;
+        let isDark = false;
+        window.isEn = false;
+
+        // 3. توليد كروت الخدمات
+        function renderServices(isEnglish = false) {
+            const container = document.getElementById('services-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            servicesData.forEach(service => {
+                const title = isEnglish ? service.title_en : service.title_ar;
+                const desc = isEnglish ? service.desc_en : service.desc_ar;
+                const iconClass = service.icon.startsWith('ph-') ? `ph ${service.icon}` : `ph ph-${service.icon}`;
+
+                const html = `
+                    <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none relative overflow-hidden rtl:text-right ltr:text-left transition-colors reveal active">
+                        <div class="flex justify-between items-start mb-10 rtl:flex-row ltr:flex-row-reverse">
+                            <div class="w-14 h-14 rounded-2xl bg-primaryLight dark:bg-primary/20 text-primary dark:text-blue-400 flex items-center justify-center"><i class="${iconClass} text-[28px]"></i></div>
+                            <span class="text-slate-600 dark:text-slate-400 font-bold text-sm mt-1 tracking-wider">${service.number_badge || '01'}</span>
+                        </div>
+                        <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-3">${title}</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] font-medium">${desc}</p>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+        }
+
+        // 4. توليد كروت المشاريع
+        function renderProjects(isEnglish = false) {
+            const container = document.getElementById('projects-list');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const counterText = document.getElementById('projects-counter');
+            const loadMoreText = document.getElementById('load-more-text');
+
+            if (!container) return;
+            container.innerHTML = ''; 
+
+            projectsData.forEach((project, index) => {
+                const isHiddenClass = index >= visibleProjectsCount ? 'hidden hidden-project' : '';
+                
+                const title = isEnglish ? (project.title_en || project.titleEn) : (project.title_ar || project.titleAr);
+                const desc = isEnglish ? (project.desc_en || project.descEn) : (project.desc_ar || project.descAr);
+                const tags = isEnglish ? (project.tags_en || project.tagsEn || []) : (project.tags_ar || project.tagsAr || []);
+                const exploreText = isEnglish ? 'Explore Project' : 'استكشف المشروع';
+
+                let tagsHtml = '';
+                tags.forEach(tag => {
+                    tagsHtml += `<span class="bg-primaryLight dark:bg-primary/20 px-3 py-1.5 rounded-lg">${tag}</span>`;
+                });
+
+                const html = `
+                    <div class="${isHiddenClass} bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-[2rem] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none flex flex-col group rtl:text-right ltr:text-left transition-colors reveal active">
+                        <div class="h-48 w-full relative overflow-hidden border-b border-slate-100 dark:border-slate-700">
+                            <img src="${project.img}" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-[1.35rem] font-black text-dark dark:text-white mb-2">${title}</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-[15px] leading-[1.8] mb-5 font-medium flex-grow">${desc}</p>
+                            
+                            <div class="flex flex-wrap gap-2 justify-start text-[13px] font-bold text-primary dark:text-blue-400 mb-5">
+                                ${tagsHtml}
+                            </div>
+                            <button onclick="openProjectModal('${project.link}')" class="w-full flex items-center justify-center gap-2 bg-surface dark:bg-slate-700 text-primary dark:text-blue-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-colors font-bold py-3.5 rounded-xl text-[15px]">
+                                <span>${exploreText}</span>
+                                <i class="ph ph-arrow-up-left text-lg rtl:rotate-0 ltr:rotate-90"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+
+            const total = projectsData.length;
+            const hiddenCount = total - visibleProjectsCount;
+            
+            if (visibleProjectsCount >= total) {
+                if(loadMoreBtn) loadMoreBtn.style.display = 'none';
+            } else {
+                if(loadMoreBtn) {
+                    loadMoreBtn.style.display = 'flex';
+                    if(loadMoreText) {
+                        loadMoreText.innerText = isEnglish ? `Load More Projects (${hiddenCount})` : `عرض باقي المشاريع (${hiddenCount})`;
+                    }
+                }
+            }
+            
+            if(counterText) {
+                const visible = Math.min(visibleProjectsCount, total);
+                counterText.innerText = isEnglish ? `Showing ${visible} of ${total} projects` : `يتم عرض ${visible} من أصل ${total} مشاريع`;
+            }
+        }
+
+        function handleLoadMore() {
+            visibleProjectsCount = projectsData.length;
+            const hiddenProjects = document.querySelectorAll('.hidden-project');
+            hiddenProjects.forEach(project => {
+                project.classList.remove('hidden', 'hidden-project');
+                project.style.opacity = '0';
+                project.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    project.style.transition = 'all 0.5s ease-out';
+                    project.style.opacity = '1';
+                    project.style.transform = 'translateY(0)';
+                }, 50);
+            });
+            
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const counterText = document.getElementById('projects-counter');
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+            
+            if(counterText) {
+                counterText.innerText = window.isEn ? `Showing ${projectsData.length} of ${projectsData.length} projects` : `يتم عرض ${projectsData.length} من أصل ${projectsData.length} مشاريع`;
+            }
+        }
+
+        // 5. جلب البيانات الحية من Supabase
+        async function loadSupabaseContent() {
+            try {
+                const [projRes, servRes, setRes] = await Promise.all([
+                    sb.from('vortx_projects').select('*').eq('is_visible', true).order('display_order', { ascending: true }),
+                    sb.from('vortx_services').select('*').eq('is_visible', true).order('display_order', { ascending: true }),
+                    sb.from('vortx_settings').select('*')
+                ]);
+
+                if (projRes.data && projRes.data.length > 0) {
+                    projectsData = projRes.data;
+                    renderProjects(window.isEn);
+                }
+
+                if (servRes.data && servRes.data.length > 0) {
+                    servicesData = servRes.data;
+                    renderServices(window.isEn);
+                }
+
+                if (setRes.data && setRes.data.length > 0) {
+                    const settingsMap = {};
+                    setRes.data.forEach(item => { settingsMap[item.key] = item; });
+
+                    if (settingsMap.contact_email) {
+                        const emailLink = document.getElementById('contact-email-link');
+                        if (emailLink) emailLink.href = `mailto:${settingsMap.contact_email.value_ar}`;
+                    }
+                    if (settingsMap.contact_whatsapp) {
+                        const waLink = document.getElementById('contact-wa-link');
+                        const cleanPhone = settingsMap.contact_whatsapp.value_ar.replace(/[^0-9]/g, '');
+                        if (waLink) waLink.href = `https://wa.me/${cleanPhone}`;
+                    }
+                    if (settingsMap.formspree_endpoint && settingsMap.formspree_endpoint.value_ar) {
+                        const formEl = document.getElementById('vortx-form');
+                        if (formEl) formEl.action = settingsMap.formspree_endpoint.value_ar;
+                    }
+                    if (settingsMap.hero_title) {
+                        const heroTitle = document.getElementById('hero-title-el');
+                        if (heroTitle) {
+                            heroTitle.dataset.ar = settingsMap.hero_title.value_ar;
+                            heroTitle.dataset.en = settingsMap.hero_title.value_en;
+                            heroTitle.innerHTML = window.isEn ? settingsMap.hero_title.value_en : settingsMap.hero_title.value_ar;
+                        }
+                    }
+                    if (settingsMap.hero_desc) {
+                        const heroDesc = document.getElementById('hero-desc-el');
+                        if (heroDesc) {
+                            heroDesc.dataset.ar = settingsMap.hero_desc.value_ar;
+                            heroDesc.dataset.en = settingsMap.hero_desc.value_en;
+                            heroDesc.innerHTML = window.isEn ? settingsMap.hero_desc.value_en : settingsMap.hero_desc.value_ar;
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Using local fallback data:', err);
+            }
+        }
+
         // ==========================================
         // Scroll Reveal Animation Logic
         // ==========================================
@@ -664,14 +864,10 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
 
         // ==========================================
         // Language & Theme Toggle
         // ==========================================
-        let isDark = false;
-        window.isEn = false; // جعل المتغير متاحاً لملف المشاريع الخارجي
-
         function toggleTheme() {
             isDark = !isDark;
             document.documentElement.classList.toggle('dark', isDark);
@@ -691,11 +887,8 @@
                 }
             });
             updateWizardUI();
-            
-            // إعادة توليد المشاريع لعرضها باللغة الصحيحة
-            if(typeof renderProjects === 'function') {
-                renderProjects(window.isEn);
-            }
+            renderServices(window.isEn);
+            renderProjects(window.isEn);
         }
 
         // ==========================================
@@ -719,19 +912,16 @@
                 navMenuContainer.classList.remove('w-[52px]');
                 navMenuContainer.classList.add('w-full');
                 
-                // Switch icon & show title
                 menuIcon.className = 'ph ph-x text-[24px] transition-transform duration-300';
                 menuTitle.classList.remove('hidden');
                 setTimeout(() => menuTitle.classList.remove('opacity-0'), 100);
 
-                // Change flex layout to push items apart (Title right, X left)
                 toggleBtn.classList.remove('justify-center');
                 toggleBtn.classList.add('justify-between');
                 if(!window.isEn) {
                     toggleBtn.classList.add('flex-row-reverse');
                 }
 
-                // Show Dropdown
                 menuDropdown.classList.remove('hidden');
                 setTimeout(() => menuDropdown.classList.remove('opacity-0'), 200);
             } else {
@@ -746,7 +936,6 @@
                     navMenuContainer.classList.add('w-[52px]');
                     menuIcon.className = 'ph ph-list text-[24px] transition-transform duration-300';
                     
-                    // Revert Flex layout
                     toggleBtn.classList.remove('justify-between', 'flex-row-reverse');
                     toggleBtn.classList.add('justify-center');
                     
@@ -757,7 +946,7 @@
         }
 
         // ==========================================
-        // SPA Routing & Wizard Logic (Formspree)
+        // SPA Routing & Wizard Logic (Supabase + Formspree)
         // ==========================================
         const mainPage = document.getElementById('main-page');
         const wizardPage = document.getElementById('wizard-page');
@@ -858,31 +1047,50 @@
             el.addEventListener('change', validateStep);
         });
 
-        // Handle Form Submission via AJAX to prevent redirect
-        form.addEventListener('submit', function(e) {
+        // إرسال الطلب إلى Supabase + Formspree في نفس الوقت
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('submit-btn-5');
             btn.disabled = true;
             btn.innerHTML = '<i class="ph ph-spinner animate-spin"></i> جاري الإرسال...';
             
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
+            const formData = new FormData(form);
+            const leadPayload = {
+                project_type: formData.get('project_type') || 'غير محدد',
+                project_description: formData.get('project_description') || '',
+                budget: formData.get('budget') || '',
+                timeline: formData.get('timeline') || '',
+                name: formData.get('name') || '',
+                whatsapp: formData.get('whatsapp') || '',
+                email: formData.get('email') || '',
+                status: 'new'
+            };
+
+            try {
+                const [sbResult, formspreeResult] = await Promise.allSettled([
+                    sb.from('vortx_leads').insert([leadPayload]),
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    })
+                ]);
+
+                const sbSuccess = sbResult.status === 'fulfilled' && !sbResult.value.error;
+                const fsSuccess = formspreeResult.status === 'fulfilled' && formspreeResult.value.ok;
+
+                if (sbSuccess || fsSuccess) {
                     currentStep = 6;
                     updateWizardUI();
                 } else {
                     alert("حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.");
                 }
-                btn.innerHTML = 'إرسال الطلب';
-                btn.disabled = false;
-            }).catch(error => {
+            } catch (error) {
                 alert("تعذر الاتصال بالخادم.");
-                btn.innerHTML = 'إرسال الطلب';
+            } finally {
+                btn.innerHTML = window.isEn ? 'Submit Request' : 'إرسال الطلب';
                 btn.disabled = false;
-            });
+            }
         });
 
         // ==========================================
@@ -899,14 +1107,12 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
-            // Trigger animation
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
                 frameCont.classList.remove('scale-95');
                 frameCont.classList.add('scale-100');
             }, 10);
             
-            // Disable body scroll
             document.body.style.overflow = 'hidden';
         }
 
@@ -919,7 +1125,7 @@
                 modal.classList.add('hidden');
                 modal.classList.remove('flex');
                 iframe.src = '';
-                document.body.style.overflow = 'auto'; // Enable scroll
+                document.body.style.overflow = 'auto';
             }, 300);
         }
 
@@ -964,14 +1170,12 @@
         async function startEditorAnimation() {
             while (true) {
                 container.innerHTML = ''; 
-                // Line 1
                 let line1 = document.createElement('div');
                 line1.className = "h-[24px] leading-[24px] transition-all duration-500 whitespace-nowrap overflow-hidden";
                 container.appendChild(line1);
                 await typeCode(line1, lines[0]);
                 await new Promise(r => setTimeout(r, 1200));
                 
-                // Line 2
                 let line2 = document.createElement('div');
                 line2.className = "h-[24px] leading-[24px] transition-all duration-500 whitespace-nowrap overflow-hidden";
                 container.appendChild(line2);
@@ -979,7 +1183,6 @@
                 await new Promise(r => setTimeout(r, 1200));
                 
                 let currentVisibleLines = [line1, line2];
-                // Loop through remaining lines
                 for(let i = 2; i < lines.length; i++) {
                     let topElement = currentVisibleLines.shift(); 
                     topElement.style.marginTop = `-${topElement.offsetHeight}px`; 
@@ -997,13 +1200,13 @@
                 await new Promise(r => setTimeout(r, 2500));
             }
         }
+
+        // تشغيل كل شيء عند التحميل
+        renderServices(window.isEn);
+        renderProjects(window.isEn);
+        reveal();
         startEditorAnimation();
-
-        // التوليد الأولي للمشاريع عند تحميل الصفحة
-        if(typeof renderProjects === 'function') {
-            renderProjects(window.isEn);
-        }
-
+        loadSupabaseContent();
     </script>
 </body>
 </html>
